@@ -1,3 +1,4 @@
+
 #------------------------------------------------------------
 # Table: Services
 #------------------------------------------------------------
@@ -9,4 +10,4 @@ CREATE TABLE Services(
         PRIMARY KEY (services_id )
 )ENGINE=InnoDB;
 
-ALTER TABLE Services ADD CONSTRAINT FK_Services_personnel_id FOREIGN KEY (personnel_id) REFERENCES Personnels(personnel_id);
+ALTER TABLE Services ADD CONSTRAINT FK_Services_personnelResponsable_id FOREIGN KEY (personnelResponsable_id) REFERENCES Personnels(personnel_id);
