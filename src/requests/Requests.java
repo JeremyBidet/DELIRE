@@ -69,6 +69,35 @@ public class Requests {
 	// =            Dossier  SELECT         =
 	// ======================================
 		
+	public static void SELECT_Prescription(Statement st, int num_dossier) throws SQLException {
+		String sql="SELECT p.prescription_id, libelle, dosage, date_debut, date_fin, personnel_id FROM Partie_Prescription part, Prescriptions p WHERE num_dossier='" + num_dossier + "' AND part.prescription_id=p.prescription_id;";
+		System.out.println(sql);
+		ResultSet set = st.executeQuery(sql);
+	}
+	
+	public static void SELECT_Episode(Statement st, int num_dossier) throws SQLException {
+		String sql="SELECT ep.epOuvert_id, episode_libelle, date_debut, date_derniere_visite, notes, personnel_id FROM Partie_Episodes part, EpisodesEnCours ep WHERE num_dossier='" + num_dossier + "' AND part.epOuvert_id=ep.epOuvert_id;";
+		System.out.println(sql);
+		ResultSet set = st.executeQuery(sql);
+	}
+	
+	public static void SELECT_Antecedent(Statement st, int num_dossier) throws SQLException {
+		String sql="SELECT ant.antecedent_id, antecedent_libelle, date_debut, date_fin, notes, personnel_id FROM Partie_Antecedents part, Antecedents ant WHERE num_dossier='" + num_dossier + "' AND part.antecedent_id=ant.antecedent_id;";
+		System.out.println(sql);
+		ResultSet set = st.executeQuery(sql);
+	}
+	
+	public static void SELECT_Elements(Statement st, int num_dossier) throws SQLException {
+		String sql="SELECT e.ES_id, examen_type, examen_libelle, personnel_id FROM Partie_ElementsSuivis part, ElementsSuivis e WHERE num_dossier='" + num_dossier + "' AND part.ES_id=e.ES_id;";
+		System.out.println(sql);
+		ResultSet set = st.executeQuery(sql);
+	}
+	
+	public static void SELECT_Doc(Statement st, int num_dossier) throws SQLException {
+		String sql="SELECT d.doc_id, contenu, size_file FROM Partie_DocumentsPatient part, Documents d WHERE num_dossier='" + num_dossier + "' AND part.doc_id=d.doc_id;";
+		System.out.println(sql);
+		ResultSet set = st.executeQuery(sql);
+	}
 	
 	// ======================================
 	// =            Description             =
@@ -80,14 +109,9 @@ public class Requests {
 		ResultSet set = st.executeQuery(sql);
 	}
 		
-	public static void SELECT_Prescription(Statement st, int id) throws SQLException {
-		String sql="";
-		System.out.println(sql);
-		ResultSet set = st.executeQuery(sql);
-	}
-	
+
 	// ======================================
-	// =            Episode 	              =
+	// =            Episode 	            =
 	// ======================================
 	
 	public static void ADD_Episode(Statement st, int id, String libelle, String date_deb, String date_derniere, String note, int personnel_ID, String created) throws SQLException {
@@ -96,24 +120,12 @@ public class Requests {
 		ResultSet set = st.executeQuery(sql);
 	}
 		
-	public static void SELECT_Episode(Statement st, int id) throws SQLException {
-		String sql="";
-		System.out.println(sql);
-		ResultSet set = st.executeQuery(sql);
-	}
-	
 	// ======================================
 	// =            Antecedent              =
 	// ======================================
 	
 	public static void ADD_Antecedent(Statement st, int id, String libelle, String date_deb, String date_fin, String note, int personnel_ID, String created) throws SQLException {
 		String sql="INSERT INTO Prescriptions VALUES ('"+ id + "','" + libelle + "','" + date_deb + "','" + date_fin + "','" + note + "','" + personnel_ID + "','" + created + "');";
-		System.out.println(sql);
-		ResultSet set = st.executeQuery(sql);
-	}
-		
-	public static void SELECT_Antecedent(Statement st, int id) throws SQLException {
-		String sql="";
 		System.out.println(sql);
 		ResultSet set = st.executeQuery(sql);
 	}
@@ -127,15 +139,9 @@ public class Requests {
 		System.out.println(sql);
 		ResultSet set = st.executeQuery(sql);
 	}
-		
-	public static void SELECT_Elements(Statement st, int id) throws SQLException {
-		String sql="";
-		System.out.println(sql);
-		ResultSet set = st.executeQuery(sql);
-	}
 	
 	// ======================================
-	// =            Documents 	          =
+	// =            Documents 	            =
 	// ======================================
 	public static void ADD_Doc(Statement st, int id, String contenu, float size_file, String created, int docType_ID) throws SQLException {
 		String sql="INSERT INTO Prescriptions VALUES ('"+ id + "','" + contenu + "','" + size_file + "','" + created + "','" + docType_ID + "');";
@@ -143,9 +149,4 @@ public class Requests {
 		ResultSet set = st.executeQuery(sql);
 	}
 		
-	public static void SELECT_Doc(Statement st, int id) throws SQLException {
-		String sql="";
-		System.out.println(sql);
-		ResultSet set = st.executeQuery(sql);
-	}
 }
