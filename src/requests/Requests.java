@@ -6,10 +6,10 @@ import java.sql.Statement;
 
 public class Requests {
 	
-	//pour les requêtes imbriquées (si un jour il y a)
+	//pour les requetes imbriquees (si un jour il y a)
 	ResultSet savedRequest;
 	
-	//affiche les données d'un patient
+	//affiche les donnees d'un patient
 	public static void SELECT_PATIENT(Statement st, int id) throws SQLException {
 		String sql="SELECT* FROM Patients WHERE patient_id=" + "'" + id + "';";
 		System.out.println(sql);
@@ -66,7 +66,7 @@ public class Requests {
 		ResultSet set = st.executeQuery(sql);
 		int num_dossier;
 		
-		//ne doit boucler qu'une fois en l'occurence car on ne possède qu'un numéro de dossier par patient
+		//ne doit boucler qu'une fois en l'occurence car on ne possede qu'un numero de dossier par patient
 		while (set.next()) {
 			num_dossier = set.getInt("num_dossier");
 			SELECT_Prescription(st, num_dossier);
@@ -83,14 +83,14 @@ public class Requests {
 	// =            Dossier  Ajouts         =
 	// ======================================
 	
-	//affiche le DMP d'un patient par son ID , il faudra vérifier qu'il ne soit pas déja créé
+	//affiche le DMP d'un patient par son ID , il faudra verifier qu'il ne soit pas deja cree
 	public static void ADD_DMP(Statement st, int id) throws SQLException {
 		String sql="";
 		System.out.println(sql);
 		ResultSet set = st.executeQuery(sql);
 	}
 	
-	// Ajoute à la partie Prescription du dossier les ID du DMP et de la prescription
+	// Ajoute a la partie Prescription du dossier les ID du DMP et de la prescription
 	public static void ADD_DMP_Prescription(Statement st, int DMP_ID, int PRESC_ID) throws SQLException {
 		String sql="INSERT INTO Partie_Prescription VALUES ('"+ DMP_ID + "','" + PRESC_ID + "');";
 		ResultSet set = st.executeQuery(sql);
