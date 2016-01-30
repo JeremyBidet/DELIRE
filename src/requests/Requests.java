@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class Requests {
 	
-	//pour les requêtes imbriquées (pour l'instant y'en a pas)
+	//pour les requêtes imbriquées (si un jour il y a)
 	ResultSet savedRequest;
 	
 	//affiche les données d'un patient
