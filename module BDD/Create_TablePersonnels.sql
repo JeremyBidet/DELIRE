@@ -13,12 +13,16 @@ CREATE TABLE Personnels(
         created              Datetime ,
         user_id              Int NOT NULL ,
         pole_id              Int NOT NULL ,
+        poleResponsable_id        Int NOT NULL ,
         services_id          Int NOT NULL ,
+        servicesResponsable_id Int NOT NULL ,
         specialite_id        Int NOT NULL ,
         PRIMARY KEY (personnel_id )
 )ENGINE=InnoDB;
 
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id FOREIGN KEY (pole_id) REFERENCES Poles(pole_id);
+ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id_Poles FOREIGN KEY (poleResponsable_id) REFERENCES Poles(pole_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id FOREIGN KEY (services_id) REFERENCES Services(services_id);
+ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id_Services FOREIGN KEY (servicesResponsable_id) REFERENCES Services(services_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_specialite_id FOREIGN KEY (specialite_id) REFERENCES Specialites(specialite_id);
