@@ -42,7 +42,7 @@ CREATE TABLE Personnels(
         created              Datetime ,
         user_id              Int NOT NULL ,
         pole_id              Int NOT NULL ,
-        poleResponsable_id        Int NOT NULL ,
+        poleResponsable_id       Int NOT NULL ,
         services_id          Int NOT NULL ,
         servicesResponsable_id Int NOT NULL ,
         specialite_id        Int NOT NULL ,
@@ -60,7 +60,6 @@ CREATE TABLE Users(
         mot_passe    Varchar (32) NOT NULL ,
         created      Datetime ,
         personnel_id Int NOT NULL ,
-        droit_id     Int ,
         PRIMARY KEY (user_id )
 )ENGINE=InnoDB;
 
@@ -255,7 +254,6 @@ CREATE TABLE Droits(
         droit_ecriture_episodes_patient      Bool ,
         droit_lecture_elementSuivis_patient  Bool ,
         droit_ecriture_elementSuivis_patient Bool ,
-        user_id                              Int NOT NULL ,
         PRIMARY KEY (droit_id )
 )ENGINE=InnoDB;
 
@@ -352,6 +350,17 @@ CREATE TABLE ListePatho_Pour_Episodes(
 
 
 #------------------------------------------------------------
+# Table: PossederDroits
+#------------------------------------------------------------
+
+CREATE TABLE PossederDroits(
+        droit_id Int NOT NULL ,
+        user_id  Int NOT NULL ,
+        PRIMARY KEY (droit_id ,user_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: Partie DocumentsPatient
 #------------------------------------------------------------
 
@@ -363,13 +372,14 @@ CREATE TABLE Partie_DocumentsPatient(
 
 
 #------------------------------------------------------------
-# Table: Relation RolesDossiers
+# Table: Relation RolesDossiersUsers
 #------------------------------------------------------------
 
-CREATE TABLE Relation_RolesDossiers(
+CREATE TABLE Relation_RolesDossiersUsers(
         num_dossier Int NOT NULL ,
         droit_id    Int NOT NULL ,
-        PRIMARY KEY (num_dossier ,droit_id )
+        user_id     Int NOT NULL ,
+        PRIMARY KEY (num_dossier ,droit_id ,user_id )
 )ENGINE=InnoDB;
 
 ALTER TABLE Patients ADD CONSTRAINT FK_Patients_pole_id FOREIGN KEY (pole_id) REFERENCES Poles(pole_id);
@@ -377,18 +387,16 @@ ALTER TABLE Patients ADD CONSTRAINT FK_Patients_services_id FOREIGN KEY (service
 ALTER TABLE Patients ADD CONSTRAINT FK_Patients_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id FOREIGN KEY (pole_id) REFERENCES Poles(pole_id);
-ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id_Poles FOREIGN KEY (poleResponsable_id) REFERENCES Poles(pole_id);
+ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id_Responsable FOREIGN KEY (poleResponsable_id) REFERENCES Poles(pole_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id FOREIGN KEY (services_id) REFERENCES Services(services_id);
-ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id_Services FOREIGN KEY (servicesResponsable_id) REFERENCES Services(services_id);
+ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id_Responsable FOREIGN KEY (servicesResponsable_id) REFERENCES Services(services_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_specialite_id FOREIGN KEY (specialite_id) REFERENCES Specialites(specialite_id);
 ALTER TABLE Users ADD CONSTRAINT FK_Users_personnel_id FOREIGN KEY (personnel_id) REFERENCES Personnels(personnel_id);
-ALTER TABLE Users ADD CONSTRAINT FK_Users_droit_id FOREIGN KEY (droit_id) REFERENCES Droits(droit_id);
-ALTER TABLE Poles ADD CONSTRAINT FK_Poles_personnel_id FOREIGN KEY (personnel_id) REFERENCES Personnels(personnel_id);
-ALTER TABLE Services ADD CONSTRAINT FK_Services_personnel_id FOREIGN KEY (personnel_id) REFERENCES Personnels(personnel_id);
+ALTER TABLE Poles ADD CONSTRAINT FK_Poles_Responsable_personnel_id FOREIGN KEY (personnelResponsable_id) REFERENCES Personnels(personnel_id);
+ALTER TABLE Services ADD CONSTRAINT FK_Services_Responsable_personnel_id FOREIGN KEY (personnelResponsable_id) REFERENCES Personnels(personnel_id);
 ALTER TABLE Allergies ADD CONSTRAINT FK_Allergies_antecedent_id FOREIGN KEY (antecedent_id) REFERENCES Antecedents(antecedent_id);
 ALTER TABLE Documents ADD CONSTRAINT FK_Documents_docType_id FOREIGN KEY (docType_id) REFERENCES DocType(docType_id);
 ALTER TABLE Examens ADD CONSTRAINT FK_Examens_antecedent_id FOREIGN KEY (antecedent_id) REFERENCES Antecedents(antecedent_id);
-ALTER TABLE Droits ADD CONSTRAINT FK_Droits_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
 ALTER TABLE Dossiers ADD CONSTRAINT FK_Dossiers_patient_id FOREIGN KEY (patient_id) REFERENCES Patients(patient_id);
 ALTER TABLE Partie_ElementsSuivis ADD CONSTRAINT FK_Partie_ElementsSuivis_ES_id FOREIGN KEY (ES_id) REFERENCES ElementsSuivis(ES_id);
 ALTER TABLE Partie_ElementsSuivis ADD CONSTRAINT FK_Partie_ElementsSuivis_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
@@ -404,7 +412,10 @@ ALTER TABLE ListeMeds_Pour_Prescriptions ADD CONSTRAINT FK_ListeMeds_Pour_Prescr
 ALTER TABLE ListeMeds_Pour_Prescriptions ADD CONSTRAINT FK_ListeMeds_Pour_Prescriptions_med_id FOREIGN KEY (med_id) REFERENCES Medicaments(med_id);
 ALTER TABLE ListePatho_Pour_Episodes ADD CONSTRAINT FK_ListePatho_Pour_Episodes_epOuvert_id FOREIGN KEY (epOuvert_id) REFERENCES EpisodesEnCours(epOuvert_id);
 ALTER TABLE ListePatho_Pour_Episodes ADD CONSTRAINT FK_ListePatho_Pour_Episodes_patho_id FOREIGN KEY (patho_id) REFERENCES Pathologies(patho_id);
+ALTER TABLE PossederDroits ADD CONSTRAINT FK_PossederDroits_droit_id FOREIGN KEY (droit_id) REFERENCES Droits(droit_id);
+ALTER TABLE PossederDroits ADD CONSTRAINT FK_PossederDroits_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
 ALTER TABLE Partie_DocumentsPatient ADD CONSTRAINT FK_Partie_DocumentsPatient_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
 ALTER TABLE Partie_DocumentsPatient ADD CONSTRAINT FK_Partie_DocumentsPatient_doc_id FOREIGN KEY (doc_id) REFERENCES Documents(doc_id);
-ALTER TABLE Relation_RolesDossiers ADD CONSTRAINT FK_Relation_RolesDossiers_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
-ALTER TABLE Relation_RolesDossiers ADD CONSTRAINT FK_Relation_RolesDossiers_droit_id FOREIGN KEY (droit_id) REFERENCES Droits(droit_id);
+ALTER TABLE Relation_RolesDossiersUsers ADD CONSTRAINT FK_Relation_RolesDossiersUsers_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
+ALTER TABLE Relation_RolesDossiersUsers ADD CONSTRAINT FK_Relation_RolesDossiersUsers_droit_id FOREIGN KEY (droit_id) REFERENCES Droits(droit_id);
+ALTER TABLE Relation_RolesDossiersUsers ADD CONSTRAINT FK_Relation_RolesDossiersUsers_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
