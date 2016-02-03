@@ -9,13 +9,13 @@
 
 CREATE TABLE Patients(
         patient_id       int (11) Auto_increment  NOT NULL ,
-        num_NSS          Int ,
+        num_NSS          Varchar (15) ,
         nom              Varchar (32) ,
         prenom           Varchar (32) NOT NULL ,
         sexe             Char (1) NOT NULL ,
-        date_naissance   Varchar (32) ,
+        date_naissance   Date ,
         mutuelle         Varchar (32) ,
-        adresse          Text ,
+        adresse          Varchar (128) ,
         ville            Varchar (32) ,
         code_postal      Int ,
         telephone_fixe   Varchar (12) ,
@@ -82,7 +82,7 @@ CREATE TABLE Poles(
 
 CREATE TABLE Services(
         services_id     int (11) Auto_increment  NOT NULL ,
-        service_libelle Varchar (32) NOT NULL ,
+        service_libelle Varchar (64) NOT NULL ,
         personnelResponsable_id    Int NOT NULL ,
         PRIMARY KEY (services_id )
 )ENGINE=InnoDB;
