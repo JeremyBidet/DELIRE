@@ -57,4 +57,6 @@ public class UsersAdministration {
 		//Executing update query
 		removeUserQuery.executeUpdate();
 	}
+	
+	
 }
