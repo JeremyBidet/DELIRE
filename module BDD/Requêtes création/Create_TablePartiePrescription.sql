@@ -3,6 +3,10 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Prescription(
+        date_debut      Date ,
+        date_fin        Date ,
+        personnel_id    Int ,
+        created         Datetime ,
         prescription_id Int NOT NULL ,
         num_dossier     Int NOT NULL ,
         PRIMARY KEY (prescription_id ,num_dossier )

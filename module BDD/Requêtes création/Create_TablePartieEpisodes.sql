@@ -3,8 +3,13 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Episodes(
-        epOuvert_id Int NOT NULL ,
-        num_dossier Int NOT NULL ,
+        date_debut           Date ,
+        date_derniere_visite Date ,
+        notes                Text ,
+        personnel_id         Int ,
+        created              Datetime ,
+        epOuvert_id          Int NOT NULL ,
+        num_dossier          Int NOT NULL ,
         PRIMARY KEY (epOuvert_id ,num_dossier )
 )ENGINE=InnoDB;
 

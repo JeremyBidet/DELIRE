@@ -3,7 +3,7 @@
 #------------------------------------------------------------
 
 CREATE TABLE Allergies(
-        allergie_libelle Varchar (32) NOT NULL ,
+        allergie_libelle Varchar (64) NOT NULL ,
         code_CIM10       Varchar (16) NOT NULL ,
         antecedent_id    Int NOT NULL ,
         PRIMARY KEY (antecedent_id )
