@@ -3,9 +3,9 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_DocumentsPatient(
-        num_dossier Int NOT NULL ,
         doc_id      Int NOT NULL ,
-        PRIMARY KEY (num_dossier ,doc_id )
+		num_dossier Int NOT NULL ,   
+        PRIMARY KEY (doc_id ,num_dossier )
 )ENGINE=InnoDB;
 
 ALTER TABLE Partie_DocumentsPatient ADD CONSTRAINT FK_Partie_DocumentsPatient_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);

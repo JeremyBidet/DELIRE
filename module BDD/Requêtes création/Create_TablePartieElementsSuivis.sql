@@ -3,10 +3,10 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_ElementsSuivis(
+		ES_id        Int NOT NULL ,
+        num_dossier  Int NOT NULL ,
         personnel_id Int ,
         created      Datetime ,
-        ES_id        Int NOT NULL ,
-        num_dossier  Int NOT NULL ,
         PRIMARY KEY (ES_id ,num_dossier )
 )ENGINE=InnoDB;
 

@@ -3,13 +3,13 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Antecedents(
-        date_debut    Date ,
-        date_fin      Date ,
-        note          Text ,
-        personnel_id  Int ,
-        created       Datetime ,
         antecedent_id Int NOT NULL ,
         num_dossier   Int NOT NULL ,
+        date_debut    Varchar (10) NOT NULL ,
+        date_fin      Varchar (10) NOT NULL ,
+        notes         Text ,
+        personnel_id  Int NOT NULL ,
+        created       Datetime ,
         PRIMARY KEY (antecedent_id ,num_dossier )
 )ENGINE=InnoDB;
 

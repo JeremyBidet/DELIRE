@@ -9,11 +9,11 @@
 
 CREATE TABLE Patients(
         patient_id       int (11) Auto_increment  NOT NULL ,
-        num_NSS          Varchar (15) ,
-        nom              Varchar (32) ,
+        num_NSS          Varchar (15) NOT NULL ,
+        nom              Varchar (32) NOT NULL ,
         prenom           Varchar (32) NOT NULL ,
         sexe             Char (1) NOT NULL ,
-        date_naissance   Date ,
+        date_naissance   Varchar (12) NOT NULL ,
         mutuelle         Varchar (32) ,
         adresse          Varchar (128) ,
         ville            Varchar (32) ,
@@ -22,7 +22,6 @@ CREATE TABLE Patients(
         telephone_mobile Varchar (12) ,
         pole_id          Int NOT NULL ,
         services_id      Int NOT NULL ,
-        num_dossier      Int NOT NULL ,
         PRIMARY KEY (patient_id )
 )ENGINE=InnoDB;
 
@@ -40,11 +39,10 @@ CREATE TABLE Personnels(
         telephone_mobile     Varchar (12) ,
         telephone_fixe       Varchar (12) ,
         created              Datetime ,
-        user_id              Int NOT NULL ,
         pole_id              Int NOT NULL ,
-        polePersonnel_id        Int NOT NULL ,
+        poleResponsable_id        Int NOT NULL ,
         services_id          Int NOT NULL ,
-        servicesPersonnel_id Int NOT NULL ,
+        servicesResponsable_id Int NOT NULL ,
         specialite_id        Int NOT NULL ,
         PRIMARY KEY (personnel_id )
 )ENGINE=InnoDB;
@@ -71,7 +69,6 @@ CREATE TABLE Users(
 CREATE TABLE Poles(
         pole_id      int (11) Auto_increment  NOT NULL ,
         libelle_pole Varchar (32) NOT NULL ,
-        personnelResponsable_id Int NOT NULL ,
         PRIMARY KEY (pole_id )
 )ENGINE=InnoDB;
 
@@ -83,7 +80,6 @@ CREATE TABLE Poles(
 CREATE TABLE Services(
         services_id     int (11) Auto_increment  NOT NULL ,
         service_libelle Varchar (32) NOT NULL ,
-        personnelResponsable_id    Int NOT NULL ,
         PRIMARY KEY (services_id )
 )ENGINE=InnoDB;
 
@@ -108,7 +104,7 @@ CREATE TABLE Medicaments(
         CIP        Int NOT NULL ,
         libelle    Varchar (32) ,
         libelleDCI Varchar (64) NOT NULL ,
-        Format     Varchar (32) ,
+        Format     Varchar (32) NOT NULL ,
         Dosage     Varchar (32) NOT NULL ,
         PRIMARY KEY (med_id )
 )ENGINE=InnoDB;
@@ -131,9 +127,9 @@ CREATE TABLE Pathologies(
 #------------------------------------------------------------
 
 CREATE TABLE Allergies(
+		antecedent_id    Int NOT NULL ,
         allergie_libelle Varchar (64) NOT NULL ,
         code_CIM10       Varchar (16) NOT NULL ,
-        antecedent_id    Int NOT NULL ,
         PRIMARY KEY (antecedent_id )
 )ENGINE=InnoDB;
 
@@ -192,10 +188,11 @@ CREATE TABLE Antecedents(
 CREATE TABLE ElementsSuivis(
         ES_id          int (11) Auto_increment  NOT NULL ,
         examen_type    Varchar (32) NOT NULL ,
-        examen_libelle Varchar (64) ,
+        examen_libelle Varchar (64) NOT NULL ,
+        valeur_1       Float NOT NULL ,
         unite_1        Varchar (25) NOT NULL ,
-        unite_2        Varchar (25) NOT NULL ,
         valeur_2       Float NOT NULL ,
+        unite_2        Varchar (25) NOT NULL ,
         resultat_test  Varchar (25) ,
         PRIMARY KEY (ES_id )
 )ENGINE=InnoDB;
@@ -218,9 +215,9 @@ CREATE TABLE Prescriptions(
 #------------------------------------------------------------
 
 CREATE TABLE Examens(
+		antecedent_id  Int NOT NULL ,
         examen_libelle Varchar (64) NOT NULL ,
         examen_type    Varchar (16) ,
-        antecedent_id  Int NOT NULL ,
         PRIMARY KEY (antecedent_id )
 )ENGINE=InnoDB;
 
@@ -253,7 +250,7 @@ CREATE TABLE Dossiers(
         num_dossier int (11) Auto_increment  NOT NULL ,
         libelle     Varchar (32) NOT NULL ,
         created     Datetime ,
-        patient_id  Int ,
+        patient_id  Int NOT NULL ,
         PRIMARY KEY (num_dossier )
 )ENGINE=InnoDB;
 
@@ -263,10 +260,10 @@ CREATE TABLE Dossiers(
 #------------------------------------------------------------
 
 CREATE TABLE Partie_ElementsSuivis(
+		ES_id        Int NOT NULL ,
+        num_dossier  Int NOT NULL ,
         personnel_id Int ,
         created      Datetime ,
-        ES_id        Int NOT NULL ,
-        num_dossier  Int NOT NULL ,
         PRIMARY KEY (ES_id ,num_dossier )
 )ENGINE=InnoDB;
 
@@ -276,12 +273,12 @@ CREATE TABLE Partie_ElementsSuivis(
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Prescription(
-        date_debut      Date ,
-        date_fin        Date ,
-        personnel_id    Int ,
-        created         Datetime ,
         prescription_id Int NOT NULL ,
         num_dossier     Int NOT NULL ,
+        date_debut      Varchar (10) ,
+        date_fin        Varchar (10) ,
+        personnel_id    Int NOT NULL ,
+        created         Datetime ,
         PRIMARY KEY (prescription_id ,num_dossier )
 )ENGINE=InnoDB;
 
@@ -291,13 +288,13 @@ CREATE TABLE Partie_Prescription(
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Episodes(
-        date_debut           Date ,
-        date_derniere_visite Date ,
-        notes                Text ,
-        personnel_id         Int ,
-        created              Datetime ,
         epOuvert_id          Int NOT NULL ,
         num_dossier          Int NOT NULL ,
+        date_debut           Varchar (10) ,
+        date_derniere_visite Varchar (10) ,
+        notes                Text ,
+        personnel_id         Int NOT NULL ,
+        created              Datetime ,
         PRIMARY KEY (epOuvert_id ,num_dossier )
 )ENGINE=InnoDB;
 
@@ -307,13 +304,13 @@ CREATE TABLE Partie_Episodes(
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Antecedents(
-        date_debut    Date ,
-        date_fin      Date ,
-        note          Text ,
-        personnel_id  Int ,
-        created       Datetime ,
         antecedent_id Int NOT NULL ,
         num_dossier   Int NOT NULL ,
+        date_debut    Varchar (10) NOT NULL ,
+        date_fin      Varchar (10) NOT NULL ,
+        notes         Text ,
+        personnel_id  Int NOT NULL ,
+        created       Datetime ,
         PRIMARY KEY (antecedent_id ,num_dossier )
 )ENGINE=InnoDB;
 
@@ -368,9 +365,9 @@ CREATE TABLE PossederDroits(
 #------------------------------------------------------------
 
 CREATE TABLE Partie_DocumentsPatient(
-        num_dossier Int NOT NULL ,
         doc_id      Int NOT NULL ,
-        PRIMARY KEY (num_dossier ,doc_id )
+		num_dossier Int NOT NULL ,   
+        PRIMARY KEY (doc_id ,num_dossier )
 )ENGINE=InnoDB;
 
 
@@ -387,16 +384,12 @@ CREATE TABLE Relation_RolesDossiersUsers(
 
 ALTER TABLE Patients ADD CONSTRAINT FK_Patients_pole_id FOREIGN KEY (pole_id) REFERENCES Poles(pole_id);
 ALTER TABLE Patients ADD CONSTRAINT FK_Patients_services_id FOREIGN KEY (services_id) REFERENCES Services(services_id);
-ALTER TABLE Patients ADD CONSTRAINT FK_Patients_num_dossier FOREIGN KEY (num_dossier) REFERENCES Dossiers(num_dossier);
-ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_user_id FOREIGN KEY (user_id) REFERENCES Users(user_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id FOREIGN KEY (pole_id) REFERENCES Poles(pole_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_pole_id_Poles FOREIGN KEY (poleResponsable_id) REFERENCES Poles(pole_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id FOREIGN KEY (services_id) REFERENCES Services(services_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_services_id_Services FOREIGN KEY (servicesResponsable_id) REFERENCES Services(services_id);
 ALTER TABLE Personnels ADD CONSTRAINT FK_Personnels_specialite_id FOREIGN KEY (specialite_id) REFERENCES Specialites(specialite_id);
 ALTER TABLE Users ADD CONSTRAINT FK_Users_personnel_id FOREIGN KEY (personnel_id) REFERENCES Personnels(personnel_id);
-ALTER TABLE Poles ADD CONSTRAINT FK_Poles_personnel_id FOREIGN KEY (personnelResponsable_id) REFERENCES Personnels(personnel_id);
-ALTER TABLE Services ADD CONSTRAINT FK_Services_personnel_id FOREIGN KEY (personnelResponsable_id) REFERENCES Personnels(personnel_id);
 ALTER TABLE Allergies ADD CONSTRAINT FK_Allergies_antecedent_id FOREIGN KEY (antecedent_id) REFERENCES Antecedents(antecedent_id);
 ALTER TABLE Documents ADD CONSTRAINT FK_Documents_docType_id FOREIGN KEY (docType_id) REFERENCES DocType(docType_id);
 ALTER TABLE Examens ADD CONSTRAINT FK_Examens_antecedent_id FOREIGN KEY (antecedent_id) REFERENCES Antecedents(antecedent_id);

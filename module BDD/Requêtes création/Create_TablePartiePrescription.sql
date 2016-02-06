@@ -3,12 +3,12 @@
 #------------------------------------------------------------
 
 CREATE TABLE Partie_Prescription(
-        date_debut      Date ,
-        date_fin        Date ,
-        personnel_id    Int ,
-        created         Datetime ,
         prescription_id Int NOT NULL ,
         num_dossier     Int NOT NULL ,
+        date_debut      Varchar (10) ,
+        date_fin        Varchar (10) ,
+        personnel_id    Int NOT NULL ,
+        created         Datetime ,
         PRIMARY KEY (prescription_id ,num_dossier )
 )ENGINE=InnoDB;
 

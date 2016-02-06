@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Ven 05 Février 2016 à 10:11
+-- Généré le :  Sam 06 Février 2016 à 00:59
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -19,17 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `jchattou_db`
 --
-
---
--- Contenu de la table `Allergies`
---
-
-INSERT INTO `Allergies` (`allergie_libelle`, `code_CIM10`, `antecedent_id`) VALUES
-('IgE spécifiques Absinthe - w5', 'AG01', 20),
-('IgE spécifiques Chat', 'AG05', 21),
-('IgE spécifiques Abeille (venin) ', 'AGO-AB1', 22),
-('IgE spécifiques nGly m 5, soja -', 'AG-S1', 23),
-('IgE spécifiques Champignon - f21', 'AG10K', 24);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

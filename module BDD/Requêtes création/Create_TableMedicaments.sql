@@ -7,7 +7,7 @@ CREATE TABLE Medicaments(
         CIP        Int NOT NULL ,
         libelle    Varchar (32) ,
         libelleDCI Varchar (64) NOT NULL ,
-        Format     Varchar (32) ,
+        Format     Varchar (32) NOT NULL ,
         Dosage     Varchar (32) NOT NULL ,
         PRIMARY KEY (med_id )
 )ENGINE=InnoDB;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Jeu 04 Février 2016 à 09:38
+-- Généré le :  Ven 05 Février 2016 à 20:15
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,14 +21,8 @@ SET time_zone = "+00:00";
 --
 
 --
--- Vider la table avant d'insérer `DocType`
---
-
-TRUNCATE TABLE `DocType`;
---
 -- Contenu de la table `DocType`
 --
-SET FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
 (1, 10, 'Biologie prescription'),
@@ -41,8 +35,6 @@ INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
 (8, 20, 'Cerfa'),
 (9, 30, 'Lettre'),
 (10, 30, 'D.M.S');
-
-SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

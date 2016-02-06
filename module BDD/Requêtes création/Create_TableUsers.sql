@@ -8,7 +8,6 @@ CREATE TABLE Users(
         mot_passe    Varchar (32) NOT NULL ,
         created      Datetime ,
         personnel_id Int NOT NULL ,
-        droit_id     Int ,
         PRIMARY KEY (user_id )
 )ENGINE=InnoDB;
 

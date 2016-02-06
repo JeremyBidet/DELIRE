@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Jeu 04 Février 2016 à 09:44
+-- Généré le :  Ven 05 Février 2016 à 20:14
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,26 +21,15 @@ SET time_zone = "+00:00";
 --
 
 --
--- Vider la table avant d'insérer `Poles`
+-- Contenu de la table `Allergies`
 --
 
-TRUNCATE TABLE `Poles`;
---
--- Contenu de la table `Poles`
---
-SET FOREIGN_KEY_CHECKS=0;
-
-INSERT INTO `Poles` (`pole_id`, `libelle_pole`, `personnelResponsable_id`) VALUES
-(1, 'Urgence', 6),
-(2, 'Imagerie', 5),
-(3, 'Appareil Locomoteur', 2),
-(4, 'Biologie - Pathologie - Physiolo', 3),
-(5, 'DUNEGO', 4),
-(6, 'Neuroscience', 7),
-(7, 'IMAGINE', 1),
-(8, 'PREBLOC', 15);
-
-SET FOREIGN_KEY_CHECKS=1;
+INSERT INTO `Allergies` (`antecedent_id`, `allergie_libelle`, `code_CIM10`) VALUES
+(21, 'IgE spécifiques Absinthe - w5', 'AG01'),
+(22, 'IgE spécifiques Chat', 'AG05'),
+(23, 'IgE spécifiques Abeille (venin) ', 'AGO-AB1'),
+(24, 'IgE spécifiques nGly m 5, soja -', 'AG-S1'),
+(25, 'IgE spécifiques Champignon - f21', 'AG10K');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
