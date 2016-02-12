@@ -198,35 +198,35 @@ public class Requests {
 	// ======================================
 		
 	public static ResultSet SELECT_Prescription(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT p.prescription_id, dosage, date_debut, date_fin, personnel_id FROM Partie_Prescription part, Prescriptions p WHERE num_dossier=(?) AND part.prescription_id=p.prescription_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, p.prescription_id, dosage, date_debut, date_fin, personnel_id FROM Partie_Prescription part, Prescriptions p WHERE num_dossier=(?) AND part.prescription_id=p.prescription_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
 	}
 	
 	public static ResultSet SELECT_Episode(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT ep.epOuvert_id, episode_libelle, date_debut, date_derniere_visite, notes, personnel_id FROM Partie_Episodes part, EpisodesEnCours ep WHERE num_dossier=(?) AND part.epOuvert_id=ep.epOuvert_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, ep.epOuvert_id, episode_libelle, date_debut, date_derniere_visite, notes, personnel_id FROM Partie_Episodes part, EpisodesEnCours ep WHERE num_dossier=(?) AND part.epOuvert_id=ep.epOuvert_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
 	}
 	
 	public static ResultSet SELECT_Antecedent(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT ant.antecedent_id, antecedent_libelle, date_debut, date_fin, notes, personnel_id FROM Partie_Antecedents part, Antecedents ant WHERE num_dossier=(?) AND part.antecedent_id=ant.antecedent_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, ant.antecedent_id, antecedent_libelle, date_debut, date_fin, notes, personnel_id FROM Partie_Antecedents part, Antecedents ant WHERE num_dossier=(?) AND part.antecedent_id=ant.antecedent_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
 	}
 	
 	public static ResultSet SELECT_Elements(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT e.ES_id, examen_type, examen_libelle, personnel_id FROM Partie_ElementsSuivis part, ElementsSuivis e WHERE num_dossier=(?) AND part.ES_id=e.ES_id;");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, e.ES_id, examen_type, examen_libelle, personnel_id FROM Partie_ElementsSuivis part, ElementsSuivis e WHERE num_dossier=(?) AND part.ES_id=e.ES_id;");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
 	}
 	
 	public static ResultSet SELECT_Doc(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT d.doc_id, contenu, size_file FROM Partie_DocumentsPatient part, Documents d WHERE num_dossier=(?) AND part.doc_id=d.doc_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, d.doc_id, contenu, size_file FROM Partie_DocumentsPatient part, Documents d WHERE num_dossier=(?) AND part.doc_id=d.doc_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
