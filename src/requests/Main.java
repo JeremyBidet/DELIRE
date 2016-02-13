@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.jdbc.Blob;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -52,7 +54,27 @@ public class Main {
 
 //			}
 
-			Requests.ADD_DMP_Prescription(myCon, 1,1, "mars", "avril", 1);
+//			Requests.ADD_DMP_Prescription(myCon, 28,1, "mars", "avril", 1);
+//			Requests.ADD_Elements(myCon, 99, "troll", "youhou", 1, "unite1", 2, "unite2", "success");
+//			Requests.ADD_Antecedent(myCon, 26);
+//			Requests.ADD_Episode(myCon, 1, "LIB");
+//			Blob b = (Blob) myCon.createBlob();
+//			b.setBytes(1, new byte[10]);
+//			Requests.ADD_Doc(myCon, 1, b, 255, 1);
+			ResultSet set = Requests.SELECT_Antecedent(myCon, 1); 
+			while (set.next()) {
+			num_dossier = set.getInt("num_dossier");
+			id = set.getInt("antecedent_id");
+			date_debut = set.getString("date_debut");
+			date_fin = set.getString("date_fin");
+			String notes = set.getString("notes");
+			personnel_id = set.getInt("personnel_id");
+
+//			System.out.println("result: " + num_dossier + " " + id + " " + examen_type + " " + examen_libelle + " " + personnel_id);
+			System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin + " " + notes + " " + personnel_id);
+
+		}
+
 			
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();

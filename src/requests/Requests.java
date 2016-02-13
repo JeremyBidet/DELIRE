@@ -66,7 +66,6 @@ public class Requests {
 		return result;
 	}
 	
-	//pas fini on doit stocker les valeurs des selects
 	public static List<ResultSet> SEARCH_DMP_BY_LASTNAME(Connection conn, String lastName) throws SQLException {
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Patients WHERE nom=(?)");
 		query.setString(1, lastName);
@@ -126,30 +125,29 @@ public class Requests {
 	
 	//ajoute un dmp à un patient
 	public static void ADD_DMP(Connection conn, String libelle, String created, int patient_id) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Prescription VALUES (NULL,(?),(?),(?))");
-		query.setString(2,libelle);		
-		query.setString(3,created);
-		query.setInt(4,patient_id);
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Dossiers VALUES (NULL,(?),(?),(?))");
+		query.setString(1,libelle);
+		query.setTimestamp(2, date);
+		query.setInt(3,patient_id);
 		query.executeUpdate();
 	}
 	
 	// Ajoute à la partie Prescription du dossier les ID du DMP et de la prescription
 	public static void ADD_DMP_Prescription(Connection conn, int PRESC_ID,int DMP_ID, String date_deb, String date_fin, int personnel_id) throws SQLException {
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Prescription VALUES ((?),(?),(?),(?),(?),(?))");
 		query.setInt(1, PRESC_ID);
 		query.setInt(2, DMP_ID);
 		query.setString(3, date_deb);
 		query.setString(4, date_fin);
 		query.setInt(5, personnel_id);
-		query.setDate(6, sqlDate);
+		query.setTimestamp(6, date);;
 		query.executeUpdate();
 	}
 	
 	public static void ADD_DMP_Episode(Connection conn, int EPISODE_ID, int DMP_ID, String date_debut, String date_derniere_visite, String notes, int personnel_id) throws SQLException {
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Episode VALUES ((?),(?),(?),(?),(?),(?),(?))");
 		query.setInt(1, EPISODE_ID);
 		query.setInt(2, DMP_ID);
@@ -157,37 +155,35 @@ public class Requests {
 		query.setString(4, date_derniere_visite);
 		query.setString(5, notes);
 		query.setInt(6, personnel_id);
-		query.setDate(7, sqlDate);
+		query.setTimestamp(7, date);
 		query.executeUpdate();
 	}
 	
 	public static void ADD_DMP_Antecedent(Connection conn, int ANTECEDENT_ID, int DMP_ID, String date_debut, String date_fin, String notes, int personnel_id) throws SQLException {
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Antecedent VALUES ((?),(?),(?),(?),(?),(?),(?)");
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Antecedent VALUES ((?),(?),(?),(?),(?),(?),(?))");
 		query.setInt(1, ANTECEDENT_ID);
 		query.setInt(2, DMP_ID);
 		query.setString(3, date_debut);
 		query.setString(4, date_fin);
 		query.setString(5, notes);
 		query.setInt(6, personnel_id);
-		query.setDate(7, sqlDate);
+		query.setTimestamp(7, date);
 		query.executeUpdate();
 	}
 	
 	public static void ADD_DMP_Elements(Connection conn, int ELEMENTS_ID, int DMP_ID, int personnel_id) throws SQLException {
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Elements VALUES ((?),(?),(?),(?)");
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Elements VALUES ((?),(?),(?),(?))");
 		query.setInt(1, ELEMENTS_ID);
 		query.setInt(2, DMP_ID);
 		query.setInt(3, personnel_id);
-		query.setDate(4, sqlDate);
+		query.setTimestamp(4, date);
 		query.executeUpdate();
 	}
 	
 	public static void ADD_DMP_Doc(Connection conn, int DOC_ID, int DMP_ID) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Elements VALUES ((?),(?))");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_DocumentsPatient VALUES ((?),(?))");
 		query.setInt(1, DOC_ID);
 		query.setInt(2, DMP_ID);
 		query.executeUpdate();
@@ -212,7 +208,7 @@ public class Requests {
 	}
 	
 	public static ResultSet SELECT_Antecedent(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, ant.antecedent_id, antecedent_libelle, date_debut, date_fin, notes, personnel_id FROM Partie_Antecedents part, Antecedents ant WHERE num_dossier=(?) AND part.antecedent_id=ant.antecedent_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, ant.antecedent_id, date_debut, date_fin, notes, personnel_id FROM Partie_Antecedents part, Antecedents ant WHERE num_dossier=(?) AND part.antecedent_id=ant.antecedent_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
@@ -226,21 +222,21 @@ public class Requests {
 	}
 	
 	public static ResultSet SELECT_Doc(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, d.doc_id, contenu, size_file FROM Partie_DocumentsPatient part, Documents d WHERE num_dossier=(?) AND part.doc_id=d.doc_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, d.doc_id, docType, contenu, size_file FROM Partie_DocumentsPatient part, Documents d WHERE num_dossier=(?) AND part.doc_id=d.doc_id");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
 	}
 	
 	// ======================================
-	// =            Description             =
+	// =            Prescription             =
 	// ======================================
 
 	public static void ADD_Prescription(Connection conn, int id, String libelle, String dosage) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?),(?)");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?),(?))");
 		query.setInt(1,id);
 		query.setString(2,libelle);
-		query.setString(2,dosage);
+		query.setString(3,dosage);
 		query.executeUpdate();
 	}
 		
@@ -250,8 +246,9 @@ public class Requests {
 	// ======================================
 	
 	public static void ADD_Episode(Connection conn, int id, String libelle) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?)");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO EpisodesEnCours VALUES ((?),(?))");
 		query.setInt(1,id);
+		query.setString(2,libelle);
 		query.executeUpdate();
 	}
 		
@@ -259,10 +256,9 @@ public class Requests {
 	// =            Antecedent              =
 	// ======================================
 	
-	public static void ADD_Antecedent(Connection conn, int id, String libelle) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?)");
+	public static void ADD_Antecedent(Connection conn, int id) throws SQLException {
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Antecedents VALUES ((?))");
 		query.setInt(1,id);
-		query.setString(2,libelle);
 		query.executeUpdate();
 	}
 	
@@ -271,21 +267,29 @@ public class Requests {
 	// ======================================
 	
 	public static void ADD_Elements(Connection conn, int id, String examen_type, String examen_libelle, float valeur1, String unite1, float valeur2, String unite2, String resultat_test) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?),(?),(?)");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Elementssuivis VALUES ((?),(?),(?),(?),(?),(?),(?),(?))");
 		query.setInt(1,id);
+		query.setString(2,examen_type);
+		query.setString(3,examen_libelle);
+		query.setFloat(4,valeur1);
+		query.setString(5,unite1);
+		query.setFloat(6,valeur2);
+		query.setString(7,unite2);
+		query.setString(8,resultat_test);
 		query.executeUpdate();
 	}
 	
 	// ======================================
 	// =            Documents 	            =
 	// ======================================
-	public static void ADD_Doc(Connection conn, int id, Blob contenu, float size_file, String created, int docType_ID) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Prescriptions VALUES ((?),(?),(?),(?),(?)");
+	public static void ADD_Doc(Connection conn, int id, Blob contenu, float size_file, String docType) throws SQLException {
+		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Documents VALUES ((?),(?),(?),(?),(?))");
 		query.setInt(1,id);
 		query.setBlob(2,contenu);
 		query.setFloat(3,size_file);
-		query.setString(4,created);
-		query.setInt(5,docType_ID);
+		query.setTimestamp(4,date);
+		query.setString(5,docType);
 		query.executeUpdate();
 	}
 		
