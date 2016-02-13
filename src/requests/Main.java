@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import com.mysql.jdbc.Blob;
 
@@ -61,20 +62,30 @@ public class Main {
 //			Blob b = (Blob) myCon.createBlob();
 //			b.setBytes(1, new byte[10]);
 //			Requests.ADD_Doc(myCon, 1, b, 255, 1);
-			ResultSet set = Requests.SELECT_Antecedent(myCon, 1); 
-			while (set.next()) {
-			num_dossier = set.getInt("num_dossier");
-			id = set.getInt("antecedent_id");
-			date_debut = set.getString("date_debut");
-			date_fin = set.getString("date_fin");
-			String notes = set.getString("notes");
-			personnel_id = set.getInt("personnel_id");
+//			ResultSet set = Requests.SELECT_Episode(myCon, 1);
+//			while (set.next()) {
+//			num_dossier = set.getInt("num_dossier");
+//			id = set.getInt("epOuvert_id");
+//			date_debut = set.getString("date_debut");
+//			date_fin = set.getString("date_derniere_visite");
+//			personnel_id = set.getInt("personnel_id");
+//
+////			System.out.println("result: " + num_dossier + " " + id + " " + examen_type + " " + examen_libelle + " " + personnel_id);
+//			System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
+//
+//		}
+			List<ResultSet> list = Requests. SEARCH_DMP_BY_FILE_NUMBER(myCon, 1);
+			ResultSet set = list.get(2);
+			while(set.next()) {
 
-//			System.out.println("result: " + num_dossier + " " + id + " " + examen_type + " " + examen_libelle + " " + personnel_id);
-			System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin + " " + notes + " " + personnel_id);
-
-		}
-
+					num_dossier = set.getInt("num_dossier");
+					id = set.getInt("epOuvert_id");
+					date_debut = set.getString("date_debut");
+					date_fin = set.getString("date_derniere_visite");
+					personnel_id = set.getInt("personnel_id");		
+					System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
+			}
+			
 			
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
