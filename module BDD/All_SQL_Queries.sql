@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Ven 05 Février 2016 à 22:31
+-- Généré le :  Sam 13 Février 2016 à 01:50
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -171,7 +171,33 @@ CREATE TABLE IF NOT EXISTS `Droits` (
   `droit_ecriture_episodes_patient` tinyint(1) DEFAULT NULL,
   `droit_lecture_elementSuivis_patient` tinyint(1) DEFAULT NULL,
   `droit_ecriture_elementSuivis_patient` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Droits`
+--
+
+INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`) VALUES
+(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0),
+(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0),
+(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0),
+(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0),
+(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0),
+(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1),
+(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1),
+(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1),
+(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1),
+(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1),
+(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1),
+(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1),
+(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1),
+(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1),
+(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +225,38 @@ CREATE TABLE IF NOT EXISTS `ElementsSuivis` (
 CREATE TABLE IF NOT EXISTS `EpisodesEnCours` (
 `epOuvert_id` int(11) NOT NULL,
   `episode_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `EpisodesEnCours`
+--
+
+INSERT INTO `EpisodesEnCours` (`epOuvert_id`, `episode_libelle`) VALUES
+(1, 'PATHO-001'),
+(2, 'PATHO-002'),
+(3, 'PATHO-003'),
+(4, 'PATHO-004'),
+(5, 'PATHO-005'),
+(6, 'PATHO-006'),
+(7, 'PATHO-007'),
+(8, 'PATHO-008'),
+(9, 'PATHO-009'),
+(10, 'PATHO-010'),
+(11, 'PATHO-011'),
+(12, 'PATHO-012'),
+(13, 'PATHO-013'),
+(14, 'PATHO-014'),
+(15, 'PATHO-015'),
+(16, 'PATHO-016'),
+(17, 'PATHO-017'),
+(18, 'PATHO-018'),
+(19, 'PATHO-019'),
+(20, 'PATHO-020'),
+(21, 'PATHO-021'),
+(22, 'PATHO-022'),
+(23, 'PATHO-023'),
+(24, 'PATHO-024'),
+(25, 'PATHO-025');
 
 -- --------------------------------------------------------
 
@@ -250,6 +307,29 @@ CREATE TABLE IF NOT EXISTS `ListeMeds_Pour_Prescriptions` (
   `med_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `ListeMeds_Pour_Prescriptions`
+--
+
+INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17);
+
 -- --------------------------------------------------------
 
 --
@@ -260,6 +340,37 @@ CREATE TABLE IF NOT EXISTS `ListePatho_Pour_Episodes` (
   `epOuvert_id` int(11) NOT NULL,
   `patho_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `ListePatho_Pour_Episodes`
+--
+
+INSERT INTO `ListePatho_Pour_Episodes` (`epOuvert_id`, `patho_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20),
+(21, 21),
+(22, 22),
+(23, 23),
+(24, 24),
+(25, 25);
 
 -- --------------------------------------------------------
 
@@ -281,23 +392,23 @@ CREATE TABLE IF NOT EXISTS `Medicaments` (
 --
 
 INSERT INTO `Medicaments` (`med_id`, `CIP`, `libelle`, `libelleDCI`, `Format`, `Dosage`) VALUES
-(1, 0, 'NARCAN 0,4MG/1ML AMP 10', 'Naloxone', 'Injectable', '0,4 mG/1 mL'),
-(2, 0, 'RHINOFLUIMUCIL PULV NAS 5ML', 'Acétylcystéine + tuaminoheptane + benzalkonium', 'Voie nasale', '5 mL'),
-(3, 0, 'SPASFON CPR 30', 'Phloroglucinol + triméthylphloroglucinol', 'Comprimé', ''),
-(4, 0, 'SPEDIFEN 400MG CPR 12', 'Ibuprofène', 'Comprimé', '400 mG'),
-(5, 0, 'DIAMILLA GE 75MCG CPR 1X28', 'Désogestrel', 'Comprimé', '0,075 mG'),
-(6, 0, 'ACICLOVIR 5% SANDOZ CONS CR TUB ', 'Aciclovir Crème 5 %', 'Crème', '5%'),
-(7, 0, 'TIORFAN 100MG GELULE 20', 'Racécadotril', 'Gélule', '100 mG'),
-(8, 0, 'TROPHIGIL GELULE VAGINALE 14', 'Estriol', 'Gélule', ''),
-(9, 0, 'TOPLEXIL 0,33MG/ML SOL S/S 150ML', 'Oxomémazine', 'Sirop', '0,33 mG/mL'),
-(10, 0, 'ATROPINE 0,5MG/ML AGUET AMP B 10', 'Atropine sulfate', 'Ampoule', '0,5Mg/Ml'),
-(11, 0, 'CYMBALTA 30MG GELULE 28', 'Duloxétine', 'Gelule', '30 mG'),
-(12, 0, 'VENTOLINE 2,5MG/2,5ML INH DOSE 6', 'Salbutamol', 'Aérosol', '0,5 %'),
-(13, 0, 'KETUM 2,5% GEL TUB 60G', 'Kétoprofène', 'Gel à usage local', '2,5 %'),
-(14, 0, 'ATARAX SP 200ML 1', 'Hydroxyzine', 'Sirop', '10 mG/5 mL'),
-(15, 0, 'SMECTA 3G ORANGE VANILLE SACHET ', 'Diosmectite', 'Poudre pour suspension buvable', '3 g'),
-(16, 0, 'AMOXICILLINE 500MG MYLAN PDR 60M', 'Amoxicilline', 'Comprimé', '500 mG'),
-(17, 0, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mG');
+(1, 33450, 'NARCAN 0,4MG/1ML AMP 10', 'Naloxone', 'Injectable', '0,4 mG/1 mL'),
+(2, 35756, 'RHINOFLUIMUCIL PULV NAS 5ML', 'Acétylcystéine + tuaminoheptane + benzalkonium', 'Voie nasale', '5 mL'),
+(3, 20578, 'SPASFON CPR 30', 'Phloroglucinol + triméthylphloroglucinol', 'Comprimé', ''),
+(4, 15345, 'SPEDIFEN 400MG CPR 12', 'Ibuprofène', 'Comprimé', '400 mG'),
+(5, 89452, 'DIAMILLA GE 75MCG CPR 1X28', 'Désogestrel', 'Comprimé', '0,075 mG'),
+(6, 12304, 'ACICLOVIR 5% SANDOZ CONS CR TUB ', 'Aciclovir Crème 5 %', 'Crème', '5%'),
+(7, 94530, 'TIORFAN 100MG GELULE 20', 'Racécadotril', 'Gélule', '100 mG'),
+(8, 45368, 'TROPHIGIL GELULE VAGINALE 14', 'Estriol', 'Gélule', ''),
+(9, 23458, 'TOPLEXIL 0,33MG/ML SOL S/S 150ML', 'Oxomémazine', 'Sirop', '0,33 mG/mL'),
+(10, 25146, 'ATROPINE 0,5MG/ML AGUET AMP B 10', 'Atropine sulfate', 'Ampoule', '0,5Mg/Ml'),
+(11, 27453, 'CYMBALTA 30MG GELULE 28', 'Duloxétine', 'Gelule', '30 mG'),
+(12, 33450, 'VENTOLINE 2,5MG/2,5ML INH DOSE 6', 'Salbutamol', 'Aérosol', '0,5 %'),
+(13, 78545, 'KETUM 2,5% GEL TUB 60G', 'Kétoprofène', 'Gel à usage local', '2,5 %'),
+(14, 78325, 'ATARAX SP 200ML 1', 'Hydroxyzine', 'Sirop', '10 mG/5 mL'),
+(15, 74582, 'SMECTA 3G ORANGE VANILLE SACHET ', 'Diosmectite', 'Poudre pour suspension buvable', '3 g'),
+(16, 15780, 'AMOXICILLINE 500MG MYLAN PDR 60M', 'Amoxicilline', 'Comprimé', '500 mG'),
+(17, 33910, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mG');
 
 -- --------------------------------------------------------
 
@@ -314,6 +425,18 @@ CREATE TABLE IF NOT EXISTS `Partie_Antecedents` (
   `personnel_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Partie_Antecedents`
+--
+
+INSERT INTO `Partie_Antecedents` (`antecedent_id`, `num_dossier`, `date_debut`, `date_fin`, `notes`, `personnel_id`, `created`) VALUES
+(2, 1, '22-01-2013', '04-02-2015', 'Glycémie élevé au départ avec risque de mort mais a baisé au fil des années', 13, '2013-01-22 09:00:00'),
+(2, 5, '28-11-2012', '18-04-2014', 'Rien à signaler', 6, '2012-11-28 00:00:00'),
+(5, 3, '05-03-2011', '05-04-2013', NULL, 1, '2011-03-05 08:13:00'),
+(13, 4, '09-10-2015', '20-12-2015', '1/ Ne ressent plus la douleur depuis deux ans après un grave accident de travail.\r\n\r\n2/ A retrouver quelques sensations de douleur mais cela se révèle très faible.', 14, '2015-10-09 07:07:05'),
+(15, 7, '24-11-2015', '27-11-2015', 'Problème récurrent de souffle au coeur.', 8, '2015-11-24 17:20:00'),
+(16, 6, '01-01-2016', '05-02-2016', 'N''a rien révéler de grave.', 8, '2016-01-01 13:14:00');
 
 -- --------------------------------------------------------
 
@@ -355,6 +478,15 @@ CREATE TABLE IF NOT EXISTS `Partie_Episodes` (
   `created` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `Partie_Episodes`
+--
+
+INSERT INTO `Partie_Episodes` (`epOuvert_id`, `num_dossier`, `date_debut`, `date_derniere_visite`, `notes`, `personnel_id`, `created`) VALUES
+(1, 1, '01-01-2016', '01-02-2016', NULL, 13, '2016-02-09 05:00:00'),
+(5, 2, '05-02-2016', '07-02-2016', 'C''est grave !', 13, '2016-02-09 00:00:00'),
+(8, 4, '11-01-2016', '31-01-2016', NULL, 8, '2016-02-08 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -370,6 +502,22 @@ CREATE TABLE IF NOT EXISTS `Partie_Prescription` (
   `created` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `Partie_Prescription`
+--
+
+INSERT INTO `Partie_Prescription` (`prescription_id`, `num_dossier`, `date_debut`, `date_fin`, `personnel_id`, `created`) VALUES
+(2, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
+(3, 6, '05-09-2015', '11-09-2015', 2, '2015-09-05 00:00:00'),
+(4, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
+(8, 7, '03-11-2015', '05-02-2016', 11, '2015-11-03 13:13:19'),
+(12, 7, '05-02-2014', NULL, 1, '2014-02-03 15:00:00'),
+(19, 4, '03-05-2012', NULL, 5, '0000-00-00 00:00:00'),
+(22, 5, '02-05-2013', NULL, 10, '2013-05-02 00:00:00'),
+(22, 6, '01-11-2014', NULL, 7, '2014-11-01 00:00:00'),
+(27, 3, '27-05-2015', NULL, 6, '2015-05-27 00:00:00'),
+(30, 3, '09-07-2015', NULL, 5, '2015-07-09 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -380,7 +528,38 @@ CREATE TABLE IF NOT EXISTS `Pathologies` (
 `patho_id` int(11) NOT NULL,
   `patho_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `codeCIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Pathologies`
+--
+
+INSERT INTO `Pathologies` (`patho_id`, `patho_libelle`, `codeCIM10`) VALUES
+(1, 'Diabète', 'E10'),
+(2, 'Rhinopharyngite', 'J00'),
+(3, 'Rhume', 'J00'),
+(4, 'Bronchite chronique', 'J41'),
+(5, 'Arthrose', 'MAC'),
+(6, 'Entérocèle vaginale', 'N81.5'),
+(7, 'Bourdonnement, acouphène', 'H03'),
+(8, 'Aura migraineuse', 'G43.1'),
+(9, 'Toux grasse', 'R05'),
+(10, 'Toux sèche', 'R05'),
+(11, 'Toxicomanie', 'F19.2'),
+(12, 'Traitement chirurgical glaucome', 'H40'),
+(13, 'Tumeur de l''ovaire', 'C56'),
+(14, 'Tumeur du sein', 'C50'),
+(15, 'Ulcère de l''estomac', 'K25'),
+(16, 'Urticaire', 'L50.9'),
+(17, 'Varicelle', 'B01.9'),
+(18, 'Paludisme', 'B50'),
+(19, 'Rougeole', 'B05'),
+(20, 'Rubéole', 'B06'),
+(21, 'Cancer de l''utérus', 'C55'),
+(22, 'Cancer de la prostate', 'C61'),
+(23, 'Grippe avec symptômes grippaux', 'J09'),
+(24, 'Gastro-entérite virale', 'K06'),
+(25, 'Angine', 'J02');
 
 -- --------------------------------------------------------
 
@@ -450,8 +629,8 @@ INSERT INTO `Personnels` (`personnel_id`, `nom`, `prenom`, `num_adeli`, `num_RPP
 (2, 'ORCEL', 'Philippe', '0751557620', '810000473495', '0615268453', '0145268575', '2016-02-03 00:00:00', 3, 3, 13, 13, 1),
 (3, 'SIMON', 'Francois', '0931054217', '810001119345 ', '0652489675', '0143267859', '2016-02-03 00:00:00', 4, 4, 14, 14, 17),
 (4, 'DESGRANDCHAMPS', 'Francois', '0931054852', '810000478247', '0612523548', '0145852351', '2016-02-03 00:00:00', 5, 5, 6, 0, 15),
-(5, 'DE KERVILER', 'Eric', '0931054236', '810001114526', '0620145268', '0145853612', '2016-02-03 00:00:00', 2, 2, 0, 0, 0),
-(6, 'HENRY', 'Patrick', '0301013553', '810003190229', '0624584532', '0145893245', '2016-02-03 00:00:00', 1, 1, 0, 0, 0),
+(5, 'DE KERVILER', 'Eric', '0931054236', '810001114526', '0620145268', '0145853612', '2016-02-03 00:00:00', 2, 2, 13, 0, 18),
+(6, 'HENRY', 'Patrick', '0301013553', '810003190229', '0624584532', '0145893245', '2016-02-03 00:00:00', 1, 1, 6, 0, 8),
 (7, 'HERMAN', 'Philippe', '0931051598', '810000504976', '0605495952', '0145864253', '2016-02-03 00:00:00', 6, 6, 1, 1, 16),
 (8, 'CHABRIAT', 'Hugues', '1750100042', '810000527779', '0655364896', '0145698753', '2016-02-03 21:00:00', 6, 0, 2, 2, 4),
 (9, 'TADAYONI', 'Ramin', '1750115523', '810001473304', '0677564232', '01456875321', '2016-02-03 21:00:00', 6, 0, 3, 3, 14),
@@ -503,6 +682,32 @@ CREATE TABLE IF NOT EXISTS `PossederDroits` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `PossederDroits`
+--
+
+INSERT INTO `PossederDroits` (`droit_id`, `user_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20);
+
 -- --------------------------------------------------------
 
 --
@@ -513,7 +718,45 @@ CREATE TABLE IF NOT EXISTS `Prescriptions` (
 `prescription_id` int(11) NOT NULL,
   `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL,
   `dosage` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Prescriptions`
+--
+
+INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`, `dosage`) VALUES
+(1, 'MED_001', NULL),
+(2, 'MED_002', NULL),
+(3, 'MED_003', NULL),
+(4, 'MED_004', NULL),
+(5, 'MED_005', NULL),
+(6, 'MED_006', NULL),
+(7, 'MED_007', NULL),
+(8, 'MED_008', NULL),
+(9, 'MED_009', NULL),
+(10, 'MED_010', NULL),
+(11, 'MED_011', NULL),
+(12, 'MED_012', NULL),
+(13, 'MED_013', NULL),
+(14, 'MED_014', NULL),
+(15, 'MED_015', NULL),
+(16, 'MED_016', NULL),
+(17, 'MED_017', NULL),
+(18, 'Consultation kinésithérapeutes', NULL),
+(19, 'Consultation ophtalmologue', NULL),
+(20, 'Consultation ortoptiste', NULL),
+(21, 'Bilan sanguin', NULL),
+(22, 'Test VIH', NULL),
+(23, 'Radio des poumons', NULL),
+(24, 'IRM du thorax', NULL),
+(25, 'Radio du dos', NULL),
+(26, 'IRM de la tête', NULL),
+(27, 'Radio du thorax', NULL),
+(28, 'IRM pelvienne', NULL),
+(29, 'Radio du membre inférieur', NULL),
+(30, 'IRM cérébral', NULL),
+(31, 'IRM Pulmonaire', NULL),
+(32, 'Radio de l''abdomen', NULL);
 
 -- --------------------------------------------------------
 
@@ -616,7 +859,33 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `mot_passe` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
   `personnel_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Users`
+--
+
+INSERT INTO `Users` (`user_id`, `login`, `mot_passe`, `created`, `personnel_id`) VALUES
+(1, 'jmolina', 'passmolina', '2016-02-03 00:00:00', 1),
+(2, 'porcel', 'passorcel', '2016-02-03 00:00:00', 2),
+(3, 'fsimon', 'passsimon', '2016-02-03 00:00:00', 3),
+(4, 'fdesgrandchamps', 'passdesgrandchamps', '2016-02-03 00:00:00', 4),
+(5, 'edekerviler', 'passdekerviler', '2016-02-03 00:00:00', 5),
+(6, 'phenry', 'passhenry', '2016-02-03 00:00:00', 6),
+(7, 'pherman', 'passherman', '2016-02-03 00:00:00', 7),
+(8, 'hchabriat', 'passchabriat', '2016-02-03 00:00:00', 8),
+(9, 'rtadayoni', 'passtadayoni', '2016-02-03 00:00:00', 9),
+(10, 'acohensolal', 'passcohensolal', '2016-02-03 00:00:00', 10),
+(11, 'jbenifla', 'passbenifla', '2016-02-03 00:00:00', 11),
+(12, 'mallez', 'passallez', '2016-02-03 00:00:00', 12),
+(13, 'bmegarbane', 'passmegarbane', '2016-02-03 00:00:00', 13),
+(14, 'dpayendelagaranderie', 'passpayendelagaranderie', '2016-02-03 00:00:00', 14),
+(15, 'hbarreteau', 'passbarreteau', '2016-02-03 00:00:00', 15),
+(16, 'jlaredo', 'passlaredo', '2016-02-03 00:00:00', 16),
+(17, 'olaprevote', 'passlaprevote', '2016-02-03 00:00:00', 17),
+(18, 'salifa', 'passalifa', '2016-02-03 00:00:00', 18),
+(19, 'jbanas', 'passbanas', '2016-02-03 00:00:00', 19),
+(20, 'abonet', 'passbonet', '2016-02-03 00:00:00', 20);
 
 --
 -- Index pour les tables exportées
@@ -818,7 +1087,7 @@ MODIFY `num_dossier` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT pour la table `Droits`
 --
 ALTER TABLE `Droits`
-MODIFY `droit_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `droit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `ElementsSuivis`
 --
@@ -828,7 +1097,7 @@ MODIFY `ES_id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `EpisodesEnCours`
 --
 ALTER TABLE `EpisodesEnCours`
-MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `Medicaments`
 --
@@ -838,7 +1107,7 @@ MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT pour la table `Pathologies`
 --
 ALTER TABLE `Pathologies`
-MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `Patients`
 --
@@ -858,7 +1127,7 @@ MODIFY `pole_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT pour la table `Prescriptions`
 --
 ALTER TABLE `Prescriptions`
-MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `Services`
 --
@@ -873,7 +1142,7 @@ MODIFY `specialite_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 -- AUTO_INCREMENT pour la table `Users`
 --
 ALTER TABLE `Users`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- Contraintes pour les tables exportées
 --
@@ -913,15 +1182,15 @@ ADD CONSTRAINT `FK_ListeMeds_Pour_Prescriptions_prescription_id` FOREIGN KEY (`p
 -- Contraintes pour la table `ListePatho_Pour_Episodes`
 --
 ALTER TABLE `ListePatho_Pour_Episodes`
-ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_patho_id` FOREIGN KEY (`patho_id`) REFERENCES `Pathologies` (`patho_id`),
-ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_epOuvert_id` FOREIGN KEY (`epOuvert_id`) REFERENCES `EpisodesEnCours` (`epOuvert_id`);
+ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_epOuvert_id` FOREIGN KEY (`epOuvert_id`) REFERENCES `EpisodesEnCours` (`epOuvert_id`),
+ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_patho_id` FOREIGN KEY (`patho_id`) REFERENCES `Pathologies` (`patho_id`);
 
 --
 -- Contraintes pour la table `Partie_Antecedents`
 --
 ALTER TABLE `Partie_Antecedents`
-ADD CONSTRAINT `FK_Partie_Antecedents_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`),
-ADD CONSTRAINT `FK_Partie_Antecedents_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`);
+ADD CONSTRAINT `FK_Partie_Antecedents_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`),
+ADD CONSTRAINT `FK_Partie_Antecedents_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`);
 
 --
 -- Contraintes pour la table `Partie_DocumentsPatient`
@@ -934,15 +1203,15 @@ ADD CONSTRAINT `FK_Partie_DocumentsPatient_num_dossier` FOREIGN KEY (`num_dossie
 -- Contraintes pour la table `Partie_ElementsSuivis`
 --
 ALTER TABLE `Partie_ElementsSuivis`
-ADD CONSTRAINT `FK_Partie_ElementsSuivis_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`),
-ADD CONSTRAINT `FK_Partie_ElementsSuivis_ES_id` FOREIGN KEY (`ES_id`) REFERENCES `ElementsSuivis` (`ES_id`);
+ADD CONSTRAINT `FK_Partie_ElementsSuivis_ES_id` FOREIGN KEY (`ES_id`) REFERENCES `ElementsSuivis` (`ES_id`),
+ADD CONSTRAINT `FK_Partie_ElementsSuivis_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`);
 
 --
 -- Contraintes pour la table `Partie_Episodes`
 --
 ALTER TABLE `Partie_Episodes`
-ADD CONSTRAINT `FK_Partie_Episodes_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`),
-ADD CONSTRAINT `FK_Partie_Episodes_epOuvert_id` FOREIGN KEY (`epOuvert_id`) REFERENCES `EpisodesEnCours` (`epOuvert_id`);
+ADD CONSTRAINT `FK_Partie_Episodes_epOuvert_id` FOREIGN KEY (`epOuvert_id`) REFERENCES `EpisodesEnCours` (`epOuvert_id`),
+ADD CONSTRAINT `FK_Partie_Episodes_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`);
 
 --
 -- Contraintes pour la table `Partie_Prescription`
@@ -955,46 +1224,8 @@ ADD CONSTRAINT `FK_Partie_Prescription_prescription_id` FOREIGN KEY (`prescripti
 -- Contraintes pour la table `Patients`
 --
 ALTER TABLE `Patients`
-ADD CONSTRAINT `FK_Patients_services_id` FOREIGN KEY (`services_id`) REFERENCES `Services` (`services_id`),
-ADD CONSTRAINT `FK_Patients_pole_id` FOREIGN KEY (`pole_id`) REFERENCES `Poles` (`pole_id`);
-
---
--- Contraintes pour la table `Personnels`
---
-ALTER TABLE `Personnels`
-ADD CONSTRAINT `FK_Personnels_specialite_id` FOREIGN KEY (`specialite_id`) REFERENCES `Specialites` (`specialite_id`),
-ADD CONSTRAINT `FK_Personnels_pole_id` FOREIGN KEY (`pole_id`) REFERENCES `Poles` (`pole_id`),
-ADD CONSTRAINT `FK_Personnels_pole_id_Poles` FOREIGN KEY (`poleResponsable_id`) REFERENCES `Poles` (`pole_id`),
-ADD CONSTRAINT `FK_Personnels_services_id` FOREIGN KEY (`services_id`) REFERENCES `Services` (`services_id`),
-ADD CONSTRAINT `FK_Personnels_services_id_Services` FOREIGN KEY (`servicesResponsable_id`) REFERENCES `Services` (`services_id`);
-
---
--- Contraintes pour la table `PossederDroits`
---
-ALTER TABLE `PossederDroits`
-ADD CONSTRAINT `FK_PossederDroits_user_id` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`),
-ADD CONSTRAINT `FK_PossederDroits_droit_id` FOREIGN KEY (`droit_id`) REFERENCES `Droits` (`droit_id`);
-
---
--- Contraintes pour la table `Rediger`
---
-ALTER TABLE `Rediger`
-ADD CONSTRAINT `FK_Rediger_doc_id` FOREIGN KEY (`doc_id`) REFERENCES `Documents` (`doc_id`),
-ADD CONSTRAINT `FK_Rediger_personnel_id` FOREIGN KEY (`personnel_id`) REFERENCES `Personnels` (`personnel_id`);
-
---
--- Contraintes pour la table `Relation_RolesDossiersUsers`
---
-ALTER TABLE `Relation_RolesDossiersUsers`
-ADD CONSTRAINT `FK_Relation_RolesDossiersUsers_user_id` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`),
-ADD CONSTRAINT `FK_Relation_RolesDossiersUsers_droit_id` FOREIGN KEY (`droit_id`) REFERENCES `Droits` (`droit_id`),
-ADD CONSTRAINT `FK_Relation_RolesDossiersUsers_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`);
-
---
--- Contraintes pour la table `Users`
---
-ALTER TABLE `Users`
-ADD CONSTRAINT `FK_Users_personnel_id` FOREIGN KEY (`personnel_id`) REFERENCES `Personnels` (`personnel_id`);
+ADD CONSTRAINT `FK_Patients_pole_id` FOREIGN KEY (`pole_id`) REFERENCES `Poles` (`pole_id`),
+ADD CONSTRAINT `FK_Patients_services_id` FOREIGN KEY (`services_id`) REFERENCES `Services` (`services_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
