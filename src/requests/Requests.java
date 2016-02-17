@@ -10,6 +10,16 @@ import java.util.List;
 
 public class Requests {
 	
+	//Test pour le login , renvoie l'id de l'utilisateur
+	public static ResultSet Login(Connection conn, String login, String mdp ) throws SQLException {
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT user_id FROM Users WHERE login=(?) AND mot_passe=(?)");
+		query.setString(1,login);
+		query.setString(2, mdp);
+		ResultSet set = query.executeQuery();
+		return set;
+	}
+	
+	
 	//affiche les données d'un patient
 	public static ResultSet SELECT_PATIENT(Connection conn, int id) throws SQLException {
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT* FROM Patients WHERE patient_id= (?)");

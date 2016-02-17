@@ -21,7 +21,7 @@ public class Main {
 		String sql="";
 		String url = "jdbc:mysql://localhost:3306/gestion_projet?useSSL=false";
 		String login="root";
-		String mdp="mysql";
+		String mdp="";
 		int id;
 		String adresse;
 		int num_dossier;
@@ -74,18 +74,23 @@ public class Main {
 //			System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
 //
 //		}
-			List<ResultSet> list = Requests. SEARCH_DMP_BY_FILE_NUMBER(myCon, 1);
-			ResultSet set = list.get(2);
-			while(set.next()) {
-
-					num_dossier = set.getInt("num_dossier");
-					id = set.getInt("epOuvert_id");
-					date_debut = set.getString("date_debut");
-					date_fin = set.getString("date_derniere_visite");
-					personnel_id = set.getInt("personnel_id");		
-					System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
-			}
+//			List<ResultSet> list = Requests. SEARCH_DMP_BY_FILE_NUMBER(myCon, 1);
+//			ResultSet set = list.get(2);
+//			while(set.next()) {
+//
+//					num_dossier = set.getInt("num_dossier");
+//					id = set.getInt("epOuvert_id");
+//					date_debut = set.getString("date_debut");
+//					date_fin = set.getString("date_derniere_visite");
+//					personnel_id = set.getInt("personnel_id");		
+//					System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
+//			}
 			
+			ResultSet res = Requests.Login(myCon, "porcel", "passorcel");
+			while(res.next()) {
+				int user_id = res.getInt("user_id");
+				System.out.println("result user_id:" + user_id);
+			}
 			
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
