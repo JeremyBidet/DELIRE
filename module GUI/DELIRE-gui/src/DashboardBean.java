@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
 /**
- * Created by jerem_000 on 15/02/2016.
+ * Created by Jeremy
  */
 @ManagedBean(name="dashboard")
 @ViewScoped

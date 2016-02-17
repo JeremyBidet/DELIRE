@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: jerem_000
-  Date: 14/02/2016
-  Time: 22:36
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -20,7 +14,7 @@
     </h:head>
 
     <h:body>
-        <h:form>
+        <h:form id="main_toolbar">
             <p:growl id="messages"/>
 
             <p:menubar>
@@ -42,6 +36,7 @@
                 <f:facet name="options">
                     <p:inputText style="margin-right:10px" placeholder="Search"/>
                     <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"
+                                     update="main_toolbar"
                                      actionListener="#{authenticate.logout}"/>
                 </f:facet>
             </p:menubar>
