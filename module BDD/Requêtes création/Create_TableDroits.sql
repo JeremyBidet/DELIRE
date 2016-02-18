@@ -14,6 +14,10 @@ CREATE TABLE Droits(
         droit_ecriture_episodes_patient      Bool ,
         droit_lecture_elementSuivis_patient  Bool ,
         droit_ecriture_elementSuivis_patient Bool ,
+        droit_ecriture_dossier_patient		 Bool ,
+        droit_lecture_dossiers_patient		 Bool ,
+        droit_ecriture_document_patient		 Bool ,
+        droit_lecture_document_patient		 Bool ,
         PRIMARY KEY (droit_id )
 )ENGINE=InnoDB;
 

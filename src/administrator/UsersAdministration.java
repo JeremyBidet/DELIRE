@@ -53,7 +53,7 @@ public class UsersAdministration {
 			addUserQuery.executeUpdate();
 		} catch (MySQLIntegrityConstraintViolationException sqle) {
 			throw new IllegalStateException(
-					"The login '" + login + "' already exists in the database. Please choose other one.");
+					"The login '" + login + "' already exists in the database. Please choose other one." + sqle.getMessage());
 		}
 	}
 

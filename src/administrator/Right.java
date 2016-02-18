@@ -4,13 +4,17 @@ public enum Right {
 	
 	DROIT_LECTURE_IDENTITE_PATIENT(1,"droit_lecture_identite_patient"),
 	DROIT_LECTURE_PRESCRIPTIONS_PATIENT(2, "droit_lecture_prescriptions_patient"),
-	DROIT_ECIRTURE_PRESCRIPTIONS_PATIENT(3, "droit_ecriture_prescriptions_patient"),
+	DROIT_ECRITURE_PRESCRIPTIONS_PATIENT(3, "droit_ecriture_prescriptions_patient"),
 	DROIT_LECTURE_ANTECEDENTS_PATIENT(4, "droit_lecture_antecedents_patient"),
 	DROIT_ECRITURE_ANTECEDENTS_PATIENT(5, "droit_ecriture_antecedents_patient"),
 	DROIT_LECTURE_EPISODES_PATIENT(6, "droit_lecture_episodes_patient"),
 	DROIT_ECRITURE_EPISODES_PATIENT(7, "droit_ecriture_episodes_patient"),
 	DROIT_LECTURE_ELEMENTSUIVIS_PATIENT(8, "droit_lecture_elementSuivis_patient"),
-	DROIT_ECRITURE_ELEMENTSUIVIS_PATIENT(9, "droit_ecriture_elementSuivis_patient");
+	DROIT_ECRITURE_ELEMENTSUIVIS_PATIENT(9, "droit_ecriture_elementSuivis_patient"),
+	DROIT_ECRITURE_DOSSIER_PATIENT(10, "droit_ecriture_dossier_patient"),
+	DROIT_LECTURE_DOSSIER_PATIENT(11, "droit_lecture_dossiers_patient"),
+	DROIT_ECRITURE_DOCUMENT_PATIENT(12,"droit_ecriture_document_patient"),
+	DROIT_LECTURE_DOCUMENT_PATIENT(13,"droit_lecture_document_patient");
 	
 	
 	private int rigthNo;

@@ -21,7 +21,7 @@ public class Main {
 			UsersAdministration.addUser(myConn, "Roger");
 			
 			HashMap<Right, Boolean> rights = new HashMap<>();
-			rights.put(Right.DROIT_ECIRTURE_PRESCRIPTIONS_PATIENT, false);
+			rights.put(Right.DROIT_ECRITURE_PRESCRIPTIONS_PATIENT, false);
 			rights.put(Right.DROIT_ECRITURE_ANTECEDENTS_PATIENT, false);
 			rights.put(Right.DROIT_ECRITURE_ELEMENTSUIVIS_PATIENT, false);
 			rights.put(Right.DROIT_ECRITURE_EPISODES_PATIENT, false);
@@ -30,10 +30,14 @@ public class Main {
 			rights.put(Right.DROIT_LECTURE_EPISODES_PATIENT, false);
 			rights.put(Right.DROIT_LECTURE_IDENTITE_PATIENT, false);
 			rights.put(Right.DROIT_LECTURE_PRESCRIPTIONS_PATIENT, false);
+			rights.put(Right.DROIT_ECRITURE_DOCUMENT_PATIENT, false);
+			rights.put(Right.DROIT_LECTURE_DOCUMENT_PATIENT, false);
+			rights.put(Right.DROIT_ECRITURE_DOSSIER_PATIENT, false);
+			rights.put(Right.DROIT_LECTURE_DOSSIER_PATIENT, false);
 			
 			RoleAdministration.addRole(myConn, "RoleTest", rights);
 			
-			rights.put(Right.DROIT_ECIRTURE_PRESCRIPTIONS_PATIENT, true);
+			rights.put(Right.DROIT_ECRITURE_PRESCRIPTIONS_PATIENT, true);
 			
 			RoleAdministration.modifyRole(myConn, "RoleTest", rights);
 			

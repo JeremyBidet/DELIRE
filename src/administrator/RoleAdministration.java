@@ -12,11 +12,16 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 public class RoleAdministration {
 
 	/**
-	 * Add role to the dataBase with a roleLabel to recognize this role. 
-	 * This method accepts an HashMap of <Right, Boolean>. 
-	 * @param conn The connection to the database.
-	 * @param roleLabel The name choose to recognize this role later.
-	 * @param rights HashMap of boolean values to set the new role. HashMap must contains all rights of the enumeration Right.
+	 * Add role to the dataBase with a roleLabel to recognize this role. This
+	 * method accepts an HashMap of <Right, Boolean>.
+	 * 
+	 * @param conn
+	 *            The connection to the database.
+	 * @param roleLabel
+	 *            The name choose to recognize this role later.
+	 * @param rights
+	 *            HashMap of boolean values to set the new role. HashMap must
+	 *            contains all rights of the enumeration Right.
 	 * @throws SQLException
 	 */
 	public static void addRole(Connection conn, String roleLabel, HashMap<Right, Boolean> rights) throws SQLException {
@@ -29,7 +34,7 @@ public class RoleAdministration {
 
 		// Preparing INSERT SQL Query
 		PreparedStatement addRoleQuery = (PreparedStatement) conn.prepareStatement(
-				"INSERT INTO Droits VALUES (DEFAULT, (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))");
+				"INSERT INTO Droits VALUES (DEFAULT, (?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))");
 
 		// Add roleLabel to the first argument
 		addRoleQuery.setString(1, roleLabel);
@@ -46,16 +51,21 @@ public class RoleAdministration {
 			addRoleQuery.executeUpdate();
 		} catch (MySQLIntegrityConstraintViolationException sqle) {
 			throw new IllegalStateException("The role '" + roleLabel
-					+ "' already exists in the database. Please choose other name for this role.");
+					+ "' already exists in the database. Please choose other name for this role." + sqle.getMessage());
 		}
 
 	}
 
 	/**
-	 * Modify an existing role. The roleLabel allows to recognize the exact role.
-	 * @param conn The connection to the DataBase.
-	 * @param roleLabel The role to update.
-	 * @param rights the new right to apply to this role.
+	 * Modify an existing role. The roleLabel allows to recognize the exact
+	 * role.
+	 * 
+	 * @param conn
+	 *            The connection to the DataBase.
+	 * @param roleLabel
+	 *            The role to update.
+	 * @param rights
+	 *            the new right to apply to this role.
 	 * @throws SQLException
 	 */
 	public static void modifyRole(Connection conn, String roleLabel, HashMap<Right, Boolean> rights)
@@ -72,7 +82,9 @@ public class RoleAdministration {
 						+ "droit_lecture_prescriptions_patient = (?), " + "droit_ecriture_prescriptions_patient = (?), "
 						+ "droit_lecture_antecedents_patient = (?), " + "droit_ecriture_antecedents_patient = (?), "
 						+ "droit_lecture_episodes_patient = (?), " + "droit_ecriture_episodes_patient = (?), "
-						+ "droit_lecture_elementSuivis_patient = (?), " + "droit_ecriture_elementSuivis_patient = (?)"
+						+ "droit_lecture_elementSuivis_patient = (?), " + "droit_ecriture_elementSuivis_patient = (?),"
+						+ "droit_ecriture_dossier_patient = (?)," + "droit_lecture_dossiers_patient = (?),"
+						+ "droit_ecriture_document_patient = (?)," + "droit_lecture_document_patient = (?)"
 						+ "WHERE role_libelle = (?)");
 
 		// Add right to the others arguments
@@ -91,8 +103,11 @@ public class RoleAdministration {
 
 	/**
 	 * Delete an existing role.
-	 * @param conn The connection to the DataBase.
-	 * @param roleLabel The role to delete.
+	 * 
+	 * @param conn
+	 *            The connection to the DataBase.
+	 * @param roleLabel
+	 *            The role to delete.
 	 * @throws SQLException
 	 */
 	public static void deleteRole(Connection conn, String roleLabel) throws SQLException {
@@ -107,9 +122,13 @@ public class RoleAdministration {
 
 	/**
 	 * Assign an user to a role. The user and the role must be in the DataBase.
-	 * @param conn The connection to the DataBase.
-	 * @param userLogin The user to assign.
-	 * @param roleLabel The role to assign.
+	 * 
+	 * @param conn
+	 *            The connection to the DataBase.
+	 * @param userLogin
+	 *            The user to assign.
+	 * @param roleLabel
+	 *            The role to assign.
 	 * @throws SQLException
 	 */
 	public static void roleAssignement(Connection conn, String userLogin, String roleLabel) throws SQLException {
@@ -129,10 +148,15 @@ public class RoleAdministration {
 	}
 
 	/**
-	 * Remove the assignment between an user and a role. They must both existing and already assigned.
-	 * @param conn The connection to the DataBase.
-	 * @param userLogin The user to dismiss.
-	 * @param roleLabel The role to dismiss.
+	 * Remove the assignment between an user and a role. They must both existing
+	 * and already assigned.
+	 * 
+	 * @param conn
+	 *            The connection to the DataBase.
+	 * @param userLogin
+	 *            The user to dismiss.
+	 * @param roleLabel
+	 *            The role to dismiss.
 	 * @throws SQLException
 	 */
 	public static void roleDismissal(Connection conn, String userLogin, String roleLabel) throws SQLException {
