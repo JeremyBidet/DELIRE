@@ -84,33 +84,33 @@ INSERT INTO `Antecedents` (`antecedent_id`) VALUES
 (24),
 (25);
 
--- --------------------------------------------------------
 
---
--- Structure de la table `DocType`
--- DEPRECATED, utile pour de lanon redondance mais on est en gestion de projet donc inutile !
 
---CREATE TABLE IF NOT EXISTS `DocType` (
---`docType_id` int(11) NOT NULL,
---  `type` int(11) NOT NULL,
---  `label` varchar(32) COLLATE latin1_general_ci NOT NULL
---) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+/*
+ Structure de la table `DocType`
+ DEPRECATED, utile pour de lanon redondance mais on est en gestion de projet donc inutile !
 
---
--- Contenu de la table `DocType`
---
+CREATE TABLE IF NOT EXISTS `DocType` (
+`docType_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `label` varchar(32) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
---INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
---(1, 10, 'Biologie prescription'),
---(2, 10, 'Prescription médicaments'),
---(3, 10, 'Prescription divers'),
---(4, 10, 'Prescription imagerie'),
---(5, 10, 'Prescription Kinésithérapie'),
---(6, 10, 'Prescription soin infirmier'),
---(7, 20, 'Certificat'),
---(8, 20, 'Cerfa'),
---(9, 30, 'Lettre'),
---(10, 30, 'D.M.S');
+
+ Contenu de la table `DocType`
+
+
+INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
+(1, 10, 'Biologie prescription'),
+(2, 10, 'Prescription médicaments'),
+(3, 10, 'Prescription divers'),
+(4, 10, 'Prescription imagerie'),
+(5, 10, 'Prescription Kinésithérapie'),
+(6, 10, 'Prescription soin infirmier'),
+(7, 20, 'Certificat'),
+(8, 20, 'Cerfa'),
+(9, 30, 'Lettre'),
+(10, 30, 'D.M.S');*/
 
 -- --------------------------------------------------------
 
@@ -904,12 +904,6 @@ ALTER TABLE `Antecedents`
  ADD PRIMARY KEY (`antecedent_id`);
 
 --
--- Index pour la table `DocType`
---
---ALTER TABLE `DocType`
--- ADD PRIMARY KEY (`docType_id`);
-
---
 -- Index pour la table `Documents`
 --
 ALTER TABLE `Documents`
@@ -1069,11 +1063,6 @@ ALTER TABLE `Users`
 ALTER TABLE `Antecedents`
 MODIFY `antecedent_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
--- AUTO_INCREMENT pour la table `DocType`
---
---ALTER TABLE `DocType`
---MODIFY `docType_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
 -- AUTO_INCREMENT pour la table `Documents`
 --
 ALTER TABLE `Documents`
@@ -1152,12 +1141,6 @@ MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 ALTER TABLE `Allergies`
 ADD CONSTRAINT `FK_Allergies_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`);
-
---
--- Contraintes pour la table `Documents`
---
---ALTER TABLE `Documents`
---ADD CONSTRAINT `FK_Documents_docType_id` FOREIGN KEY (`docType_id`) REFERENCES `DocType` (`docType_id`);
 
 --
 -- Contraintes pour la table `Dossiers`
