@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 12:23
+-- Généré le :  Sam 20 Février 2016 à 12:51
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -84,39 +84,8 @@ INSERT INTO `Antecedents` (`antecedent_id`) VALUES
 (24),
 (25);
 
-
-<<<<<<< HEAD
-=======
-
-/*
- Structure de la table `DocType`
- DEPRECATED, utile pour de lanon redondance mais on est en gestion de projet donc inutile !
-
-CREATE TABLE IF NOT EXISTS `DocType` (
-`docType_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
-  `label` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
-
- Contenu de la table `DocType`
-
-
-INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
-(1, 10, 'Biologie prescription'),
-(2, 10, 'Prescription médicaments'),
-(3, 10, 'Prescription divers'),
-(4, 10, 'Prescription imagerie'),
-(5, 10, 'Prescription Kinésithérapie'),
-(6, 10, 'Prescription soin infirmier'),
-(7, 20, 'Certificat'),
-(8, 20, 'Cerfa'),
-(9, 30, 'Lettre'),
-(10, 30, 'D.M.S');*/
-
 -- --------------------------------------------------------
 
->>>>>>> origin/working
 --
 -- Structure de la table `Documents`
 --
@@ -174,66 +143,37 @@ CREATE TABLE IF NOT EXISTS `Droits` (
   `droit_ecriture_episodes_patient` tinyint(1) DEFAULT NULL,
   `droit_lecture_elementSuivis_patient` tinyint(1) DEFAULT NULL,
   `droit_ecriture_elementSuivis_patient` tinyint(1) DEFAULT NULL,
-<<<<<<< HEAD
-  `droit_lecture_documents_patient` tinyint(4) NOT NULL,
-  `droit_ecriture_patien_patient` tinyint(4) NOT NULL
-=======
-  `droit_ecriture_dossier_patient` tinyint(1) DEFAULT NULL,
-  `droit_lecture_dossiers_patient` tinyint(1) DEFAULT NULL,
-  `droit_ecriture_document_patient` tinyint(1) DEFAULT NULL,
-  `droit_lecture_document_patient` tinyint(1) DEFAULT NULL
->>>>>>> origin/working
+  `droit_lecture_documents_patient` tinyint(1) DEFAULT NULL,
+  `droit_ecriture_documents_patient` tinyint(1) DEFAULT NULL,
+  `droit_lecture_dossier_patient` tinyint(1) DEFAULT NULL,
+  `droit_ecriture_dossier_patient` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Droits`
 --
 
-<<<<<<< HEAD
-INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`, `droit_lecture_documents_patient`, `droit_ecriture_patien_patient`) VALUES
-(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
-(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
-(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0),
-(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
-(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0),
-(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0),
-(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0),
-(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0),
-(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0),
-(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0),
-(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0),
-(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0),
-(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0),
-(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0),
-(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0);
-=======
-INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`, `droit_ecriture_dossier_patient`, `droit_lecture_dossiers_patient`, `droit_ecriture_document_patient`, `droit_lecture_document_patient`) VALUES
-(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
-(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
-(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0),
-(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0),
-(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0),
-(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0),
-(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0),
-(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0),
-(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0),
-(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0),
-(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0),
-(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0),
-(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
->>>>>>> origin/working
+INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`, `droit_lecture_documents_patient`, `droit_ecriture_documents_patient`, `droit_lecture_dossier_patient`, `droit_ecriture_dossier_patient`) VALUES
+(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, NULL, NULL),
+(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, NULL, NULL),
+(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL),
+(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, NULL, NULL),
+(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, NULL, NULL),
+(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, NULL, NULL),
+(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, NULL, NULL),
+(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, NULL, NULL),
+(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, NULL, NULL),
+(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, NULL, NULL),
+(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, NULL, NULL),
+(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, NULL, NULL),
+(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, NULL, NULL),
+(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, NULL, NULL),
+(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
