@@ -6,10 +6,18 @@ import java.util.List;
 
 public class RequestsWithRoleCheck {
     private final Connection connection;
+    private final boolean unitTest;
 
     public RequestsWithRoleCheck(String url, String login, String mdp) throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(url, login, mdp);
+        unitTest = false;
+    }
+
+    protected RequestsWithRoleCheck(String url, String login, String mdp, boolean unitTest) throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        connection = DriverManager.getConnection(url, login, mdp);
+        this.unitTest = unitTest;
     }
 
     private boolean hasRight(String user, String askedRight) throws SQLException {
@@ -48,7 +56,7 @@ public class RequestsWithRoleCheck {
         testRights(user, "droit_lecture_antecedents_patient");
         testRights(user, "droit_lecture_episodes_patient");
         testRights(user, "droit_lecture_elementSuivis_patient");
-//        TODO add droit_lecture_documents_patient
+        testRights(user, "droit_lecture_documents_patient");
     }
 
     public ResultSet login(String login, String password) throws SQLException {
@@ -57,106 +65,158 @@ public class RequestsWithRoleCheck {
 
     public ResultSet getPatientInfosById(String user, int id) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_identite_patient");
-        return Requests.SELECT_PATIENT(connection, id);
+        if(!unitTest){
+            return Requests.SELECT_PATIENT(connection, id);
+        }
+        return null;
     }
 
     public List<ResultSet> getFullDMPByDMPId(String user, int dmp_id) throws NoRightTo, SQLException {
         testAllReadingRights(user);
-        return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
+        }
+        return null;
     }
 
     public List<ResultSet> getFullDMPByFirstName(String user, String firstName) throws NoRightTo, SQLException {
         testAllReadingRights(user);
-        return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
+        }
+        return null;
     }
 
     public List<ResultSet> getFullDMPByLastName(String user, String lastName) throws NoRightTo, SQLException {
         testAllReadingRights(user);
-        return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
+        }
+        return null;
     }
 
     public List<ResultSet> getFullDMPByPatientId(String user, int patient_id) throws NoRightTo, SQLException {
         testAllReadingRights(user);
-        return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
+        }
+        return null;
     }
 
     public void addDossier(String user, String libelle, int patient_id) throws NoRightTo, SQLException {
-//        TODO testRights(user, "droit_ecriture_dossier_patient");
-        Requests.ADD_DMP(connection, libelle, patient_id);
+        testRights(user, "droit_ecriture_dossier_patient");
+        if(!unitTest){
+            Requests.ADD_DMP(connection, libelle, patient_id);
+        }
     }
 
     public void addDMPPrescription(String user, int presc_id,int dmp_id, String date_deb, String date_fin, int personnel_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_prescriptions_patient");
-        Requests.ADD_DMP_Prescription(connection, presc_id, dmp_id, date_deb, date_fin, personnel_id);
+        if(!unitTest){
+            Requests.ADD_DMP_Prescription(connection, presc_id, dmp_id, date_deb, date_fin, personnel_id);
+        }
     }
 
     public void addDMPEpisode(String user, int episode_id, int dmp_id, String date_debut, String date_derniere_visite, String notes, int personnel_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_episodes_patient");
-        Requests.ADD_DMP_Episode(connection, episode_id, dmp_id, date_debut, date_derniere_visite, notes, personnel_id);
+        if(!unitTest){
+            Requests.ADD_DMP_Episode(connection, episode_id, dmp_id, date_debut, date_derniere_visite, notes, personnel_id);
+        }
     }
 
     public void addDMPAntecedent(String user, int antecedent_id, int dmp_id, String date_debut, String date_fin, String notes, int personnel_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_antecedents_patient");
-        Requests.ADD_DMP_Antecedents(connection, antecedent_id, dmp_id, date_debut, date_fin, notes, personnel_id);
+        if(!unitTest){
+            Requests.ADD_DMP_Antecedents(connection, antecedent_id, dmp_id, date_debut, date_fin, notes, personnel_id);
+        }
     }
 
     public void addDMPElements(String user, int element_id, int dmp_id, int personnel_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_elementSuivis_patient");
-        Requests.ADD_DMP_Elements(connection, element_id, dmp_id, personnel_id);
+        if(!unitTest){
+            Requests.ADD_DMP_Elements(connection, element_id, dmp_id, personnel_id);
+        }
     }
 
     public void addDMPDocument(String user, int document_id, int dmp_id) throws NoRightTo, SQLException {
-//        TODO testRights(user, "droit_ecriture_document_patient");
-        Requests.ADD_DMP_Doc(connection, document_id, dmp_id);
+        testRights(user, "droit_ecriture_documents_patient");
+        if(!unitTest){
+            Requests.ADD_DMP_Doc(connection, document_id, dmp_id);
+        }
     }
 
     public ResultSet getPrescriptions(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_prescriptions_patient");
-        return Requests.SELECT_Prescription(connection, num_dossier);
+        if(!unitTest){
+            return Requests.SELECT_Prescription(connection, num_dossier);
+        }
+        return null;
     }
 
     public ResultSet getEpisode(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_episodes_patient");
-        return Requests.SELECT_Episode(connection, num_dossier);
+        if(!unitTest){
+            return Requests.SELECT_Episode(connection, num_dossier);
+        }
+        return null;
     }
 
     public ResultSet getAntecedent(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_antecedents_patient");
-        return Requests.SELECT_Antecedent(connection, num_dossier);
+        if(!unitTest){
+            return Requests.SELECT_Antecedent(connection, num_dossier);
+        }
+        return null;
     }
 
     public ResultSet getElements(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_elementSuivis_patient");
-        return Requests.SELECT_Elements(connection, num_dossier);
+        if(!unitTest){
+            return Requests.SELECT_Elements(connection, num_dossier);
+        }
+        return null;
     }
 
     public ResultSet getDocument(String user, int num_dossier) throws NoRightTo, SQLException {
-//        TODO testRights(user, "droit_lecture_document_patient");
-        return Requests.SELECT_Doc(connection, num_dossier);
+        testRights(user, "droit_lecture_documents_patient");
+        if(!unitTest){
+            return Requests.SELECT_Doc(connection, num_dossier);
+        }
+        return null;
     }
 
     public void addPrescription(String user, int id, String libelle, String dosage) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_prescriptions_patient");
-        Requests.ADD_Prescription(connection, id, libelle, dosage);
+        if(!unitTest){
+            Requests.ADD_Prescription(connection, id, libelle, dosage);
+        }
     }
 
     public void addEpisode(String user, int id, String libelle)throws NoRightTo, SQLException{
         testRights(user, "droit_ecriture_episodes_patient");
-        Requests.ADD_Episode(connection, id, libelle);
+        if(!unitTest){
+            Requests.ADD_Episode(connection, id, libelle);
+        }
     }
 
-    public void addAntecedent(String user, int id)throws NoRightTo, SQLException{
+    public void addAntecedent(String user, int id) throws NoRightTo, SQLException{
         testRights(user, "droit_ecriture_antecedents_patient");
-        Requests.ADD_Antecedent(connection, id);
+        if(!unitTest){
+            Requests.ADD_Antecedent(connection, id);
+        }
     }
 
-    public void addElement(String user, int id, String examen_type, String examen_libelle, float valeur1, String unite1, float valeur2, String unite2, String resultat_test)throws NoRightTo, SQLException{
+    public void addElement(String user, int id, String examen_type, String examen_libelle, float valeur1, String unite1, float valeur2, String unite2, String resultat_test) throws NoRightTo, SQLException{
         testRights(user, "droit_ecriture_elementSuivis_patient");
-        Requests.ADD_Elements(connection, id, examen_type, examen_libelle, valeur1, unite1, valeur2, unite2, resultat_test);
+        if(!unitTest){
+            Requests.ADD_Elements(connection, id, examen_type, examen_libelle, valeur1, unite1, valeur2, unite2, resultat_test);
+        }
     }
 
     public void addDocument(String user, int id, Blob contenu, float size_file, String docType)throws NoRightTo, SQLException{
-//        TODO testRights(user, "droit_ecriture_document_patient");
-        Requests.ADD_Doc(connection, id, contenu, size_file, docType);
+        testRights(user, "droit_ecriture_documents_patient");
+        if(!unitTest){
+            Requests.ADD_Doc(connection, id, contenu, size_file, docType);
+        }
     }
 }
