@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 13:39
+-- Généré le :  Sam 20 Février 2016 à 14:09
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -864,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `login` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `mot_passe` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
-  `personnel_id` int(11) NOT NULL
+  `personnel_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
