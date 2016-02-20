@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 10:37
+-- Généré le :  Sam 20 Février 2016 à 11:28
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -23,13 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Allergies`
+-- Structure de la table `Partie_Prescription`
 --
 
-CREATE TABLE IF NOT EXISTS `Allergies` (
-  `antecedent_id` int(11) NOT NULL,
-  `allergie_libelle` varchar(64) COLLATE latin1_general_ci NOT NULL,
-  `code_CIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
+CREATE TABLE IF NOT EXISTS `Partie_Prescription` (
+  `prescription_id` int(11) NOT NULL,
+  `num_dossier` int(11) NOT NULL,
+  `date_debut` varchar(10) COLLATE latin1_general_ci DEFAULT NULL,
+  `date_fin` varchar(10) COLLATE latin1_general_ci DEFAULT NULL,
+  `personnel_id` int(11) NOT NULL,
+  `created` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -37,20 +40,21 @@ CREATE TABLE IF NOT EXISTS `Allergies` (
 --
 
 --
--- Index pour la table `Allergies`
+-- Index pour la table `Partie_Prescription`
 --
-ALTER TABLE `Allergies`
- ADD PRIMARY KEY (`antecedent_id`), ADD UNIQUE KEY `allergie_libelle` (`allergie_libelle`);
+ALTER TABLE `Partie_Prescription`
+ ADD PRIMARY KEY (`prescription_id`,`num_dossier`), ADD KEY `FK_Partie_Prescription_num_dossier` (`num_dossier`);
 
 --
 -- Contraintes pour les tables exportées
 --
 
 --
--- Contraintes pour la table `Allergies`
+-- Contraintes pour la table `Partie_Prescription`
 --
-ALTER TABLE `Allergies`
-ADD CONSTRAINT `FK_Allergies_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`);
+ALTER TABLE `Partie_Prescription`
+ADD CONSTRAINT `FK_Partie_Prescription_num_dossier` FOREIGN KEY (`num_dossier`) REFERENCES `Dossiers` (`num_dossier`),
+ADD CONSTRAINT `FK_Partie_Prescription_prescription_id` FOREIGN KEY (`prescription_id`) REFERENCES `Prescriptions` (`prescription_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

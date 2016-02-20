@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Ven 05 Février 2016 à 20:16
+-- Généré le :  Sam 20 Février 2016 à 11:26
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -34,7 +34,7 @@ INSERT INTO `Examens` (`antecedent_id`, `examen_libelle`, `examen_type`) VALUES
 (7, 'Pouls', 'Biometrie'),
 (8, 'Perimetre du poignet', 'Biometrie'),
 (9, 'Diamètre aorte abdominale', 'Biometrie'),
-(10, 'Périmètre du bassin', 'Biometrie'),
+(10, 'Diamètre du bassin PRP', 'Biometrie'),
 (11, 'Examens des seins', 'Clinique'),
 (12, 'Test appui monopodal', 'Clinique'),
 (13, 'Sensibilité à la douleur', 'Clinique'),

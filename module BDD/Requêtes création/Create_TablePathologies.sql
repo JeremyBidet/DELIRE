@@ -1,10 +1,56 @@
-#------------------------------------------------------------
-# Table: Pathologies
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.2.12deb2+deb8u1
+-- http://www.phpmyadmin.net
+--
+-- Client :  sqletud.univ-mlv.fr
+-- Généré le :  Sam 20 Février 2016 à 11:29
+-- Version du serveur :  5.5.40-0+wheezy1-log
+-- Version de PHP :  5.6.14-0+deb8u1
 
-CREATE TABLE Pathologies(
-        patho_id      int (11) Auto_increment  NOT NULL ,
-        patho_libelle Varchar (32) NOT NULL ,
-        codeCIM10     Varchar (16) NOT NULL ,
-        PRIMARY KEY (patho_id )
-)ENGINE=InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données :  `jchattou_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Pathologies`
+--
+
+CREATE TABLE IF NOT EXISTS `Pathologies` (
+`patho_id` int(11) NOT NULL,
+  `patho_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL,
+  `codeCIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `Pathologies`
+--
+ALTER TABLE `Pathologies`
+ ADD PRIMARY KEY (`patho_id`), ADD UNIQUE KEY `patho_libelle` (`patho_libelle`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Pathologies`
+--
+ALTER TABLE `Pathologies`
+MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

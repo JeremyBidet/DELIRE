@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 10:37
+-- Généré le :  Sam 20 Février 2016 à 11:20
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -23,13 +23,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Allergies`
+-- Structure de la table `ListePatho_Pour_Episodes`
 --
 
-CREATE TABLE IF NOT EXISTS `Allergies` (
-  `antecedent_id` int(11) NOT NULL,
-  `allergie_libelle` varchar(64) COLLATE latin1_general_ci NOT NULL,
-  `code_CIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
+CREATE TABLE IF NOT EXISTS `ListePatho_Pour_Episodes` (
+  `epOuvert_id` int(11) NOT NULL,
+  `patho_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -37,20 +36,21 @@ CREATE TABLE IF NOT EXISTS `Allergies` (
 --
 
 --
--- Index pour la table `Allergies`
+-- Index pour la table `ListePatho_Pour_Episodes`
 --
-ALTER TABLE `Allergies`
- ADD PRIMARY KEY (`antecedent_id`), ADD UNIQUE KEY `allergie_libelle` (`allergie_libelle`);
+ALTER TABLE `ListePatho_Pour_Episodes`
+ ADD PRIMARY KEY (`epOuvert_id`,`patho_id`), ADD KEY `FK_ListePatho_Pour_Episodes_patho_id` (`patho_id`);
 
 --
 -- Contraintes pour les tables exportées
 --
 
 --
--- Contraintes pour la table `Allergies`
+-- Contraintes pour la table `ListePatho_Pour_Episodes`
 --
-ALTER TABLE `Allergies`
-ADD CONSTRAINT `FK_Allergies_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`);
+ALTER TABLE `ListePatho_Pour_Episodes`
+ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_epOuvert_id` FOREIGN KEY (`epOuvert_id`) REFERENCES `EpisodesEnCours` (`epOuvert_id`),
+ADD CONSTRAINT `FK_ListePatho_Pour_Episodes_patho_id` FOREIGN KEY (`patho_id`) REFERENCES `Pathologies` (`patho_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

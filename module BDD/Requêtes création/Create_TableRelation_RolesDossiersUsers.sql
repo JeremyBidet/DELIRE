@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 06 Février 2016 à 00:59
+-- Généré le :  Sam 20 Février 2016 à 11:39
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -20,31 +20,27 @@ SET time_zone = "+00:00";
 -- Base de données :  `jchattou_db`
 --
 
+-- --------------------------------------------------------
+
 --
--- Contenu de la table `PossederDroits`
+-- Structure de la table `Relation_RolesDossiersUsers`
 --
 
-INSERT INTO `PossederDroits` (`droit_id`, `user_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(11, 11),
-(12, 12),
-(13, 13),
-(14, 14),
-(15, 15),
-(16, 16),
-(17, 17),
-(18, 18),
-(19, 19),
-(20, 20);
+CREATE TABLE IF NOT EXISTS `Relation_RolesDossiersUsers` (
+  `num_dossier` int(11) NOT NULL,
+  `droit_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `Relation_RolesDossiersUsers`
+--
+ALTER TABLE `Relation_RolesDossiersUsers`
+ ADD PRIMARY KEY (`num_dossier`,`droit_id`,`user_id`), ADD KEY `FK_Relation_RolesDossiersUsers_droit_id` (`droit_id`), ADD KEY `FK_Relation_RolesDossiersUsers_user_id` (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

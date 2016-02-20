@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 06 Février 2016 à 00:46
+-- Généré le :  Sam 20 Février 2016 à 11:21
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,10 +21,10 @@ SET time_zone = "+00:00";
 --
 
 --
--- Contenu de la table `ListeMeds_Pour_Prescriptions`
+-- Contenu de la table `ListePatho_Pour_Episodes`
 --
 
-INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
+INSERT INTO `ListePatho_Pour_Episodes` (`epOuvert_id`, `patho_id`) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
@@ -41,7 +41,15 @@ INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
 (14, 14),
 (15, 15),
 (16, 16),
-(17, 17);
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20),
+(21, 21),
+(22, 22),
+(23, 23),
+(24, 24),
+(25, 25);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

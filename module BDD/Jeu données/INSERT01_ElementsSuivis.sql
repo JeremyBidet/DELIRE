@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Mar 09 Février 2016 à 17:14
+-- Généré le :  Sam 20 Février 2016 à 11:16
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,35 +21,15 @@ SET time_zone = "+00:00";
 --
 
 --
--- Contenu de la table `ListePatho_Pour_Episodes`
+-- Contenu de la table `ElementsSuivis`
 --
 
-INSERT INTO `ListePatho_Pour_Episodes` (`epOuvert_id`, `patho_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(11, 11),
-(12, 12),
-(13, 13),
-(14, 14),
-(15, 15),
-(16, 16),
-(17, 17),
-(18, 18),
-(19, 19),
-(20, 20),
-(21, 21),
-(22, 22),
-(23, 23),
-(24, 24),
-(25, 25);
+INSERT INTO `ElementsSuivis` (`ES_id`, `examen_type`, `examen_libelle`, `valeur_1`, `unite_1`, `valeur_2`, `unite_2`, `resultat_test`) VALUES
+(1, 'Biométrie', 'Diamètre du bassin PRP (femme) ', 13.5, 'cm', NULL, NULL, '13,5 > 12,5 : normal'),
+(2, 'Biométrie', 'Tour de taille et tour de hanche (femme)', 70, 'cm', 90, 'cm', '0,77 < 0,8, correct'),
+(3, 'Biologie', 'Hémoglobine', 14.1, 'g/dl', NULL, NULL, 'normal, RAS'),
+(4, 'Biologie', 'Glycémie', 0.96, 'g/l', NULL, NULL, 'négatif'),
+(5, 'Biométrique', 'Tour de taille et tour de hanche (homme) ', 90, 'cm', 110, 'cm', '0,81 < 1 correct');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

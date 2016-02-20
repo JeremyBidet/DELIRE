@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 13 Février 2016 à 01:50
+-- Généré le :  Sam 20 Février 2016 à 12:23
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -87,34 +87,6 @@ INSERT INTO `Antecedents` (`antecedent_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `DocType`
--- DEPRECATED, utile pour de lanon redondance mais on est en gestion de projet donc inutile !
-
---CREATE TABLE IF NOT EXISTS `DocType` (
---`docType_id` int(11) NOT NULL,
---  `type` int(11) NOT NULL,
---  `label` varchar(32) COLLATE latin1_general_ci NOT NULL
---) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Contenu de la table `DocType`
---
-
---INSERT INTO `DocType` (`docType_id`, `type`, `label`) VALUES
---(1, 10, 'Biologie prescription'),
---(2, 10, 'Prescription médicaments'),
---(3, 10, 'Prescription divers'),
---(4, 10, 'Prescription imagerie'),
---(5, 10, 'Prescription Kinésithérapie'),
---(6, 10, 'Prescription soin infirmier'),
---(7, 20, 'Certificat'),
---(8, 20, 'Cerfa'),
---(9, 30, 'Lettre'),
---(10, 30, 'D.M.S');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `Documents`
 --
 
@@ -170,34 +142,36 @@ CREATE TABLE IF NOT EXISTS `Droits` (
   `droit_lecture_episodes_patient` tinyint(1) DEFAULT NULL,
   `droit_ecriture_episodes_patient` tinyint(1) DEFAULT NULL,
   `droit_lecture_elementSuivis_patient` tinyint(1) DEFAULT NULL,
-  `droit_ecriture_elementSuivis_patient` tinyint(1) DEFAULT NULL
+  `droit_ecriture_elementSuivis_patient` tinyint(1) DEFAULT NULL,
+  `droit_lecture_documents_patient` tinyint(4) NOT NULL,
+  `droit_ecriture_patien_patient` tinyint(4) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Droits`
 --
 
-INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`) VALUES
-(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0),
-(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0),
-(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0),
-(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0),
-(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0),
-(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1),
-(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0),
-(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1),
-(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1),
-(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1),
-(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1),
-(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1),
-(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1),
-(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1),
-(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1),
-(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1),
-(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO `Droits` (`droit_id`, `role_libelle`, `droit_lecture_identite_patient`, `droit_lecture_prescriptions_patient`, `droit_ecriture_prescriptions_patient`, `droit_lecture_antecedents_patient`, `droit_ecriture_antecedents_patient`, `droit_lecture_episodes_patient`, `droit_ecriture_episodes_patient`, `droit_lecture_elementSuivis_patient`, `droit_ecriture_elementSuivis_patient`, `droit_lecture_documents_patient`, `droit_ecriture_patien_patient`) VALUES
+(1, 'lecture_identite_patient', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'lecture_prescriptions_patient', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'ecriture_prescriptions_patient', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 'lecture_antecedents_patient', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(5, 'ecriture_antecedents_patient', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(6, 'lecture_episodes_patient', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+(7, 'ecriture_episodes_patient', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(8, 'lecture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0),
+(9, 'ecriture_elementSuivis_patient', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
+(10, 'toutes_lectures', 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0),
+(11, 'toutes_ecritures', 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0),
+(12, '_lecture_identite_patient', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0),
+(13, '_lecture_prescriptions_patient', 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0),
+(14, '_ecriture_prescriptions_patient', 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0),
+(15, '_lecture_antecedents_patient', 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0),
+(16, '_ecriture_antecedents_patient', 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0),
+(17, '_lecture_episodes_patient', 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0),
+(18, '_ecriture_episodes_patient', 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0),
+(19, '_lecture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0),
+(20, '_ecriture_elementSuivis_patient', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -211,10 +185,21 @@ CREATE TABLE IF NOT EXISTS `ElementsSuivis` (
   `examen_libelle` varchar(64) COLLATE latin1_general_ci NOT NULL,
   `valeur_1` float NOT NULL,
   `unite_1` varchar(25) COLLATE latin1_general_ci NOT NULL,
-  `valeur_2` float NOT NULL,
-  `unite_2` varchar(25) COLLATE latin1_general_ci NOT NULL,
+  `valeur_2` float DEFAULT NULL,
+  `unite_2` varchar(25) COLLATE latin1_general_ci DEFAULT NULL,
   `resultat_test` varchar(25) COLLATE latin1_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `ElementsSuivis`
+--
+
+INSERT INTO `ElementsSuivis` (`ES_id`, `examen_type`, `examen_libelle`, `valeur_1`, `unite_1`, `valeur_2`, `unite_2`, `resultat_test`) VALUES
+(1, 'Biométrie', 'Diamètre du bassin PRP (femme) ', 13.5, 'cm', NULL, NULL, '13,5 > 12,5 : normal'),
+(2, 'Biométrie', 'Tour de taille et tour de hanche (femme)', 70, 'cm', 90, 'cm', '0,77 < 0,8, correct'),
+(3, 'Biologie', 'Hémoglobine', 14.1, 'g/dl', NULL, NULL, 'normal, RAS'),
+(4, 'Biologie', 'Glycémie', 0.96, 'g/l', NULL, NULL, 'négatif'),
+(5, 'Biométrique', 'Tour de taille et tour de hanche (homme) ', 90, 'cm', 110, 'cm', '0,81 < 1 correct');
 
 -- --------------------------------------------------------
 
@@ -284,7 +269,7 @@ INSERT INTO `Examens` (`antecedent_id`, `examen_libelle`, `examen_type`) VALUES
 (7, 'Pouls', 'Biometrie'),
 (8, 'Perimetre du poignet', 'Biometrie'),
 (9, 'Diamètre aorte abdominale', 'Biometrie'),
-(10, 'Périmètre du bassin', 'Biometrie'),
+(10, 'Diamètre du bassin PRP', 'Biometrie'),
 (11, 'Examens des seins', 'Clinique'),
 (12, 'Test appui monopodal', 'Clinique'),
 (13, 'Sensibilité à la douleur', 'Clinique'),
@@ -461,6 +446,17 @@ CREATE TABLE IF NOT EXISTS `Partie_ElementsSuivis` (
   `personnel_id` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Contenu de la table `Partie_ElementsSuivis`
+--
+
+INSERT INTO `Partie_ElementsSuivis` (`ES_id`, `num_dossier`, `personnel_id`, `created`) VALUES
+(1, 3, 11, '2016-02-20 10:09:00'),
+(2, 6, 11, '2016-02-20 09:20:00'),
+(3, 2, 6, '2016-02-20 13:30:00'),
+(4, 1, 6, '2016-02-20 09:00:00'),
+(5, 8, 13, '2016-02-20 08:44:00');
 
 -- --------------------------------------------------------
 
@@ -662,14 +658,14 @@ CREATE TABLE IF NOT EXISTS `Poles` (
 --
 
 INSERT INTO `Poles` (`pole_id`, `libelle_pole`) VALUES
-(1, 'Urgence'),
-(2, 'Imagerie'),
 (3, 'Appareil Locomoteur'),
 (4, 'Biologie - Pathologie - Physiolo'),
 (5, 'DUNEGO'),
-(6, 'Neuroscience'),
+(2, 'Imagerie'),
 (7, 'IMAGINE'),
-(8, 'PREBLOC');
+(6, 'Neuroscience'),
+(8, 'PREBLOC'),
+(1, 'Urgence');
 
 -- --------------------------------------------------------
 
@@ -798,20 +794,20 @@ CREATE TABLE IF NOT EXISTS `Services` (
 --
 
 INSERT INTO `Services` (`services_id`, `service_libelle`) VALUES
-(1, 'Oto-rhino-laryngologie'),
-(2, 'Neurologie'),
-(3, 'Ophtalmologie'),
+(8, 'Anesthésie Réanimation'),
+(14, 'Biochimie et Biologie Moléculair'),
 (4, 'Cardiologie'),
 (5, 'Gynecologie-Obstetrique'),
 (6, 'Hépato Gastro Entérologie'),
-(7, 'Réanimation Médicale et Toxicolo'),
-(8, 'Anesthésie Réanimation'),
-(9, 'Radiologie Ostéo-articulaire'),
-(10, 'Toxicologie'),
 (11, 'Médecine interne'),
+(2, 'Neurologie'),
+(3, 'Ophtalmologie'),
+(1, 'Oto-rhino-laryngologie'),
 (12, 'Pharmacie'),
+(9, 'Radiologie Ostéo-articulaire'),
+(7, 'Réanimation Médicale et Toxicolo'),
 (13, 'Rhumatologie'),
-(14, 'Biochimie et Biologie Moléculair');
+(10, 'Toxicologie');
 
 -- --------------------------------------------------------
 
@@ -829,23 +825,23 @@ CREATE TABLE IF NOT EXISTS `Specialites` (
 --
 
 INSERT INTO `Specialites` (`specialite_id`, `specialite_libelle`) VALUES
-(1, 'Rhumatologue'),
-(2, 'Chirurgien Urologue'),
-(3, 'Cardiologue'),
-(4, 'Neurologue'),
-(5, 'Gynécologue -  Obstétricien'),
-(7, 'Secrétaire'),
-(8, 'Médecin'),
 (9, 'Anesthésiste-Réanimateur'),
-(10, 'Infirmier'),
-(11, 'Pharmacien'),
-(12, 'Neuro chirurgien'),
-(13, 'Chirurgien'),
-(14, 'Ophtalmologue'),
-(15, 'Gastro-entérologue'),
-(16, 'ORL'),
 (17, 'Biologie médicale'),
-(18, 'Radiodiagnostic');
+(3, 'Cardiologue'),
+(13, 'Chirurgien'),
+(2, 'Chirurgien Urologue'),
+(15, 'Gastro-entérologue'),
+(5, 'Gynécologue -  Obstétricien'),
+(10, 'Infirmier'),
+(8, 'Médecin'),
+(12, 'Neuro chirurgien'),
+(4, 'Neurologue'),
+(14, 'Ophtalmologue'),
+(16, 'ORL'),
+(11, 'Pharmacien'),
+(18, 'Radiodiagnostic'),
+(1, 'Rhumatologue'),
+(7, 'Secrétaire');
 
 -- --------------------------------------------------------
 
@@ -895,19 +891,13 @@ INSERT INTO `Users` (`user_id`, `login`, `mot_passe`, `created`, `personnel_id`)
 -- Index pour la table `Allergies`
 --
 ALTER TABLE `Allergies`
- ADD PRIMARY KEY (`antecedent_id`);
+ ADD PRIMARY KEY (`antecedent_id`), ADD UNIQUE KEY `allergie_libelle` (`allergie_libelle`);
 
 --
 -- Index pour la table `Antecedents`
 --
 ALTER TABLE `Antecedents`
  ADD PRIMARY KEY (`antecedent_id`);
-
---
--- Index pour la table `DocType`
---
---ALTER TABLE `DocType`
--- ADD PRIMARY KEY (`docType_id`);
 
 --
 -- Index pour la table `Documents`
@@ -919,13 +909,13 @@ ALTER TABLE `Documents`
 -- Index pour la table `Dossiers`
 --
 ALTER TABLE `Dossiers`
- ADD PRIMARY KEY (`num_dossier`), ADD KEY `FK_Dossiers_patient_id` (`patient_id`);
+ ADD PRIMARY KEY (`num_dossier`), ADD UNIQUE KEY `libelle` (`libelle`), ADD KEY `FK_Dossiers_patient_id` (`patient_id`);
 
 --
 -- Index pour la table `Droits`
 --
 ALTER TABLE `Droits`
- ADD PRIMARY KEY (`droit_id`);
+ ADD PRIMARY KEY (`droit_id`), ADD UNIQUE KEY `role_libelle` (`role_libelle`);
 
 --
 -- Index pour la table `ElementsSuivis`
@@ -937,13 +927,13 @@ ALTER TABLE `ElementsSuivis`
 -- Index pour la table `EpisodesEnCours`
 --
 ALTER TABLE `EpisodesEnCours`
- ADD PRIMARY KEY (`epOuvert_id`);
+ ADD PRIMARY KEY (`epOuvert_id`), ADD UNIQUE KEY `episode_libelle` (`episode_libelle`);
 
 --
 -- Index pour la table `Examens`
 --
 ALTER TABLE `Examens`
- ADD PRIMARY KEY (`antecedent_id`);
+ ADD PRIMARY KEY (`antecedent_id`), ADD UNIQUE KEY `examen_libelle` (`examen_libelle`);
 
 --
 -- Index pour la table `ListeMeds_Pour_Prescriptions`
@@ -997,13 +987,13 @@ ALTER TABLE `Partie_Prescription`
 -- Index pour la table `Pathologies`
 --
 ALTER TABLE `Pathologies`
- ADD PRIMARY KEY (`patho_id`);
+ ADD PRIMARY KEY (`patho_id`), ADD UNIQUE KEY `patho_libelle` (`patho_libelle`);
 
 --
 -- Index pour la table `Patients`
 --
 ALTER TABLE `Patients`
- ADD PRIMARY KEY (`patient_id`), ADD KEY `FK_Patients_pole_id` (`pole_id`), ADD KEY `FK_Patients_services_id` (`services_id`);
+ ADD PRIMARY KEY (`patient_id`), ADD UNIQUE KEY `num_NSS` (`num_NSS`), ADD KEY `FK_Patients_pole_id` (`pole_id`), ADD KEY `FK_Patients_services_id` (`services_id`);
 
 --
 -- Index pour la table `Personnels`
@@ -1015,7 +1005,7 @@ ALTER TABLE `Personnels`
 -- Index pour la table `Poles`
 --
 ALTER TABLE `Poles`
- ADD PRIMARY KEY (`pole_id`);
+ ADD PRIMARY KEY (`pole_id`), ADD UNIQUE KEY `libelle_pole` (`libelle_pole`);
 
 --
 -- Index pour la table `PossederDroits`
@@ -1027,7 +1017,7 @@ ALTER TABLE `PossederDroits`
 -- Index pour la table `Prescriptions`
 --
 ALTER TABLE `Prescriptions`
- ADD PRIMARY KEY (`prescription_id`);
+ ADD PRIMARY KEY (`prescription_id`), ADD UNIQUE KEY `libelle_prescription` (`libelle_prescription`);
 
 --
 -- Index pour la table `Rediger`
@@ -1045,19 +1035,19 @@ ALTER TABLE `Relation_RolesDossiersUsers`
 -- Index pour la table `Services`
 --
 ALTER TABLE `Services`
- ADD PRIMARY KEY (`services_id`);
+ ADD PRIMARY KEY (`services_id`), ADD UNIQUE KEY `service_libelle` (`service_libelle`);
 
 --
 -- Index pour la table `Specialites`
 --
 ALTER TABLE `Specialites`
- ADD PRIMARY KEY (`specialite_id`);
+ ADD PRIMARY KEY (`specialite_id`), ADD UNIQUE KEY `specialite_libelle` (`specialite_libelle`);
 
 --
 -- Index pour la table `Users`
 --
 ALTER TABLE `Users`
- ADD PRIMARY KEY (`user_id`), ADD KEY `FK_Users_personnel_id` (`personnel_id`);
+ ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `login` (`login`), ADD KEY `FK_Users_personnel_id` (`personnel_id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -1068,11 +1058,6 @@ ALTER TABLE `Users`
 --
 ALTER TABLE `Antecedents`
 MODIFY `antecedent_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT pour la table `DocType`
---
---ALTER TABLE `DocType`
---MODIFY `docType_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `Documents`
 --
@@ -1092,7 +1077,7 @@ MODIFY `droit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 -- AUTO_INCREMENT pour la table `ElementsSuivis`
 --
 ALTER TABLE `ElementsSuivis`
-MODIFY `ES_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `ES_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `EpisodesEnCours`
 --
@@ -1152,12 +1137,6 @@ MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 ALTER TABLE `Allergies`
 ADD CONSTRAINT `FK_Allergies_antecedent_id` FOREIGN KEY (`antecedent_id`) REFERENCES `Antecedents` (`antecedent_id`);
-
---
--- Contraintes pour la table `Documents`
---
---ALTER TABLE `Documents`
---ADD CONSTRAINT `FK_Documents_docType_id` FOREIGN KEY (`docType_id`) REFERENCES `DocType` (`docType_id`);
 
 --
 -- Contraintes pour la table `Dossiers`

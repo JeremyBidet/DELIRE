@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:42
+-- Généré le :  Sam 20 Février 2016 à 11:18
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,27 +21,35 @@ SET time_zone = "+00:00";
 --
 
 --
--- Contenu de la table `Specialites`
+-- Contenu de la table `EpisodesEnCours`
 --
 
-INSERT INTO `Specialites` (`specialite_id`, `specialite_libelle`) VALUES
-(9, 'Anesthésiste-Réanimateur'),
-(17, 'Biologie médicale'),
-(3, 'Cardiologue'),
-(13, 'Chirurgien'),
-(2, 'Chirurgien Urologue'),
-(15, 'Gastro-entérologue'),
-(5, 'Gynécologue -  Obstétricien'),
-(10, 'Infirmier'),
-(8, 'Médecin'),
-(12, 'Neuro chirurgien'),
-(4, 'Neurologue'),
-(14, 'Ophtalmologue'),
-(16, 'ORL'),
-(11, 'Pharmacien'),
-(18, 'Radiodiagnostic'),
-(1, 'Rhumatologue'),
-(7, 'Secrétaire');
+INSERT INTO `EpisodesEnCours` (`epOuvert_id`, `episode_libelle`) VALUES
+(1, 'PATHO-001'),
+(2, 'PATHO-002'),
+(3, 'PATHO-003'),
+(4, 'PATHO-004'),
+(5, 'PATHO-005'),
+(6, 'PATHO-006'),
+(7, 'PATHO-007'),
+(8, 'PATHO-008'),
+(9, 'PATHO-009'),
+(10, 'PATHO-010'),
+(11, 'PATHO-011'),
+(12, 'PATHO-012'),
+(13, 'PATHO-013'),
+(14, 'PATHO-014'),
+(15, 'PATHO-015'),
+(16, 'PATHO-016'),
+(17, 'PATHO-017'),
+(18, 'PATHO-018'),
+(19, 'PATHO-019'),
+(20, 'PATHO-020'),
+(21, 'PATHO-021'),
+(22, 'PATHO-022'),
+(23, 'PATHO-023'),
+(24, 'PATHO-024'),
+(25, 'PATHO-025');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

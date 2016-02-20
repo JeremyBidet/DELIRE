@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Ven 05 Février 2016 à 20:18
+-- Généré le :  Sam 20 Février 2016 à 11:41
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -25,14 +25,14 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `Poles` (`pole_id`, `libelle_pole`) VALUES
-(1, 'Urgence'),
-(2, 'Imagerie'),
 (3, 'Appareil Locomoteur'),
 (4, 'Biologie - Pathologie - Physiolo'),
 (5, 'DUNEGO'),
-(6, 'Neuroscience'),
+(2, 'Imagerie'),
 (7, 'IMAGINE'),
-(8, 'PREBLOC');
+(6, 'Neuroscience'),
+(8, 'PREBLOC'),
+(1, 'Urgence');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

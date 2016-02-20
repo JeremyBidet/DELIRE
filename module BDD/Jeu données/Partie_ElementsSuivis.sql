@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 06 Février 2016 à 00:59
+-- Généré le :  Sam 20 Février 2016 à 12:22
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -19,6 +19,17 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `jchattou_db`
 --
+
+--
+-- Contenu de la table `Partie_ElementsSuivis`
+--
+
+INSERT INTO `Partie_ElementsSuivis` (`ES_id`, `num_dossier`, `personnel_id`, `created`) VALUES
+(1, 3, 11, '2016-02-20 10:09:00'),
+(2, 6, 11, '2016-02-20 09:20:00'),
+(3, 2, 6, '2016-02-20 13:30:00'),
+(4, 1, 6, '2016-02-20 09:00:00'),
+(5, 8, 13, '2016-02-20 08:44:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Ven 05 Février 2016 à 20:19
+-- Généré le :  Sam 20 Février 2016 à 11:40
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -25,20 +25,20 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `Services` (`services_id`, `service_libelle`) VALUES
-(1, 'Oto-rhino-laryngologie'),
-(2, 'Neurologie'),
-(3, 'Ophtalmologie'),
+(8, 'Anesthésie Réanimation'),
+(14, 'Biochimie et Biologie Moléculair'),
 (4, 'Cardiologie'),
 (5, 'Gynecologie-Obstetrique'),
 (6, 'Hépato Gastro Entérologie'),
-(7, 'Réanimation Médicale et Toxicolo'),
-(8, 'Anesthésie Réanimation'),
-(9, 'Radiologie Ostéo-articulaire'),
-(10, 'Toxicologie'),
 (11, 'Médecine interne'),
+(2, 'Neurologie'),
+(3, 'Ophtalmologie'),
+(1, 'Oto-rhino-laryngologie'),
 (12, 'Pharmacie'),
+(9, 'Radiologie Ostéo-articulaire'),
+(7, 'Réanimation Médicale et Toxicolo'),
 (13, 'Rhumatologie'),
-(14, 'Biochimie et Biologie Moléculaire');
+(10, 'Toxicologie');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

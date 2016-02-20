@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:42
+-- Généré le :  Sam 20 Février 2016 à 12:02
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,27 +21,15 @@ SET time_zone = "+00:00";
 --
 
 --
--- Contenu de la table `Specialites`
+-- Contenu de la table `Allergies`
 --
 
-INSERT INTO `Specialites` (`specialite_id`, `specialite_libelle`) VALUES
-(9, 'Anesthésiste-Réanimateur'),
-(17, 'Biologie médicale'),
-(3, 'Cardiologue'),
-(13, 'Chirurgien'),
-(2, 'Chirurgien Urologue'),
-(15, 'Gastro-entérologue'),
-(5, 'Gynécologue -  Obstétricien'),
-(10, 'Infirmier'),
-(8, 'Médecin'),
-(12, 'Neuro chirurgien'),
-(4, 'Neurologue'),
-(14, 'Ophtalmologue'),
-(16, 'ORL'),
-(11, 'Pharmacien'),
-(18, 'Radiodiagnostic'),
-(1, 'Rhumatologue'),
-(7, 'Secrétaire');
+INSERT INTO `Allergies` (`antecedent_id`, `allergie_libelle`, `code_CIM10`) VALUES
+(21, 'IgE spécifiques Absinthe - w5', 'AG01'),
+(22, 'IgE spécifiques Chat', 'AG05'),
+(23, 'IgE spécifiques Abeille (venin) ', 'AGO-AB1'),
+(24, 'IgE spécifiques nGly m 5, soja -', 'AG-S1'),
+(25, 'IgE spécifiques Champignon - f21', 'AG10K');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

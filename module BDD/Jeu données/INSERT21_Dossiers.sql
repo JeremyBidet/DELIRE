@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Mar 09 Février 2016 à 17:15
+-- Généré le :  Sam 20 Février 2016 à 10:44
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -21,35 +21,18 @@ SET time_zone = "+00:00";
 --
 
 --
--- Contenu de la table `EpisodesEnCours`
+-- Contenu de la table `Dossiers`
 --
 
-INSERT INTO `EpisodesEnCours` (`epOuvert_id`, `episode_libelle`) VALUES
-(1, 'PATHO-001'),
-(2, 'PATHO-002'),
-(3, 'PATHO-003'),
-(4, 'PATHO-004'),
-(5, 'PATHO-005'),
-(6, 'PATHO-006'),
-(7, 'PATHO-007'),
-(8, 'PATHO-008'),
-(9, 'PATHO-009'),
-(10, 'PATHO-010'),
-(11, 'PATHO-011'),
-(12, 'PATHO-012'),
-(13, 'PATHO-013'),
-(14, 'PATHO-014'),
-(15, 'PATHO-015'),
-(16, 'PATHO-016'),
-(17, 'PATHO-017'),
-(18, 'PATHO-018'),
-(19, 'PATHO-019'),
-(20, 'PATHO-020'),
-(21, 'PATHO-021'),
-(22, 'PATHO-022'),
-(23, 'PATHO-023'),
-(24, 'PATHO-024'),
-(25, 'PATHO-025');
+INSERT INTO `Dossiers` (`num_dossier`, `libelle`, `created`, `patient_id`) VALUES
+(1, 'NSS2016D0001', '2016-02-03 14:59:00', 1),
+(2, 'NSS2016D0002', '2016-02-03 15:00:00', 2),
+(3, 'NSS2016D0003', '2016-02-03 15:00:00', 4),
+(4, 'NSS2016D0004', '2016-02-03 15:00:00', 5),
+(5, 'NSS2016D0005', '2016-02-03 15:00:00', 3),
+(6, 'NSS2016D0006', '2016-02-03 15:00:00', 6),
+(7, 'NSS2016D0007', '2016-02-04 08:00:00', 7),
+(8, 'NSS2016D0008', '2016-02-04 08:00:00', 8);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
