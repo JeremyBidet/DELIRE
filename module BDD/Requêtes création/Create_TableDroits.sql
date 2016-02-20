@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 12:51
+-- Généré le :  Sam 20 Février 2016 à 13:39
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `Droits` (
   `droit_ecriture_documents_patient` tinyint(1) DEFAULT NULL,
   `droit_lecture_dossier_patient` tinyint(1) DEFAULT NULL,
   `droit_ecriture_dossier_patient` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Index pour les tables exportées
@@ -62,7 +62,7 @@ ALTER TABLE `Droits`
 -- AUTO_INCREMENT pour la table `Droits`
 --
 ALTER TABLE `Droits`
-MODIFY `droit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `droit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
