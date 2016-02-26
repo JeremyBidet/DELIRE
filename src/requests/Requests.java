@@ -217,7 +217,7 @@ public class Requests {
 	}
 	
 	public static ResultSet SELECT_Antecedent(Connection conn, int num_dossier) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier, ant.antecedent_id, date_debut, date_fin, notes, al.allergie_libelle, al.code_CIM10, ex.examen_libelle, ex.examen_type FROM Partie_Antecedents part, Antecedents ant, Allergies al, Examens ex WHERE num_dossier=(?) AND part.antecedent_id=ant.antecedent_id");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT part.antecedent_id, Allergies.allergie_libelle, Allergies.code_CIM10, Examens.examen_libelle, Examens.examen_type, date_debut, date_fin, notes FROM Partie_Antecedents part LEFT JOIN Allergies ON part.antecedent_id = Allergies.antecedent_id LEFT JOIN Examens ON part.antecedent_id = Examens.antecedent_id WHERE num_dossier=(?)");
 		query.setInt(1,num_dossier);
 		ResultSet set = query.executeQuery();
 		return set;
