@@ -21,45 +21,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("jmolina", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jmolina", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jmolina", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("jmolina", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("jmolina", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("jmolina", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jmolina", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jmolina", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("jmolina", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("jmolina", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("jmolina", "", 0);
@@ -197,46 +197,46 @@ public class RightsUnitTests {
         } catch (SQLException e) {
             System.err.println("Failure with the database connection.");
         }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("porcel", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("porcel", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("porcel", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("porcel", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("porcel", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("porcel", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("porcel", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("porcel", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("porcel", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("porcel", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("porcel", "", 0);
@@ -374,46 +374,46 @@ public class RightsUnitTests {
         } catch (SQLException e) {
             System.err.println("Failure with the database connection.");
         }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("fsimon", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("fsimon", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("fsimon", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("fsimon", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("fsimon", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("fsimon", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("fsimon", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("fsimon", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("fsimon", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("fsimon", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("fsimon", "", 0);
@@ -552,45 +552,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("fdesgrandchamps", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("fdesgrandchamps", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("fdesgrandchamps", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("fdesgrandchamps", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("fdesgrandchamps", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("fdesgrandchamps", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("fdesgrandchamps", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("fdesgrandchamps", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("fdesgrandchamps", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("fdesgrandchamps", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("fdesgrandchamps", "", 0);
@@ -729,45 +729,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("edekerviler", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("edekerviler", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("edekerviler", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("edekerviler", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("edekerviler", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("edekerviler", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("edekerviler", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("edekerviler", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("edekerviler", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("edekerviler", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("edekerviler", "", 0);
@@ -906,45 +906,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("phenry", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("phenry", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("phenry", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("phenry", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("phenry", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("phenry", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("phenry", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("phenry", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("phenry", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("phenry", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("phenry", "", 0);
@@ -1083,45 +1083,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("pherman", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("pherman", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("pherman", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("pherman", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("pherman", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("pherman", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("pherman", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("pherman", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("pherman", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("pherman", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("pherman", "", 0);
@@ -1260,45 +1260,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("hchabriat", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("hchabriat", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("hchabriat", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("hchabriat", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("hchabriat", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("hchabriat", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("hchabriat", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("hchabriat", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("hchabriat", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("hchabriat", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("hchabriat", "", 0);
@@ -1437,45 +1437,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("rtadayoni", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("rtadayoni", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("rtadayoni", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("rtadayoni", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("rtadayoni", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("rtadayoni", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("rtadayoni", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("rtadayoni", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("rtadayoni", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("rtadayoni", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("rtadayoni", "", 0);
@@ -1614,45 +1614,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("acohensolal", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("acohensolal", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("acohensolal", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("acohensolal", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("acohensolal", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("acohensolal", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("acohensolal", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("acohensolal", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("acohensolal", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("acohensolal", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user acohensolal is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("acohensolal", "", 0);
@@ -1791,45 +1791,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("jbenifla", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jbenifla", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jbenifla", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("jbenifla", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("jbenifla", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("jbenifla", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jbenifla", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jbenifla", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("jbenifla", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("jbenifla", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("jbenifla", "", 0);
@@ -1968,45 +1968,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("mallez", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user mallez is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("mallez", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user mallez is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("mallez", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user mallez is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("mallez", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user mallez is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("mallez", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user mallez is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("mallez", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user mallez is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("mallez", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user mallez is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("mallez", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user mallez is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("mallez", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user mallez is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("mallez", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user mallez is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("mallez", "", 0);
@@ -2145,45 +2145,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("bmegarbane", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("bmegarbane", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("bmegarbane", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("bmegarbane", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("bmegarbane", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("bmegarbane", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("bmegarbane", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("bmegarbane", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("bmegarbane", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("bmegarbane", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("bmegarbane", "", 0);
@@ -2322,45 +2322,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("dpayendelagaranderie", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("dpayendelagaranderie", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("dpayendelagaranderie", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("dpayendelagaranderie", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("dpayendelagaranderie", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("dpayendelagaranderie", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("dpayendelagaranderie", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("dpayendelagaranderie", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("dpayendelagaranderie", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("dpayendelagaranderie", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user dpayendelagaranderie is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("dpayendelagaranderie", "", 0);
@@ -2499,45 +2499,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("hbarreteau", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("hbarreteau", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("hbarreteau", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("hbarreteau", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("hbarreteau", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("hbarreteau", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("hbarreteau", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("hbarreteau", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("hbarreteau", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("hbarreteau", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("hbarreteau", "", 0);
@@ -2676,45 +2676,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("jlaredo", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jlaredo", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jlaredo", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("jlaredo", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("jlaredo", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("jlaredo", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jlaredo", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jlaredo", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("jlaredo", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("jlaredo", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user jlaredo is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("jlaredo", "", 0);
@@ -2853,45 +2853,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("olaprevote", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("olaprevote", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("olaprevote", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("olaprevote", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("olaprevote", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("olaprevote", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("olaprevote", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("olaprevote", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("olaprevote", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("olaprevote", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("olaprevote", "", 0);
@@ -3030,45 +3030,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("salifa", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user salifa is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("salifa", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user salifa is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("salifa", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user salifa is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("salifa", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user salifa is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("salifa", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user salifa is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("salifa", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user salifa is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("salifa", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user salifa is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("salifa", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user salifa is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("salifa", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user salifa is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("salifa", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user salifa is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("salifa", "", 0);
@@ -3207,45 +3207,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("jbanas", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jbanas", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("jbanas", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("jbanas", "");
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("jbanas", 0);
-        } catch (NoRightTo noRightTo) {
-//Do nothing
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("jbanas", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jbanas", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("jbanas", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("jbanas", "");
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("jbanas", 0);
+//        } catch (NoRightTo noRightTo) {
+////Do nothing
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("jbanas", "", 0);
@@ -3384,45 +3384,45 @@ public class RightsUnitTests {
             System.err.println("Failure with the database connection.");
         }
 
-        try {
-            requestsWithRoleCheck.getFullDMPByDMPId("abonet", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user abonet is supposed to be able to use getFullDMPByDMPId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("abonet", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user abonet is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByFirstName("abonet", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user abonet is supposed to be able to use getFullDMPByFirstName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByLastName("abonet", "");
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user abonet is supposed to be able to use getFullDMPByLastName.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
-
-        try {
-            requestsWithRoleCheck.getFullDMPByPatientId("abonet", 0);
-        } catch (NoRightTo noRightTo) {
-            System.err.println("The user abonet is supposed to be able to use getFullDMPByPatientId.");
-        } catch (SQLException e) {
-            System.err.println("Failure with the database connection.");
-        }
+//        try {
+//            requestsWithRoleCheck.getFullDMPByDMPId("abonet", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user abonet is supposed to be able to use getFullDMPByDMPId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("abonet", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user abonet is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByFirstName("abonet", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user abonet is supposed to be able to use getFullDMPByFirstName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByLastName("abonet", "");
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user abonet is supposed to be able to use getFullDMPByLastName.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
+//
+//        try {
+//            requestsWithRoleCheck.getFullDMPByPatientId("abonet", 0);
+//        } catch (NoRightTo noRightTo) {
+//            System.err.println("The user abonet is supposed to be able to use getFullDMPByPatientId.");
+//        } catch (SQLException e) {
+//            System.err.println("Failure with the database connection.");
+//        }
 
         try {
             requestsWithRoleCheck.addDossier("abonet", "", 0);

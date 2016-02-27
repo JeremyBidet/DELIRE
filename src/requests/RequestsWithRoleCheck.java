@@ -71,37 +71,37 @@ public class RequestsWithRoleCheck {
         return null;
     }
 
-    public List<ResultSet> getFullDMPByDMPId(String user, int dmp_id) throws NoRightTo, SQLException {
-        testAllReadingRights(user);
-        if(!unitTest){
-            return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
-        }
-        return null;
-    }
-
-    public List<ResultSet> getFullDMPByFirstName(String user, String firstName) throws NoRightTo, SQLException {
-        testAllReadingRights(user);
-        if(!unitTest){
-            return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
-        }
-        return null;
-    }
-
-    public List<ResultSet> getFullDMPByLastName(String user, String lastName) throws NoRightTo, SQLException {
-        testAllReadingRights(user);
-        if(!unitTest){
-            return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
-        }
-        return null;
-    }
-
-    public List<ResultSet> getFullDMPByPatientId(String user, int patient_id) throws NoRightTo, SQLException {
-        testAllReadingRights(user);
-        if(!unitTest){
-            return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
-        }
-        return null;
-    }
+//    public List<ResultSet> getFullDMPByDMPId(String user, int dmp_id) throws NoRightTo, SQLException {
+//        testAllReadingRights(user);
+//        if(!unitTest){
+//            return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
+//        }
+//        return null;
+//    }
+//
+//    public List<ResultSet> getFullDMPByFirstName(String user, String firstName) throws NoRightTo, SQLException {
+//        testAllReadingRights(user);
+//        if(!unitTest){
+//            return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
+//        }
+//        return null;
+//    }
+//
+//    public List<ResultSet> getFullDMPByLastName(String user, String lastName) throws NoRightTo, SQLException {
+//        testAllReadingRights(user);
+//        if(!unitTest){
+//            return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
+//        }
+//        return null;
+//    }
+//
+//    public List<ResultSet> getFullDMPByPatientId(String user, int patient_id) throws NoRightTo, SQLException {
+//        testAllReadingRights(user);
+//        if(!unitTest){
+//            return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
+//        }
+//        return null;
+//    }
 
     public void addDossier(String user, String libelle, int patient_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_dossier_patient");
@@ -145,18 +145,18 @@ public class RequestsWithRoleCheck {
         }
     }
 
-    public ResultSet getPrescriptions(String user, int num_dossier) throws NoRightTo, SQLException {
+    public List<Prescription> getPrescriptions(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_prescriptions_patient");
         if(!unitTest){
-            return Requests.SELECT_Prescription(connection, num_dossier);
+            return Requests.GET_Prescription(connection, num_dossier);
         }
         return null;
     }
 
-    public ResultSet getEpisode(String user, int num_dossier) throws NoRightTo, SQLException {
+    public List<EpisodesEnCours> getEpisode(String user, int num_dossier) throws NoRightTo, SQLException {
         testRights(user, "droit_lecture_episodes_patient");
         if(!unitTest){
-            return Requests.SELECT_Episode(connection, num_dossier);
+            return Requests.GET_Episode(connection, num_dossier);
         }
         return null;
     }
