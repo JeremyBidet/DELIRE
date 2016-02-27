@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Jeu 25 Février 2016 à 18:42
+-- Généré le :  Sam 27 Février 2016 à 16:49
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -307,23 +307,44 @@ CREATE TABLE IF NOT EXISTS `ListeMeds_Pour_Prescriptions` (
 --
 
 INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
-(1, 1),
-(2, 2),
+(9, 1),
+(1, 2),
 (3, 3),
+(5, 3),
+(9, 3),
+(1, 4),
 (4, 4),
+(5, 4),
+(6, 4),
+(9, 4),
 (5, 5),
 (6, 6),
+(3, 7),
+(6, 7),
 (7, 7),
 (8, 8),
-(9, 9),
+(1, 9),
 (10, 10),
+(7, 11),
 (11, 11),
 (12, 12),
+(6, 13),
 (13, 13),
+(6, 14),
 (14, 14),
+(2, 15),
+(7, 15),
 (15, 15),
+(2, 16),
 (16, 16),
-(17, 17);
+(17, 17),
+(3, 18),
+(4, 18),
+(9, 18),
+(4, 19),
+(5, 20),
+(8, 20),
+(8, 21);
 
 -- --------------------------------------------------------
 
@@ -380,7 +401,7 @@ CREATE TABLE IF NOT EXISTS `Medicaments` (
   `libelleDCI` varchar(64) COLLATE latin1_general_ci NOT NULL,
   `Format` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `Dosage` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Medicaments`
@@ -403,7 +424,14 @@ INSERT INTO `Medicaments` (`med_id`, `CIP`, `libelle`, `libelleDCI`, `Format`, `
 (14, 78325, 'ATARAX SP 200ML 1', 'Hydroxyzine', 'Sirop', '10 mG/5 mL'),
 (15, 74582, 'SMECTA 3G ORANGE VANILLE SACHET ', 'Diosmectite', 'Poudre pour suspension buvable', '3 g'),
 (16, 15780, 'AMOXICILLINE 500MG MYLAN PDR 60M', 'Amoxicilline', 'Comprimé', '500 mG'),
-(17, 33910, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mG');
+(17, 33910, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mG'),
+(18, 39856, 'DOLIPRANE CPR 1000 mg', 'Paracétamol', 'Comprimé', '1000 mg'),
+(19, 34009, 'RAMIPRIL SANDOZ 1,25 mg CPR', 'Ramipril', 'Comprimé', '1,25 mg'),
+(20, 21474, 'OESTRODOSE 0,06 % gel p appl cut', '17-bêta-estradiol', 'Gel', '0,06%'),
+(21, 92673, 'DESOGESTREL BIOGARAN 75 µg cp pe', 'Désogestrel', 'Comprimé pelliculé', '75 µg'),
+(22, 93138, 'STERDEX pom ophtalm', 'Oxytétracycline et Dexaméthasone', 'Pommade ophtalmique', '1,335 mg +0,267 mg'),
+(23, 93246, 'VOLTARENE LP 100 mg CPR', 'Diclofénac sodique', 'Comprimé enrobé', '100 mg'),
+(25, 93586, 'ALMOGRAN 12,5 mg CPR', 'Almotriptan d-l hydrogénomalate', 'Comprimé pelliculé', '12,5 mg');
 
 -- --------------------------------------------------------
 
@@ -513,16 +541,29 @@ CREATE TABLE IF NOT EXISTS `Partie_Prescription` (
 --
 
 INSERT INTO `Partie_Prescription` (`prescription_id`, `num_dossier`, `date_debut`, `date_fin`, `personnel_id`, `created`) VALUES
-(2, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
-(3, 6, '05-09-2015', '11-09-2015', 2, '2015-09-05 00:00:00'),
-(4, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
+(1, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
+(2, 2, '15-02-2016', '22-02-2016', 1, '2016-02-15 12:14:00'),
+(3, 2, '05-09-2015', '11-09-2015', 1, '2015-09-05 00:00:00'),
+(4, 5, '20-02-2016', '27-02-2016', 13, '2016-02-20 09:20:00'),
+(5, 3, '09-04-2015', NULL, 11, '2015-04-09 11:54:00'),
+(6, 6, '14-11-2015', '20-11-2015', 16, '2015-11-14 12:52:00'),
+(7, 6, '05-09-2015', '15-09-2015', 1, '2015-09-05 10:42:00'),
 (8, 7, '03-11-2015', '05-02-2016', 11, '2015-11-03 13:13:19'),
+(9, 7, '14-01-2016', '27-01-2016', 1, '2016-01-14 06:00:00'),
 (12, 7, '05-02-2014', NULL, 1, '2014-02-03 15:00:00'),
-(19, 4, '03-05-2012', NULL, 5, '0000-00-00 00:00:00'),
+(18, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
+(18, 7, '12-01-2016', NULL, 2, '2016-01-12 09:30:00'),
+(19, 7, '07-12-2015', NULL, 9, '2015-12-07 17:33:00'),
+(21, 4, '26-02-2016', NULL, 12, '2016-02-26 08:19:00'),
+(21, 5, '01-02-2016', NULL, 13, '2016-02-01 06:13:05'),
 (22, 5, '02-05-2013', NULL, 10, '2013-05-02 00:00:00'),
-(22, 6, '01-11-2014', NULL, 7, '2014-11-01 00:00:00'),
-(27, 3, '27-05-2015', NULL, 6, '2015-05-27 00:00:00'),
-(30, 3, '09-07-2015', NULL, 5, '2015-07-09 00:00:00');
+(24, 4, '20-01-2016', NULL, 10, '2016-01-20 14:51:00'),
+(26, 6, '01-11-2015', NULL, 8, '2015-11-01 00:00:00'),
+(27, 4, '20-01-2016', NULL, 10, '2016-01-20 14:51:00'),
+(28, 3, '27-08-2015', NULL, 11, '2015-08-27 11:00:00'),
+(30, 1, '25-07-2014', NULL, 7, '2014-07-25 10:17:00'),
+(30, 6, '01-11-2015', '', 8, '2015-11-01 00:00:00'),
+(31, 4, '26-02-2016', NULL, 12, '2016-02-26 08:19:00');
 
 -- --------------------------------------------------------
 
@@ -646,7 +687,7 @@ INSERT INTO `Personnels` (`personnel_id`, `nom`, `prenom`, `num_adeli`, `num_RPP
 (13, 'MEGARBANE', 'Bruno', '1750115987', '810001528255', '0612456644', '0133589675', '2016-02-03 23:00:00', 1, 0, 7, 7, 8),
 (14, 'PAYEN DE LA GARANDERIE', 'Didier', '1750110345', '810004036207', '0605205574', '0108969542', '2016-02-03 23:00:00', 1, 0, 8, 8, 9),
 (15, 'BARRETEAU', 'Hélène', '0301013887', '810000056233', '0645892030', '0152301415', '2016-02-03 23:00:00', 8, 8, 12, 12, 11),
-(16, 'LAREDO', 'Jean denis', '1750100087', '810003488599', '0624584463', '0188756242', '2016-02-03 23:44:00', 2, 0, 9, 9, 0),
+(16, 'LAREDO', 'Jean denis', '1750100087', '810003488599', '0624584463', '0188756242', '2016-02-03 23:44:00', 2, 0, 9, 9, 18),
 (17, 'LAPREVOTE', 'Olivier', '0751556642', '810100007136', '0604052952', '0163458563', '2016-02-03 23:45:44', 1, 0, 10, 10, 11),
 (18, 'ALIFA', 'Sarah', NULL, NULL, '0648576231', '0145875314', '2016-02-04 00:00:00', 6, 0, 2, 0, 7),
 (19, 'BANAS', 'Jennifer', '1770100012', '810003290157', '0605496968', '0178756742', '2016-02-04 00:00:00', 6, 0, 2, 0, 10),
@@ -722,47 +763,46 @@ INSERT INTO `PossederDroits` (`droit_id`, `user_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `Prescriptions` (
 `prescription_id` int(11) NOT NULL,
-  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL,
-  `dosage` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
+  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Prescriptions`
 --
 
-INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`, `dosage`) VALUES
-(1, 'MED_001', NULL),
-(2, 'MED_002', NULL),
-(3, 'MED_003', NULL),
-(4, 'MED_004', NULL),
-(5, 'MED_005', NULL),
-(6, 'MED_006', NULL),
-(7, 'MED_007', NULL),
-(8, 'MED_008', NULL),
-(9, 'MED_009', NULL),
-(10, 'MED_010', NULL),
-(11, 'MED_011', NULL),
-(12, 'MED_012', NULL),
-(13, 'MED_013', NULL),
-(14, 'MED_014', NULL),
-(15, 'MED_015', NULL),
-(16, 'MED_016', NULL),
-(17, 'MED_017', NULL),
-(18, 'Consultation kinésithérapeutes', NULL),
-(19, 'Consultation ophtalmologue', NULL),
-(20, 'Consultation ortoptiste', NULL),
-(21, 'Bilan sanguin', NULL),
-(22, 'Test VIH', NULL),
-(23, 'Radio des poumons', NULL),
-(24, 'IRM du thorax', NULL),
-(25, 'Radio du dos', NULL),
-(26, 'IRM de la tête', NULL),
-(27, 'Radio du thorax', NULL),
-(28, 'IRM pelvienne', NULL),
-(29, 'Radio du membre inférieur', NULL),
-(30, 'IRM cérébral', NULL),
-(31, 'IRM Pulmonaire', NULL),
-(32, 'Radio de l''abdomen', NULL);
+INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`) VALUES
+(21, 'Bilan sanguin'),
+(18, 'Consultation kinésithérapeutes'),
+(19, 'Consultation ophtalmologue'),
+(20, 'Consultation ortoptiste'),
+(30, 'IRM cérébral'),
+(26, 'IRM de la tête'),
+(24, 'IRM du thorax'),
+(28, 'IRM pelvienne'),
+(31, 'IRM Pulmonaire'),
+(1, 'Prescription_Liste_Medicaments_001'),
+(2, 'Prescription_Liste_Medicaments_002'),
+(3, 'Prescription_Liste_Medicaments_003'),
+(4, 'Prescription_Liste_Medicaments_004'),
+(5, 'Prescription_Liste_Medicaments_005'),
+(6, 'Prescription_Liste_Medicaments_006'),
+(7, 'Prescription_Liste_Medicaments_007'),
+(8, 'Prescription_Liste_Medicaments_008'),
+(9, 'Prescription_Liste_Medicaments_009'),
+(10, 'Prescription_Liste_Medicaments_010'),
+(11, 'Prescription_Liste_Medicaments_011'),
+(12, 'Prescription_Liste_Medicaments_012'),
+(13, 'Prescription_Liste_Medicaments_013'),
+(14, 'Prescription_Liste_Medicaments_014'),
+(15, 'Prescription_Liste_Medicaments_015'),
+(16, 'Prescription_Liste_Medicaments_016'),
+(17, 'Prescription_Liste_Medicaments_017'),
+(32, 'Radio de l''abdomen'),
+(23, 'Radio des poumons'),
+(25, 'Radio du dos'),
+(29, 'Radio du membre inférieur'),
+(27, 'Radio du thorax'),
+(22, 'Test VIH');
 
 -- --------------------------------------------------------
 
@@ -1097,7 +1137,7 @@ MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 -- AUTO_INCREMENT pour la table `Medicaments`
 --
 ALTER TABLE `Medicaments`
-MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `Pathologies`
 --
