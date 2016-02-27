@@ -14,4 +14,9 @@ public class Medicament {
 		this.format = format;
 		this.dosage = dosage;
 	}
+	
+	@Override
+	public String toString() {
+		return CIP + " " + libelle + " " + libelleDCI + " " + format + " " + dosage;
+	}
 }

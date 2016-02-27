@@ -14,5 +14,15 @@ public class Prescription {
 		this.libelle = libelle;
 		this.date_deb = date_deb;
 		this.date_fin = date_fin;
+		medList = new ArrayList<Medicament>();
+	}
+	
+	public void addMed(Medicament m) {
+		medList.add(m);
+	}
+	
+	@Override
+	public String toString() {
+		return id + " " + libelle + " " + date_deb + " " + date_fin + " " + medList;
 	}
 }

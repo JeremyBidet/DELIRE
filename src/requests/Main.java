@@ -21,7 +21,7 @@ public class Main {
 		String sql="";
 		String url = "jdbc:mysql://localhost:3306/gestion_projet?useSSL=false";
 		String login="root";
-		String mdp="";
+		String mdp="mysql";
 		int id;
 		String adresse;
 		int num_dossier;
@@ -86,11 +86,14 @@ public class Main {
 //					System.out.println("result: " + num_dossier + " " + id  + " " + date_debut + " " + date_fin  + " " + personnel_id);
 //			}
 			
-			ResultSet res = Requests.Login(myCon, "porcel", "passorcel");
-			while(res.next()) {
-				int user_id = res.getInt("user_id");
-				System.out.println("result user_id:" + user_id);
-			}
+//			ResultSet res = Requests.Login(myCon, "porcel", "passorcel");
+//			while(res.next()) {
+//				int user_id = res.getInt("user_id");
+//				System.out.println("result user_id:" + user_id);
+//			}
+			
+			System.out.println(Requests.GET_Prescription(myCon, 1));
+//			System.out.println(Requests.GET_Episode(myCon, 1));			
 			
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
