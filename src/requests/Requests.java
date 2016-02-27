@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Requests {
@@ -32,101 +31,102 @@ public class Requests {
 	// ======================================
 	// =            Filtres de recherche    =
 	// ======================================
-//	public static List<ResultSet> SEARCH_DMP_BY_FILE_NUMBER(Connection conn, int num_dossier) throws SQLException {
-//		ArrayList<ResultSet> result = new ArrayList<ResultSet>();
-//		//les 5 parties forment le dossier
-//		ResultSet presc = SELECT_Prescription(conn, num_dossier);
-//		ResultSet elem = SELECT_Elements(conn, num_dossier);
-//		ResultSet epi = SELECT_Episode(conn, num_dossier);
-//		ResultSet antec = SELECT_Antecedent(conn, num_dossier);
-//		ResultSet doc = SELECT_Doc(conn, num_dossier);
-//		//ajout des résultats dans une liste
-//		result.add(presc);
-//		result.add(elem);
-//		result.add(epi);
-//		result.add(antec);
-//		result.add(doc);
-//		
-//		return result;
-//	}
-//	
-//	
-//
-//	public static List<ResultSet> SEARCH_DMP_BY_FIRSTNAME(Connection conn, String firstName) throws SQLException {
-//		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Patients p, Dossiers d WHERE p.patient_id=d.patient_id AND prenom=(?)");
-//		query.setString(1, firstName);
-//		ResultSet set = query.executeQuery();
-//		int num_dossier;
-//		ArrayList<ResultSet> result = new ArrayList<ResultSet>();
-//		
-//		while (set.next()) {
-//			num_dossier = set.getInt("num_dossier");
-//			//les 5 parties forment le dossier
-//			ResultSet presc = SELECT_Prescription(conn, num_dossier);
-//			ResultSet elem = SELECT_Elements(conn, num_dossier);
-//			ResultSet epi = SELECT_Episode(conn, num_dossier);
-//			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
-//			ResultSet doc = SELECT_Doc(conn, num_dossier);
-//			//les 5 premiers éléments correspondent au 1er numéro de dossier, les 5 autres aux 2ieme, etc...
-//			result.add(presc);
-//			result.add(elem);
-//			result.add(epi);
-//			result.add(antec);
-//			result.add(doc);
-//		}
-//		return result;
-//	}
-//	
-//	public static List<ResultSet> SEARCH_DMP_BY_LASTNAME(Connection conn, String lastName) throws SQLException {
-//		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Patients p, Dossiers d WHERE p.patient_id=d.patient_id AND nom=(?)");
-//		query.setString(1, lastName);
-//		ResultSet set = query.executeQuery();
-//		int num_dossier;
-//		ArrayList<ResultSet> result = new ArrayList<ResultSet>();
-//		
-//		while (set.next()) {
-//			num_dossier = set.getInt("num_dossier");
-//			//les 5 parties forment le dossier
-//			ResultSet presc = SELECT_Prescription(conn, num_dossier);
-//			ResultSet elem = SELECT_Elements(conn, num_dossier);
-//			ResultSet epi = SELECT_Episode(conn, num_dossier);
-//			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
-//			ResultSet doc = SELECT_Doc(conn, num_dossier);
-//			//les 5 premiers éléments correspondent au 1er numéro de dossier, les 5 autres aux 2ieme, etc...
-//			result.add(presc);
-//			result.add(elem);
-//			result.add(epi);
-//			result.add(antec);
-//			result.add(doc);
-//		}
-//		return result;
-//	}
-//	
-//	public static List<ResultSet> SEARCH_DMP_BY_PATIENT_ID(Connection conn, int patient_id) throws SQLException {
-//	
-//		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Dossiers WHERE patient_id=(?)");
-//		query.setInt(1, patient_id);
-//		ResultSet set = query.executeQuery();
-//		ArrayList<ResultSet> result = new ArrayList<ResultSet>();
-//		
-//		//ne doit boucler qu'une fois en l'occurence car on ne possède qu'un numéro de dossier par patient
-//		while (set.next()) {
-//			int num_dossier= set.getInt("num_dossier");
-//			//les 5 parties forment le dossier
-//			ResultSet presc = SELECT_Prescription(conn, num_dossier);
-//			ResultSet elem = SELECT_Elements(conn, num_dossier);
-//			ResultSet epi = SELECT_Episode(conn, num_dossier);
-//			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
-//			ResultSet doc = SELECT_Doc(conn, num_dossier);
-//			result.add(presc);
-//			result.add(elem);
-//			result.add(epi);
-//			result.add(antec);
-//			result.add(doc);
-//		}
-//
-//		return result;
-//	}
+	
+	public static List<Object> SEARCH_DMP_BY_FILE_NUMBER(Connection conn, int num_dossier) throws SQLException {
+		ArrayList<Object> result = new ArrayList<Object>();
+		//les 5 parties forment le dossier
+		List<Prescription> presc = GET_Prescription(conn, num_dossier);
+		ResultSet elem = SELECT_Elements(conn, num_dossier);
+		List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
+		ResultSet antec = SELECT_Antecedent(conn, num_dossier);
+		ResultSet doc = SELECT_Doc(conn, num_dossier);
+		//ajout des résultats dans une liste
+		result.add(presc);
+		result.add(elem);
+		result.add(epi);
+		result.add(antec);
+		result.add(doc);
+		
+		return result;
+	}
+	
+	
+
+	public static List<Object> SEARCH_DMP_BY_FIRSTNAME(Connection conn, String firstName) throws SQLException {
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Patients p, Dossiers d WHERE p.patient_id=d.patient_id AND prenom=(?)");
+		query.setString(1, firstName);
+		ResultSet set = query.executeQuery();
+		int num_dossier;
+		ArrayList<Object> result = new ArrayList<Object>();
+		
+		while (set.next()) {
+			num_dossier = set.getInt("num_dossier");
+			//les 5 parties forment le dossier
+			List<Prescription> presc = GET_Prescription(conn, num_dossier);
+			ResultSet elem = SELECT_Elements(conn, num_dossier);
+			List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
+			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
+			ResultSet doc = SELECT_Doc(conn, num_dossier);
+			//les 5 premiers éléments correspondent au 1er numéro de dossier, les 5 autres aux 2ieme, etc...
+			result.add(presc);
+			result.add(elem);
+			result.add(epi);
+			result.add(antec);
+			result.add(doc);
+		}
+		return result;
+	}
+	
+	public static List<Object> SEARCH_DMP_BY_LASTNAME(Connection conn, String lastName) throws SQLException {
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Patients p, Dossiers d WHERE p.patient_id=d.patient_id AND nom=(?)");
+		query.setString(1, lastName);
+		ResultSet set = query.executeQuery();
+		int num_dossier;
+		ArrayList<Object> result = new ArrayList<Object>();
+		
+		while (set.next()) {
+			num_dossier = set.getInt("num_dossier");
+			//les 5 parties forment le dossier
+			List<Prescription> presc = GET_Prescription(conn, num_dossier);
+			ResultSet elem = SELECT_Elements(conn, num_dossier);
+			List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
+			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
+			ResultSet doc = SELECT_Doc(conn, num_dossier);
+			//les 5 premiers éléments correspondent au 1er numéro de dossier, les 5 autres aux 2ieme, etc...
+			result.add(presc);
+			result.add(elem);
+			result.add(epi);
+			result.add(antec);
+			result.add(doc);
+		}
+		return result;
+	}
+	
+	public static List<Object> SEARCH_DMP_BY_PATIENT_ID(Connection conn, int patient_id) throws SQLException {
+	
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT num_dossier FROM Dossiers WHERE patient_id=(?)");
+		query.setInt(1, patient_id);
+		ResultSet set = query.executeQuery();
+		ArrayList<Object> result = new ArrayList<Object>();
+		
+		//ne doit boucler qu'une fois en l'occurence car on ne possède qu'un numéro de dossier par patient
+		while (set.next()) {
+			int num_dossier= set.getInt("num_dossier");
+			//les 5 parties forment le dossier
+			List<Prescription> presc = GET_Prescription(conn, num_dossier);
+			ResultSet elem = SELECT_Elements(conn, num_dossier);
+			List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
+			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
+			ResultSet doc = SELECT_Doc(conn, num_dossier);
+			result.add(presc);
+			result.add(elem);
+			result.add(epi);
+			result.add(antec);
+			result.add(doc);
+		}
+
+		return result;
+	}
 	
 	
 	// ======================================

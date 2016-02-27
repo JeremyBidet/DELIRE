@@ -71,37 +71,37 @@ public class RequestsWithRoleCheck {
         return null;
     }
 
-//    public List<ResultSet> getFullDMPByDMPId(String user, int dmp_id) throws NoRightTo, SQLException {
-//        testAllReadingRights(user);
-//        if(!unitTest){
-//            return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
-//        }
-//        return null;
-//    }
-//
-//    public List<ResultSet> getFullDMPByFirstName(String user, String firstName) throws NoRightTo, SQLException {
-//        testAllReadingRights(user);
-//        if(!unitTest){
-//            return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
-//        }
-//        return null;
-//    }
-//
-//    public List<ResultSet> getFullDMPByLastName(String user, String lastName) throws NoRightTo, SQLException {
-//        testAllReadingRights(user);
-//        if(!unitTest){
-//            return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
-//        }
-//        return null;
-//    }
-//
-//    public List<ResultSet> getFullDMPByPatientId(String user, int patient_id) throws NoRightTo, SQLException {
-//        testAllReadingRights(user);
-//        if(!unitTest){
-//            return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
-//        }
-//        return null;
-//    }
+    public List<Object> getFullDMPByDMPId(String user, int dmp_id) throws NoRightTo, SQLException {
+        testAllReadingRights(user);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_FILE_NUMBER(connection, dmp_id);
+        }
+        return null;
+    }
+
+    public List<Object> getFullDMPByFirstName(String user, String firstName) throws NoRightTo, SQLException {
+        testAllReadingRights(user);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_FIRSTNAME(connection, firstName);
+        }
+        return null;
+    }
+
+    public List<Object> getFullDMPByLastName(String user, String lastName) throws NoRightTo, SQLException {
+        testAllReadingRights(user);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_LASTNAME(connection, lastName);
+        }
+        return null;
+    }
+
+    public List<Object> getFullDMPByPatientId(String user, int patient_id) throws NoRightTo, SQLException {
+        testAllReadingRights(user);
+        if(!unitTest){
+            return Requests.SEARCH_DMP_BY_PATIENT_ID(connection, patient_id);
+        }
+        return null;
+    }
 
     public void addDossier(String user, String libelle, int patient_id) throws NoRightTo, SQLException {
         testRights(user, "droit_ecriture_dossier_patient");
