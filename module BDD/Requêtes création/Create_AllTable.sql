@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Jeu 25 Février 2016 à 18:42
+-- Généré le :  Sam 27 Février 2016 à 23:33
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `ElementsSuivis` (
 CREATE TABLE IF NOT EXISTS `EpisodesEnCours` (
 `epOuvert_id` int(11) NOT NULL,
   `episode_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `Medicaments` (
   `libelleDCI` varchar(64) COLLATE latin1_general_ci NOT NULL,
   `Format` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `Dosage` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
@@ -251,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `Pathologies` (
 `patho_id` int(11) NOT NULL,
   `patho_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `codeCIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
@@ -328,9 +328,8 @@ CREATE TABLE IF NOT EXISTS `PossederDroits` (
 
 CREATE TABLE IF NOT EXISTS `Prescriptions` (
 `prescription_id` int(11) NOT NULL,
-  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL,
-  `dosage` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
@@ -591,17 +590,17 @@ MODIFY `ES_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT pour la table `EpisodesEnCours`
 --
 ALTER TABLE `EpisodesEnCours`
-MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `Medicaments`
 --
 ALTER TABLE `Medicaments`
-MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `Pathologies`
 --
 ALTER TABLE `Pathologies`
-MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `Patients`
 --
@@ -621,7 +620,7 @@ MODIFY `pole_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT pour la table `Prescriptions`
 --
 ALTER TABLE `Prescriptions`
-MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `Services`
 --

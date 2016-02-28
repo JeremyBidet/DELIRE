@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:37
+-- Généré le :  Sam 27 Février 2016 à 18:07
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `Prescriptions` (
 `prescription_id` int(11) NOT NULL,
-  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL,
-  `dosage` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
+  `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --

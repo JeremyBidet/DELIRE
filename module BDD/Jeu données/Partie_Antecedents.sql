@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:22
+-- Généré le :  Dim 28 Février 2016 à 01:40
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -30,7 +30,10 @@ INSERT INTO `Partie_Antecedents` (`antecedent_id`, `num_dossier`, `date_debut`, 
 (5, 3, '05-03-2011', '05-04-2013', NULL, 1, '2011-03-05 08:13:00'),
 (13, 4, '09-10-2015', '20-12-2015', '1/ Ne ressent plus la douleur depuis deux ans après un grave accident de travail.\r\n\r\n2/ A retrouver quelques sensations de douleur mais cela se révèle très faible.', 14, '2015-10-09 07:07:05'),
 (15, 7, '24-11-2015', '27-11-2015', 'Problème récurrent de souffle au coeur.', 8, '2015-11-24 17:20:00'),
-(16, 6, '01-01-2016', '05-02-2016', 'N''a rien révéler de grave.', 8, '2016-01-01 13:14:00');
+(16, 6, '01-01-2016', '05-02-2016', 'N''a rien révéler de grave.', 8, '2016-01-01 13:14:00'),
+(22, 1, '05-02-1993', '', NULL, 1, '1993-02-05 21:02:00'),
+(23, 2, '13-07-1998', '', 'Découverte de l''allergie suite à piqure d''abeille', 13, '1998-07-13 15:08:10'),
+(24, 2, '05-12-2000', '', NULL, 13, '2000-12-05 09:12:10');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

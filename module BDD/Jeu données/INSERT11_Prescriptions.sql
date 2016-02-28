@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:38
+-- Généré le :  Dim 28 Février 2016 à 01:44
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -24,39 +24,40 @@ SET time_zone = "+00:00";
 -- Contenu de la table `Prescriptions`
 --
 
-INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`, `dosage`) VALUES
-(1, 'MED_001', NULL),
-(2, 'MED_002', NULL),
-(3, 'MED_003', NULL),
-(4, 'MED_004', NULL),
-(5, 'MED_005', NULL),
-(6, 'MED_006', NULL),
-(7, 'MED_007', NULL),
-(8, 'MED_008', NULL),
-(9, 'MED_009', NULL),
-(10, 'MED_010', NULL),
-(11, 'MED_011', NULL),
-(12, 'MED_012', NULL),
-(13, 'MED_013', NULL),
-(14, 'MED_014', NULL),
-(15, 'MED_015', NULL),
-(16, 'MED_016', NULL),
-(17, 'MED_017', NULL),
-(18, 'Consultation kinésithérapeutes', NULL),
-(19, 'Consultation ophtalmologue', NULL),
-(20, 'Consultation ortoptiste', NULL),
-(21, 'Bilan sanguin', NULL),
-(22, 'Test VIH', NULL),
-(23, 'Radio des poumons', NULL),
-(24, 'IRM du thorax', NULL),
-(25, 'Radio du dos', NULL),
-(26, 'IRM de la tête', NULL),
-(27, 'Radio du thorax', NULL),
-(28, 'IRM pelvienne', NULL),
-(29, 'Radio du membre inférieur', NULL),
-(30, 'IRM cérébral', NULL),
-(31, 'IRM Pulmonaire', NULL),
-(32, 'Radio de l''abdomen', NULL);
+INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`) VALUES
+(21, 'Bilan sanguin'),
+(18, 'Consultation kinésithérapeutes'),
+(19, 'Consultation ophtalmologue'),
+(20, 'Consultation ortoptiste'),
+(30, 'IRM cérébral'),
+(26, 'IRM de la tête'),
+(24, 'IRM du thorax'),
+(28, 'IRM pelvienne'),
+(31, 'IRM Pulmonaire'),
+(1, 'Prescription_Liste_Medicaments_001'),
+(2, 'Prescription_Liste_Medicaments_002'),
+(3, 'Prescription_Liste_Medicaments_003'),
+(4, 'Prescription_Liste_Medicaments_004'),
+(5, 'Prescription_Liste_Medicaments_005'),
+(6, 'Prescription_Liste_Medicaments_006'),
+(7, 'Prescription_Liste_Medicaments_007'),
+(8, 'Prescription_Liste_Medicaments_008'),
+(9, 'Prescription_Liste_Medicaments_009'),
+(10, 'Prescription_Liste_Medicaments_010'),
+(11, 'Prescription_Liste_Medicaments_011'),
+(12, 'Prescription_Liste_Medicaments_012'),
+(13, 'Prescription_Liste_Medicaments_013'),
+(14, 'Prescription_Liste_Medicaments_014'),
+(15, 'Prescription_Liste_Medicaments_015'),
+(16, 'Prescription_Liste_Medicaments_016'),
+(17, 'Prescription_Liste_Medicaments_017'),
+(33, 'Prescription_Liste_Medicaments_018'),
+(32, 'Radio de l''abdomen'),
+(23, 'Radio des poumons'),
+(25, 'Radio du dos'),
+(29, 'Radio du membre inférieur'),
+(27, 'Radio du thorax'),
+(22, 'Test VIH');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

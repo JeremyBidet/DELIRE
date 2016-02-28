@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 20 Février 2016 à 11:30
+-- Généré le :  Dim 28 Février 2016 à 01:28
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -49,7 +49,12 @@ INSERT INTO `Pathologies` (`patho_id`, `patho_libelle`, `codeCIM10`) VALUES
 (22, 'Cancer de la prostate', 'C61'),
 (23, 'Grippe avec symptômes grippaux', 'J09'),
 (24, 'Gastro-entérite virale', 'K06'),
-(25, 'Angine', 'J02');
+(25, 'Angine', 'J02'),
+(26, 'Suivi grossesse', 'G50'),
+(27, 'Cancer du poumon', 'C05-P'),
+(28, 'Sécheresse oculaire', 'S01-OC'),
+(29, 'Sécheresse vaginale', 'S18-V'),
+(30, 'Pathologie contraceptive', 'PAT05-C');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

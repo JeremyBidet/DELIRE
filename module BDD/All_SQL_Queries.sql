@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  sqletud.univ-mlv.fr
--- Généré le :  Sam 27 Février 2016 à 16:49
+-- Généré le :  Sam 27 Février 2016 à 23:33
 -- Version du serveur :  5.5.40-0+wheezy1-log
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -220,7 +220,7 @@ INSERT INTO `ElementsSuivis` (`ES_id`, `examen_type`, `examen_libelle`, `valeur_
 CREATE TABLE IF NOT EXISTS `EpisodesEnCours` (
 `epOuvert_id` int(11) NOT NULL,
   `episode_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `EpisodesEnCours`
@@ -251,7 +251,12 @@ INSERT INTO `EpisodesEnCours` (`epOuvert_id`, `episode_libelle`) VALUES
 (22, 'PATHO-022'),
 (23, 'PATHO-023'),
 (24, 'PATHO-024'),
-(25, 'PATHO-025');
+(25, 'PATHO-025'),
+(26, 'PATHO-026'),
+(27, 'PATHO-027'),
+(28, 'PATHO-028'),
+(29, 'PATHO-029'),
+(30, 'PATHO-030');
 
 -- --------------------------------------------------------
 
@@ -308,15 +313,23 @@ CREATE TABLE IF NOT EXISTS `ListeMeds_Pour_Prescriptions` (
 
 INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
 (9, 1),
+(14, 1),
 (1, 2),
+(14, 2),
+(15, 2),
 (3, 3),
 (5, 3),
+(7, 3),
 (9, 3),
+(17, 3),
 (1, 4),
 (4, 4),
 (5, 4),
 (6, 4),
 (9, 4),
+(10, 4),
+(12, 4),
+(17, 4),
 (5, 5),
 (6, 6),
 (3, 7),
@@ -324,27 +337,35 @@ INSERT INTO `ListeMeds_Pour_Prescriptions` (`prescription_id`, `med_id`) VALUES
 (7, 7),
 (8, 8),
 (1, 9),
-(10, 10),
-(7, 11),
-(11, 11),
-(12, 12),
+(15, 9),
 (6, 13),
-(13, 13),
-(6, 14),
+(10, 13),
 (14, 14),
 (2, 15),
 (7, 15),
-(15, 15),
+(17, 15),
 (2, 16),
 (16, 16),
-(17, 17),
+(33, 17),
 (3, 18),
 (4, 18),
 (9, 18),
+(12, 18),
 (4, 19),
 (5, 20),
 (8, 20),
-(8, 21);
+(8, 21),
+(13, 21),
+(11, 26),
+(11, 27),
+(10, 28),
+(12, 28),
+(14, 29),
+(16, 29),
+(13, 30),
+(16, 31),
+(16, 32),
+(33, 33);
 
 -- --------------------------------------------------------
 
@@ -386,7 +407,12 @@ INSERT INTO `ListePatho_Pour_Episodes` (`epOuvert_id`, `patho_id`) VALUES
 (22, 22),
 (23, 23),
 (24, 24),
-(25, 25);
+(25, 25),
+(26, 26),
+(27, 27),
+(28, 28),
+(29, 29),
+(30, 30);
 
 -- --------------------------------------------------------
 
@@ -401,37 +427,45 @@ CREATE TABLE IF NOT EXISTS `Medicaments` (
   `libelleDCI` varchar(64) COLLATE latin1_general_ci NOT NULL,
   `Format` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `Dosage` varchar(32) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Medicaments`
 --
 
 INSERT INTO `Medicaments` (`med_id`, `CIP`, `libelle`, `libelleDCI`, `Format`, `Dosage`) VALUES
-(1, 33450, 'NARCAN 0,4MG/1ML AMP 10', 'Naloxone', 'Injectable', '0,4 mG/1 mL'),
-(2, 35756, 'RHINOFLUIMUCIL PULV NAS 5ML', 'Acétylcystéine + tuaminoheptane + benzalkonium', 'Voie nasale', '5 mL'),
+(1, 33450, 'NARCAN 0,4MG/1ML AMP 10', 'Naloxone', 'Injectable', '0,4 mg/1 ml'),
+(2, 35756, 'RHINOFLUIMUCIL PULV NAS 5ML', 'Acétylcystéine + tuaminoheptane + benzalkonium', 'Voie nasale', '5 ml'),
 (3, 20578, 'SPASFON CPR 30', 'Phloroglucinol + triméthylphloroglucinol', 'Comprimé', ''),
-(4, 15345, 'SPEDIFEN 400MG CPR 12', 'Ibuprofène', 'Comprimé', '400 mG'),
-(5, 89452, 'DIAMILLA GE 75MCG CPR 1X28', 'Désogestrel', 'Comprimé', '0,075 mG'),
+(4, 15345, 'SPEDIFEN 400MG CPR 12', 'Ibuprofène', 'Comprimé', '400 mg'),
+(5, 89452, 'DIAMILLA GE 75MCG CPR 1X28', 'Désogestrel', 'Comprimé', '0,075 mg'),
 (6, 12304, 'ACICLOVIR 5% SANDOZ CONS CR TUB ', 'Aciclovir Crème 5 %', 'Crème', '5%'),
-(7, 94530, 'TIORFAN 100MG GELULE 20', 'Racécadotril', 'Gélule', '100 mG'),
+(7, 94530, 'TIORFAN 100MG GELULE 20', 'Racécadotril', 'Gélule', '100 mg'),
 (8, 45368, 'TROPHIGIL GELULE VAGINALE 14', 'Estriol', 'Gélule', ''),
-(9, 23458, 'TOPLEXIL 0,33MG/ML SOL S/S 150ML', 'Oxomémazine', 'Sirop', '0,33 mG/mL'),
-(10, 25146, 'ATROPINE 0,5MG/ML AGUET AMP B 10', 'Atropine sulfate', 'Ampoule', '0,5Mg/Ml'),
-(11, 27453, 'CYMBALTA 30MG GELULE 28', 'Duloxétine', 'Gelule', '30 mG'),
+(9, 23458, 'TOPLEXIL 0,33MG/ML SOL S/S 150ML', 'Oxomémazine', 'Sirop', '0,33 mg/ml'),
+(10, 25146, 'ATROPINE 0,5MG/ML AGUET AMP B 10', 'Atropine sulfate', 'Ampoule', '0,5mg/ml'),
+(11, 27453, 'CYMBALTA 30MG GELULE 28', 'Duloxétine', 'Gelule', '30 mg'),
 (12, 33450, 'VENTOLINE 2,5MG/2,5ML INH DOSE 6', 'Salbutamol', 'Aérosol', '0,5 %'),
 (13, 78545, 'KETUM 2,5% GEL TUB 60G', 'Kétoprofène', 'Gel à usage local', '2,5 %'),
-(14, 78325, 'ATARAX SP 200ML 1', 'Hydroxyzine', 'Sirop', '10 mG/5 mL'),
+(14, 78325, 'ATARAX SIROP 200 ml', 'Hydroxyzine dichlorhydrate', 'Sirop', '10 mg/5 ml'),
 (15, 74582, 'SMECTA 3G ORANGE VANILLE SACHET ', 'Diosmectite', 'Poudre pour suspension buvable', '3 g'),
-(16, 15780, 'AMOXICILLINE 500MG MYLAN PDR 60M', 'Amoxicilline', 'Comprimé', '500 mG'),
-(17, 33910, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mG'),
+(16, 15780, 'AMOXICILLINE 500MG MYLAN PDR 60M', 'Amoxicilline', 'Comprimé', '500 mg'),
+(17, 33910, 'GLUCOPHAGE 500MG CPR 30', 'Metformine chlorhydrate', 'Comprimé', '500 mg'),
 (18, 39856, 'DOLIPRANE CPR 1000 mg', 'Paracétamol', 'Comprimé', '1000 mg'),
 (19, 34009, 'RAMIPRIL SANDOZ 1,25 mg CPR', 'Ramipril', 'Comprimé', '1,25 mg'),
 (20, 21474, 'OESTRODOSE 0,06 % gel p appl cut', '17-bêta-estradiol', 'Gel', '0,06%'),
 (21, 92673, 'DESOGESTREL BIOGARAN 75 µg cp pe', 'Désogestrel', 'Comprimé pelliculé', '75 µg'),
 (22, 93138, 'STERDEX pom ophtalm', 'Oxytétracycline et Dexaméthasone', 'Pommade ophtalmique', '1,335 mg +0,267 mg'),
 (23, 93246, 'VOLTARENE LP 100 mg CPR', 'Diclofénac sodique', 'Comprimé enrobé', '100 mg'),
-(25, 93586, 'ALMOGRAN 12,5 mg CPR', 'Almotriptan d-l hydrogénomalate', 'Comprimé pelliculé', '12,5 mg');
+(25, 93586, 'ALMOGRAN 12,5 mg CPR', 'Almotriptan d-l hydrogénomalate', 'Comprimé pelliculé', '12,5 mg'),
+(26, 93403, 'ARTELAC 1,6 mg/0,5 ml collyre', 'Hypromellose', 'Collyre', '1,6 mg/0,5 ml'),
+(27, 93379, 'CELLUVISC 4 mg/0,4 ml collyre', 'Carmellose sodique', 'Collyre', '4 mg/0,4 ml'),
+(28, 93587, 'TRAMADOL ARROW 50 mg CPR', 'Tramadol chlorhydrate', 'Comprimé', '50 mg'),
+(29, 30476, 'HELICIDINE 10 % sirop', 'Hélicidine', 'Sirop', '10 %'),
+(30, 56348, 'CYPROTERONE BIOGARAN 50 mg CPR', 'Cyprotérone acétate', 'Comprimé', '50 mg'),
+(31, 32061, 'PIVALONE 1 % susp nasal', 'Tixocortol pivalate', 'Suspension nasale', '1 %'),
+(32, 45031, 'COLLUNOVAR 0,11 % sol', 'Chlorhexidine gluconate', 'Solution pulvérisation bucale', '0,11 %'),
+(33, 54952, 'NOVOMIX 30 PENFILL 100 U/ml susp', 'Insuline asparte', 'Suspension injectable', '100 U/ml');
 
 -- --------------------------------------------------------
 
@@ -517,9 +551,20 @@ CREATE TABLE IF NOT EXISTS `Partie_Episodes` (
 --
 
 INSERT INTO `Partie_Episodes` (`epOuvert_id`, `num_dossier`, `date_debut`, `date_derniere_visite`, `notes`, `personnel_id`, `created`) VALUES
-(1, 1, '01-01-2016', '01-02-2016', NULL, 13, '2016-02-09 05:00:00'),
+(1, 5, '01-02-2016', '27-02-2016', 'Diabète type 1', 13, '2016-02-01 15:52:20'),
+(2, 1, '25-02-2016', '02-03-2016', 'Gorge bien prise et douleurs aigüe', 13, '2016-02-25 05:00:00'),
+(2, 8, '25-02-2016', '29-02-2016', NULL, 2, '2016-02-25 14:51:00'),
+(3, 7, '24-02-2016', '02-03-2016', NULL, 1, '2016-02-24 08:52:20'),
 (5, 2, '05-02-2016', '07-02-2016', 'C''est grave !', 13, '2016-02-09 00:00:00'),
-(8, 4, '11-01-2016', '31-01-2016', NULL, 8, '2016-02-08 00:00:00');
+(6, 3, '14-12-2015', '14-01-2016', 'Vagin pousser vers l''avant.\r\nCauses : descente de structure intestinale', 11, '2015-12-14 16:45:20'),
+(8, 5, '20-02-2016', '27-02-2016', 'Migraine et forte fièvre post opération', 13, '2016-02-20 12:02:20'),
+(15, 4, '02-01-2016', '26-02-2016', 'Bilan sanguin pour confirmer le diagnostic : ulcère estomac', 12, '2016-01-02 09:23:00'),
+(24, 2, '27-02-2016', '05-03-2016', NULL, 1, '2016-02-27 08:19:00'),
+(24, 6, '22-02-2016', '22-02-2016', NULL, 1, '2016-02-22 12:02:06'),
+(25, 8, '29-02-2016', '29-02-2016', 'Vérification de l''état du patient, la rhino, c''est transformé en angine.', 2, '2016-02-29 15:16:35'),
+(26, 3, '26-01-2016', '26-02-2016', 'Vérification du diamètre du bassin permettant un accouchement dans de bonnes conditions', 11, '2016-02-26 11:52:00'),
+(27, 4, '04-12-2015', '26-02-2016', 'Difficulté à respirer, fumeur passif.\r\nAntécédent de problème similaire dans la famille.', 12, '2015-12-04 15:16:00'),
+(28, 1, '04-03-2015', '14-11-2015', 'Migraine ophtalmique et fatigue des yeux dû à cette sécheresse. Préconise un bilan visuel.', 9, '2015-03-04 17:03:20');
 
 -- --------------------------------------------------------
 
@@ -541,18 +586,27 @@ CREATE TABLE IF NOT EXISTS `Partie_Prescription` (
 --
 
 INSERT INTO `Partie_Prescription` (`prescription_id`, `num_dossier`, `date_debut`, `date_fin`, `personnel_id`, `created`) VALUES
-(1, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
-(2, 2, '15-02-2016', '22-02-2016', 1, '2016-02-15 12:14:00'),
+(1, 1, '25-02-2016', '05-03-2016', 13, '2016-02-25 12:00:00'),
+(2, 2, '27-02-2016', '10-03-2016', 1, '2016-02-27 12:14:00'),
 (3, 2, '05-09-2015', '11-09-2015', 1, '2015-09-05 00:00:00'),
 (4, 5, '20-02-2016', '27-02-2016', 13, '2016-02-20 09:20:00'),
 (5, 3, '09-04-2015', NULL, 11, '2015-04-09 11:54:00'),
 (6, 6, '14-11-2015', '20-11-2015', 16, '2015-11-14 12:52:00'),
-(7, 6, '05-09-2015', '15-09-2015', 1, '2015-09-05 10:42:00'),
+(7, 6, '22-02-2016', '05-03-2016', 1, '2016-02-22 10:42:00'),
 (8, 7, '03-11-2015', '05-02-2016', 11, '2015-11-03 13:13:19'),
 (9, 7, '14-01-2016', '27-01-2016', 1, '2016-01-14 06:00:00'),
-(12, 7, '05-02-2014', NULL, 1, '2014-02-03 15:00:00'),
+(10, 1, '25-08-2013', '3-09-2013', 13, '2013-08-25 17:03:20'),
+(11, 1, '04-03-2015', '04-03-2016', 9, '2015-03-04 17:03:20'),
+(12, 2, '02-09-2015', '18-09-2015', 13, '2015-09-02 12:56:00'),
+(12, 7, '24-02-2016', '04-03-2016', 1, '2016-02-24 15:00:00'),
+(13, 3, '13-05-2014', '13-08-2014', 11, '2014-05-13 14:25:00'),
+(14, 3, '24-01-2010', '30-01-2010', 1, '2010-01-24 09:12:00'),
+(15, 8, '14-03-2013', '19-03-2013', 5, NULL),
+(16, 8, '25-02-2016', '01-03-2016', 2, '2016-02-25 17:52:00'),
+(17, 8, '17-07-2015', '22-07-2015', 1, '2015-07-17 18:02:05'),
 (18, 1, '30-01-2016', '05-02-2016', 13, '2016-02-05 12:00:00'),
 (18, 7, '12-01-2016', NULL, 2, '2016-01-12 09:30:00'),
+(19, 1, '10-02-2016', NULL, 9, '2016-02-10 19:14:00'),
 (19, 7, '07-12-2015', NULL, 9, '2015-12-07 17:33:00'),
 (21, 4, '26-02-2016', NULL, 12, '2016-02-26 08:19:00'),
 (21, 5, '01-02-2016', NULL, 13, '2016-02-01 06:13:05'),
@@ -560,10 +614,11 @@ INSERT INTO `Partie_Prescription` (`prescription_id`, `num_dossier`, `date_debut
 (24, 4, '20-01-2016', NULL, 10, '2016-01-20 14:51:00'),
 (26, 6, '01-11-2015', NULL, 8, '2015-11-01 00:00:00'),
 (27, 4, '20-01-2016', NULL, 10, '2016-01-20 14:51:00'),
-(28, 3, '27-08-2015', NULL, 11, '2015-08-27 11:00:00'),
+(28, 3, '26-02-2016', NULL, 11, '2015-08-27 11:00:00'),
 (30, 1, '25-07-2014', NULL, 7, '2014-07-25 10:17:00'),
-(30, 6, '01-11-2015', '', 8, '2015-11-01 00:00:00'),
-(31, 4, '26-02-2016', NULL, 12, '2016-02-26 08:19:00');
+(30, 6, '01-11-2015', NULL, 8, '2015-11-01 00:00:00'),
+(31, 4, '26-02-2016', NULL, 12, '2016-02-26 08:19:00'),
+(33, 5, '01-02-2016', '03-03-2016', 13, '2016-02-01 12:51:00');
 
 -- --------------------------------------------------------
 
@@ -575,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `Pathologies` (
 `patho_id` int(11) NOT NULL,
   `patho_libelle` varchar(32) COLLATE latin1_general_ci NOT NULL,
   `codeCIM10` varchar(16) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Pathologies`
@@ -606,7 +661,12 @@ INSERT INTO `Pathologies` (`patho_id`, `patho_libelle`, `codeCIM10`) VALUES
 (22, 'Cancer de la prostate', 'C61'),
 (23, 'Grippe avec symptômes grippaux', 'J09'),
 (24, 'Gastro-entérite virale', 'K06'),
-(25, 'Angine', 'J02');
+(25, 'Angine', 'J02'),
+(26, 'Suivi grossesse', 'G50'),
+(27, 'Cancer du poumon', 'C05-P'),
+(28, 'Sécheresse oculaire', 'S01-OC'),
+(29, 'Sécheresse vaginale', 'S18-V'),
+(30, 'Pathologie contraceptive', 'PAT05-C');
 
 -- --------------------------------------------------------
 
@@ -764,7 +824,7 @@ INSERT INTO `PossederDroits` (`droit_id`, `user_id`) VALUES
 CREATE TABLE IF NOT EXISTS `Prescriptions` (
 `prescription_id` int(11) NOT NULL,
   `libelle_prescription` varchar(64) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Prescriptions`
@@ -797,6 +857,7 @@ INSERT INTO `Prescriptions` (`prescription_id`, `libelle_prescription`) VALUES
 (15, 'Prescription_Liste_Medicaments_015'),
 (16, 'Prescription_Liste_Medicaments_016'),
 (17, 'Prescription_Liste_Medicaments_017'),
+(33, 'Prescription_Liste_Medicaments_018'),
 (32, 'Radio de l''abdomen'),
 (23, 'Radio des poumons'),
 (25, 'Radio du dos'),
@@ -1132,17 +1193,17 @@ MODIFY `ES_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT pour la table `EpisodesEnCours`
 --
 ALTER TABLE `EpisodesEnCours`
-MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `epOuvert_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `Medicaments`
 --
 ALTER TABLE `Medicaments`
-MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `Pathologies`
 --
 ALTER TABLE `Pathologies`
-MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+MODIFY `patho_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `Patients`
 --
@@ -1162,7 +1223,7 @@ MODIFY `pole_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT pour la table `Prescriptions`
 --
 ALTER TABLE `Prescriptions`
-MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `Services`
 --
