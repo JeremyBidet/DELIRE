@@ -1,4 +1,4 @@
-package requests;
+package fr.upem.requests;
 
 import java.sql.Connection;
 import java.sql.Date;

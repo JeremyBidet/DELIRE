@@ -10,7 +10,7 @@
 
 <f:view>
     <h:head>
-        <title>#{userLoginBean.username} - MR</title>
+        <title>#{authentication.username} - MR</title>
     </h:head>
 
     <h:body>
@@ -34,16 +34,23 @@
                 </p:submenu>
 
                 <f:facet name="options">
-                    <p:inputText style="margin-right:10px" placeholder="Search"/>
-                    <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"
-                                     update="main_toolbar"
-                                     actionListener="#{authenticate.logout}"/>
+                    <p:autoComplete id="search" forceSelection="true" placeholder="Search"
+                                    style="margin-right:10px;"
+                                    value="#{dashboard.selectedPatientName}"
+                                    minQueryLength="3"
+                                    effect="fade"
+                                    completeMethod="#{dashboard.autocompletePatientName}" />
+                    <p:commandButton type="button" icon="ui-icon-search"
+                                     update="main_toolbar dmp_fragment"
+                                     actionListener="#{dashboard.loadPatientIDAndDmpID}" />
+                    <p:commandButton type="button" value="Logout" icon="ui-icon-close"
+                                     actionListener="#{authentication.logout}"/>
                 </f:facet>
             </p:menubar>
         </h:form>
 
         <div style="height:500px">
-            <h:form>
+            <h:form id="dmp_fragment">
                 <p:growl id="msgs" showDetail="true"/>
 
                 <p:dashboard id="board" model="#{dashboard.model}">
@@ -51,26 +58,43 @@
 
                     <p:panel id="patient_identity" header="Patient Identity">
                         <h:outputText value="Content"/>
+                        #{
+                            dashboard.getPatientIdentity()
+                        }
                     </p:panel>
 
-                    <p:panel id="tracking_pisode" header="Tracking Episode">
+                    <p:panel id="tracking_episode" header="Tracking Episode">
                         <h:outputText value="Content"/>
+                        #{
+                            dashboard.getTrackingEpisode
+                        }
                     </p:panel>
 
                     <p:panel id="biological_examinations" header="Biological Examinations">
                         <h:outputText value="Content"/>
+                        #{
+                            dashboard.getBiologicalExaminations
+                        }
                     </p:panel>
 
                     <p:panel id="medical_history" header="Medical History">
                         <h:outputText value="Content"/>
+                        #{
+                            dashboard.getMedicalHistory
+                        }
                     </p:panel>
 
                     <p:panel id="prescriptions" header="Prescriptions">
-                        <h:outputText value="Content"/>
+                        #{
+                            dashboard.getPrescriptions
+                        }
                     </p:panel>
 
                     <p:panel id="documents" header="Documents">
                         <h:outputText value="Content"/>
+                        #{
+                            dashboard.getDocuments
+                        }
                     </p:panel>
                 </p:dashboard>
 

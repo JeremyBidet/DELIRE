@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Created by Jeremy.
  */
 
-@ManagedBean(name = "authenticate")
+@ManagedBean(name = "authentication")
 @SessionScoped
 public class AuthenticationBean implements Serializable {
 
@@ -39,7 +39,7 @@ public class AuthenticationBean implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = SecurityManager.sha1(password);
     }
 
     public String getRpps() {
@@ -53,7 +53,18 @@ public class AuthenticationBean implements Serializable {
     public String login() {
         FacesContext context = FacesContext.getCurrentInstance();
 
-        // TODO: CONVERGENCE: validate credentials from the database {username, password, rpps}
+        // Bypass the DB validation and log in as a test user
+        if(this.username.equals("test") && this.password.equals(SecurityManager.sha1("test"))) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "You are logging in as Test user", null));
+            try {
+                context.getExternalContext().redirect("secure/medical_record.xhtml");
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+            return "secure/medical_record";
+        }
+
+        // Bypass the DB validation and redirect to the administration UI
         if(this.username.equals("admin") && this.password.equals(SecurityManager.sha1("pass@word1"))) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome Admin", null));
             try {
@@ -63,9 +74,11 @@ public class AuthenticationBean implements Serializable {
             }
             return "secure/admin";
         }
-        boolean loggedIn = AuthenticationDAO.validate(this.username, SecurityManager.sha1(this.password), this.rpps);
+
+        // DB validation before log in
+        boolean loggedIn = AuthenticationDAO.validate(this.username, this.password, this.rpps);
         if (loggedIn) {
-            HttpSession session = SessionBean.getSession();
+            HttpSession session = SessionManager.getSession();
             session.setAttribute("username", this.username);
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome" + this.username, null));
             try {
@@ -82,7 +95,7 @@ public class AuthenticationBean implements Serializable {
 
     public String logout() {
         FacesContext context = FacesContext.getCurrentInstance();
-        HttpSession session = SessionBean.getSession();
+        HttpSession session = SessionManager.getSession();
         session.invalidate();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Bye bye" + this.username, null));
         try {

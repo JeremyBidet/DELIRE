@@ -1,4 +1,4 @@
-package administrator;
+package fr.upem.administrator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

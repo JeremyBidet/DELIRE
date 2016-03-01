@@ -1,3 +1,5 @@
+package fr.upem.administrator;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;

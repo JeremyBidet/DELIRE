@@ -1,4 +1,4 @@
-package requests;
+package fr.upem.requests;
 
 public class NoRightTo extends Exception {
 

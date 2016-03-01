@@ -20,16 +20,16 @@
             <p:growl id="growl" showDetail="false" sticky="false" life="3000" />
 
             <h:panelGrid id="login_panel" columns="1" cellpadding="5">
-                <p:inputText placeholder="Username" id="username" required="true" value="#{authenticate.username}"
+                <p:inputText placeholder="Username" id="username" required="true" value="#{authentication.username}"
                              requiredMessage="Username field cannot be empty"/>
 
-                <p:password placeholder="Password" id="password" required="true" value="#{authenticate.password}"
+                <p:password placeholder="Password" id="password" required="true" value="#{authentication.password}"
                             requiredMessage="Password field cannot be empty"/>
 
-                <p:inputText placeholder="RPPS number" id="rpps" required="true" value="#{authenticate.rpps}"
+                <p:inputText placeholder="RPPS number" id="rpps" required="true" value="#{authentication.rpps}"
                              requiredMessage="RPPS number ccannot be empty"/>
 
-                <p:commandButton value="Login" update="login_form" actionListener="#{authenticate.login}"/>
+                <p:commandButton value="Login" update="login_form" actionListener="#{authentication.login}"/>
             </h:panelGrid>
         </h:form>
 

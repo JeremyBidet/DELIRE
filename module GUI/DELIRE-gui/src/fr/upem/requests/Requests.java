@@ -1,4 +1,4 @@
-package requests;
+package fr.upem.requests;
 
 import java.sql.Blob;
 import java.sql.Connection;
@@ -54,7 +54,7 @@ public class Requests {
 		List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
 		ResultSet antec = SELECT_Antecedent(conn, num_dossier);
 		ResultSet doc = SELECT_Doc(conn, num_dossier);
-		//ajout des résultats dans une liste
+		//ajout des rÃ©sultats dans une liste
 		result.add(presc);
 		result.add(elem);
 		result.add(epi);
@@ -106,7 +106,7 @@ public class Requests {
 			List<EpisodesEnCours> epi = GET_Episode(conn, num_dossier);
 			ResultSet antec = SELECT_Antecedent(conn, num_dossier);
 			ResultSet doc = SELECT_Doc(conn, num_dossier);
-			//les 5 premiers éléments correspondent au 1er numéro de dossier, les 5 autres aux 2ieme, etc...
+			//les 5 premiers Ã©lÃ©ments correspondent au 1er numÃ©ro de dossier, les 5 autres aux 2ieme, etc...
 			result.add(presc);
 			result.add(elem);
 			result.add(epi);
@@ -123,7 +123,7 @@ public class Requests {
 		ResultSet set = query.executeQuery();
 		ArrayList<Object> result = new ArrayList<Object>();
 		
-		//ne doit boucler qu'une fois en l'occurence car on ne possède qu'un numéro de dossier par patient
+		//ne doit boucler qu'une fois en l'occurence car on ne possÃ¨de qu'un numÃ©ro de dossier par patient
 		while (set.next()) {
 			int num_dossier= set.getInt("num_dossier");
 			//les 5 parties forment le dossier
@@ -147,7 +147,7 @@ public class Requests {
 	// = Ajouts dans les parties du dossier =
 	// ======================================
 	
-	//ajoute un dmp à un patient
+	//ajoute un dmp Ã  un patient
 	public static void ADD_DMP(Connection conn, String libelle, int patient_id) throws SQLException {
 		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Dossiers VALUES (NULL,(?),(?),(?))");
@@ -157,7 +157,7 @@ public class Requests {
 		query.executeUpdate();
 	}
 	
-	// Ajoute à la partie Prescription du dossier les ID du DMP et de la prescription
+	// Ajoute Ã  la partie Prescription du dossier les ID du DMP et de la prescription
 	public static void ADD_DMP_Prescription(Connection conn, int PRESC_ID,int DMP_ID, String date_deb, String date_fin, int personnel_id) throws SQLException {
 		java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 		PreparedStatement query = (PreparedStatement) conn.prepareStatement("INSERT INTO Partie_Prescription VALUES ((?),(?),(?),(?),(?),(?))");
