@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.Random;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 public class UsersAdministration {
@@ -38,7 +40,7 @@ public class UsersAdministration {
 
 		// Generate alpha-numeric password with 8 characters
 		String password = generateString(CHARACTER_ALLOWED, PASSWORD_LENGTH);
-		String h_password = SecurityManager.sha1(password);
+		String h_password = DigestUtils.sha1Hex(password);
 
 		// Preparing INSERT SQL Query
 		PreparedStatement addUserQuery = (PreparedStatement) conn
