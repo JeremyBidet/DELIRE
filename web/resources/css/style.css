@@ -12,3 +12,7 @@
     margin: auto;
     width: 100%;
 }
+
+.ui-dashboard-column {
+    max-width: 50%;
+}

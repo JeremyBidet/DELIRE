@@ -26,7 +26,7 @@
                 <p:password placeholder="Password" id="password" required="true" value="#{authentication.password}"
                             requiredMessage="Password field cannot be empty"/>
 
-                <p:inputText placeholder="RPPS number" id="rpps" required="true" value="#{authentication.rpps}"
+                <p:inputText placeholder="RPPS number" id="rpps" required="false" value="#{authentication.rpps}"
                              requiredMessage="RPPS number ccannot be empty"/>
 
                 <p:commandButton value="Login" update="login_form" actionListener="#{authentication.login}"/>

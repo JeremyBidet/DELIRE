@@ -9,9 +9,9 @@ import java.sql.SQLException;
  */
 public class DBSessionManager {
 
-    private static String db_url = "jdbc:mysql://sqletud.univ-mlv.fr/jchattou_db";
-    private static String username = "jchattou";
-    private static String password = "angels1707";
+    private static String db_url = "jdbc:mysql://localhost:3306/delire";
+    private static String username = "root";
+    private static String password = "";
 
     private static RequestsWithRoleCheck requester;
 

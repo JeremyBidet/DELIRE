@@ -10,7 +10,11 @@
 
 <f:view>
     <h:head>
-        <title>#{authentication.username} - MR</title>
+        <h:outputStylesheet library="css" name="normalize.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <title>#{authentication.username} - Medical Record</title>
     </h:head>
 
     <h:body>
@@ -34,73 +38,58 @@
                 </p:submenu>
 
                 <f:facet name="options">
-                    <p:autoComplete id="search" forceSelection="true" placeholder="Search"
+                    <p:autoComplete id="search" forceSelection="false" placeholder="Search"
                                     style="margin-right:10px;"
                                     value="#{dashboard.selectedPatientName}"
                                     minQueryLength="3"
                                     effect="fade"
                                     completeMethod="#{dashboard.autocompletePatientName}" />
-                    <p:commandButton type="button" icon="ui-icon-search"
+                    <p:commandButton icon="ui-icon-search"
                                      update="main_toolbar dmp_fragment"
-                                     actionListener="#{dashboard.loadPatientIDAndDmpID}" />
-                    <p:commandButton type="button" value="Logout" icon="ui-icon-close"
-                                     actionListener="#{authentication.logout}"/>
+                                     action="#{dashboard.loadPatientIDAndDmpID}" />
+                    <p:commandButton value="Logout" icon="ui-icon-close"
+                                     update="main_toolbar dmp_fragment"
+                                     actionListener="#{dashboard.logout}" />
                 </f:facet>
             </p:menubar>
         </h:form>
 
-        <div style="height:500px">
-            <h:form id="dmp_fragment">
+        <div style="width: 100%;">
+            <h:form id="dmp_fragment" style="width: 100%;">
                 <p:growl id="msgs" showDetail="true"/>
 
-                <p:dashboard id="board" model="#{dashboard.model}">
+                <p:dashboard id="board" model="#{dashboard.model}" style="width: 100%;">
                     <p:ajax event="reorder" listener="#{dashboard.handleReorder}" update="msgs"/>
 
                     <p:panel id="patient_identity" header="Patient Identity">
-                        <h:outputText value="Content"/>
-                        #{
-                            dashboard.getPatientIdentity()
-                        }
-                    </p:panel>
-
-                    <p:panel id="tracking_episode" header="Tracking Episode">
-                        <h:outputText value="Content"/>
-                        #{
-                            dashboard.getTrackingEpisode
-                        }
+                        <h:outputText value="#{dashboard.getPatientIdentity()}" escape="false" />
                     </p:panel>
 
                     <p:panel id="biological_examinations" header="Biological Examinations">
-                        <h:outputText value="Content"/>
-                        #{
-                            dashboard.getBiologicalExaminations
-                        }
+                        <h:outputText value="#{dashboard.getBiologicalExaminations()}" escape="false" />
                     </p:panel>
 
                     <p:panel id="medical_history" header="Medical History">
-                        <h:outputText value="Content"/>
-                        #{
-                            dashboard.getMedicalHistory
-                        }
+                        <h:outputText value="#{dashboard.getMedicalHistory()}" escape="false" />
                     </p:panel>
 
-                    <p:panel id="prescriptions" header="Prescriptions">
-                        #{
-                            dashboard.getPrescriptions
-                        }
+                    <p:panel id="tracking_episode" header="Tracking Episode" style="overflow-x: auto;">
+                        <h:outputText value="#{dashboard.getTrackingEpisode()}" escape="false"/>
                     </p:panel>
 
-                    <p:panel id="documents" header="Documents">
-                        <h:outputText value="Content"/>
-                        #{
-                            dashboard.getDocuments
-                        }
+                    <p:panel id="prescriptions" header="Prescriptions" style="overflow-x: auto;">
+                        <h:outputText value="#{dashboard.getPrescriptions()}" escape="false" />
+                    </p:panel>
+
+                    <p:panel id="documents" header="Documents" style="overflow-x: auto;">
+                        <h:outputText value="#{dashboard.getDocuments()}" escape="false" />
                     </p:panel>
                 </p:dashboard>
 
                 <div style="clear:both"/>
             </h:form>
         </div>
+
     </h:body>
 </f:view>
 

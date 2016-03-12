@@ -38,6 +38,7 @@ public class UsersAdministration {
 
 		// Generate alpha-numeric password with 8 characters
 		String password = generateString(CHARACTER_ALLOWED, PASSWORD_LENGTH);
+		// TODO: send e-mail with password
 		String h_password = SecurityManager.sha1(password);
 
 		// Preparing INSERT SQL Query

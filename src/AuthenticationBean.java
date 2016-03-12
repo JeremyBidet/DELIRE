@@ -55,6 +55,8 @@ public class AuthenticationBean implements Serializable {
 
         // Bypass the DB validation and log in as a test user
         if(this.username.equals("test") && this.password.equals(SecurityManager.sha1("test"))) {
+            HttpSession session = SessionManager.getSession();
+            session.setAttribute("user", this);
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "You are logging in as Test user", null));
             try {
                 context.getExternalContext().redirect("secure/medical_record.xhtml");
@@ -66,6 +68,8 @@ public class AuthenticationBean implements Serializable {
 
         // Bypass the DB validation and redirect to the administration UI
         if(this.username.equals("admin") && this.password.equals(SecurityManager.sha1("pass@word1"))) {
+            HttpSession session = SessionManager.getSession();
+            session.setAttribute("user", this);
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome Admin", null));
             try {
                 context.getExternalContext().redirect("secure/admin.xhtml");
@@ -79,7 +83,7 @@ public class AuthenticationBean implements Serializable {
         boolean loggedIn = AuthenticationDAO.validate(this.username, this.password, this.rpps);
         if (loggedIn) {
             HttpSession session = SessionManager.getSession();
-            session.setAttribute("username", this.username);
+            session.setAttribute("user", this);
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome" + this.username, null));
             try {
                 context.getExternalContext().redirect("secure/medical_record.xhtml");

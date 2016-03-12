@@ -13,6 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,8 +30,8 @@ public class DashboardBean implements Serializable {
     private DashboardModel model;
 
     private String selectedPatientName;
-    private int patientID;
-    private int dmpID;
+    private int patientID = -1;
+    private int dmpID = -1;
 
     public DashboardModel getModel() {
         return this.model;
@@ -38,7 +39,6 @@ public class DashboardBean implements Serializable {
 
     public String getSelectedPatientName() { return this.selectedPatientName; }
     public void setSelectedPatientName(String selectedPatientName) { this.selectedPatientName = selectedPatientName; }
-
     public int getPatientID() { return this.patientID; }
     public void setPatientID(int patientID) { this.patientID = patientID; }
     public int getDmpID() { return this.dmpID; }
@@ -49,18 +49,17 @@ public class DashboardBean implements Serializable {
         model = new DefaultDashboardModel();
         DashboardColumn column1 = new DefaultDashboardColumn();
         DashboardColumn column2 = new DefaultDashboardColumn();
-        DashboardColumn column3 = new DefaultDashboardColumn();
 
         column1.addWidget("patient_identity");
+        column1.addWidget("medical_history");
         column1.addWidget("tracking_episode");
+
         column2.addWidget("biological_examinations");
-        column2.addWidget("medical_history");
-        column3.addWidget("prescriptions");
-        column3.addWidget("documents");
+        column2.addWidget("documents");
+        column2.addWidget("prescriptions");
 
         model.addColumn(column1);
         model.addColumn(column2);
-        model.addColumn(column3);
     }
 
     public void handleReorder(DashboardReorderEvent event) {
@@ -123,8 +122,15 @@ public class DashboardBean implements Serializable {
         }
     }
 
+    public boolean checkSelectedPatient() {
+        return this.patientID != -1 && this.dmpID != -1;
+    }
+
     public String getPatientIdentity() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             ResultSet rs = DBSessionManager.request().getPatientInfosById(SessionManager.getUsername(), this.patientID);
             rs.next();
             StringBuilder sb = new StringBuilder();
@@ -139,8 +145,7 @@ public class DashboardBean implements Serializable {
                         .append("City: ").append(rs.getString("ville")).append("<br/>")
                         .append("ZIP Code: ").append(rs.getInt("code_postal")).append("<br/>")
                         .append("Phone: ").append(rs.getString("telephone_fixe")).append("<br/>")
-                        .append("Mobile phone: ").append(rs.getString("telephone_mobile")).append("<br/>")
-                        .append("Record: ").append(rs.getString("num_dossier")).append("<br/>");
+                        .append("Mobile phone: ").append(rs.getString("telephone_mobile")).append("<br/>");
             return sb.toString();
         } catch (NoRightToException e) {
             e.printStackTrace();
@@ -152,9 +157,12 @@ public class DashboardBean implements Serializable {
 
     public String getTrackingEpisode() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             List<EpisodesEnCours> rs = DBSessionManager.request().getEpisode(SessionManager.getUsername(), this.dmpID);
             StringBuilder sb = new StringBuilder();
-            sb.append("<table>");
+            sb.append("<table class=\"table table-striped table-hover table_bordered\">");
                 sb.append("<tr>")
                         .append("<th>Start date</th>")
                         .append("<th>Last visit date</th>")
@@ -166,20 +174,24 @@ public class DashboardBean implements Serializable {
                         .append("<td>").append(e.getDate_derniere_visite()).append("</td>")
                         .append("<td>").append(e.getNotes()).append("</td>");
                 sb.append("</tr>");
-                sb.append("<tr>")
-                        .append("<table>")
+                if(e.getPathoList().size() > 0) {
+                    sb.append("<tr>")
+                            .append("<td colspan=\"3\" style=\"padding-left: 100px;\">")
+                            .append("<table class=\"table table-striped table-hover table-condensed\">")
                             .append("<tr>")
-                                .append("<th>Libelle</th>")
-                                .append("<th>Code CIM10</th>")
+                            .append("<th>Libelle</th>")
+                            .append("<th>Code CIM10</th>")
                             .append("</tr>");
-                        for(Pathologies p : e.getPathoList()) {
-                            sb.append("<tr>")
-                                    .append("<td>").append(p.getPatho_libelle()).append("</td>")
-                                    .append("<td>").append(p.getCodeCIM10()).append("</td>");
-                            sb.append("</tr>");
-                        }
-                        sb.append("</table>");
-                sb.append("</tr>");
+                    for (Pathologies p : e.getPathoList()) {
+                        sb.append("<tr>")
+                                .append("<td>").append(p.getPatho_libelle()).append("</td>")
+                                .append("<td>").append(p.getCodeCIM10()).append("</td>");
+                        sb.append("</tr>");
+                    }
+                    sb.append("</table>");
+                    sb.append("</td>");
+                    sb.append("</tr>");
+                }
             }
             sb.append("</table>");
             return sb.toString();
@@ -193,14 +205,17 @@ public class DashboardBean implements Serializable {
 
     public String getBiologicalExaminations() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             ResultSet rs = DBSessionManager.request().getElements(SessionManager.getUsername(), this.dmpID);
             StringBuilder sb = new StringBuilder();
             while(rs.next()) {
                 sb
                         .append("Label: ").append(rs.getString("examen_libelle")).append("<br/>")
                         .append("Type: ").append(rs.getString("examen_type")).append("<br/>")
-                        .append("Data 1: ").append(rs.getFloat("valeur 1")).append(" ").append(rs.getString("unite 1")).append("<br/>")
-                        .append("Data 2: ").append(rs.getFloat("valeur 2")).append(" ").append(rs.getString("unite 2")).append("<br/>")
+                        .append("Data 1: ").append(rs.getFloat("valeur_1")).append(" ").append(rs.getString("unite_1")).append("<br/>")
+                        .append("Data 2: ").append(rs.getFloat("valeur_2")).append(" ").append(rs.getString("unite_2")).append("<br/>")
                         .append("Result: ").append(rs.getString("resultat_test")).append("<br/>")
                         .append("<br/>");
             }
@@ -215,6 +230,9 @@ public class DashboardBean implements Serializable {
 
     public String getMedicalHistory() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             ResultSet rs = DBSessionManager.request().getAntecedent(SessionManager.getUsername(), this.dmpID);
             StringBuilder sb = new StringBuilder();
             while(rs.next()) {
@@ -239,9 +257,12 @@ public class DashboardBean implements Serializable {
 
     public String getPrescriptions() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             List<Prescription> rs = DBSessionManager.request().getPrescriptions(SessionManager.getUsername(), this.dmpID);
             StringBuilder sb = new StringBuilder();
-            sb.append("<table>");
+            sb.append("<table class=\"table table-striped table-hover table_bordered\">");
                 sb.append("<tr>")
                         .append("<th>Label</th>")
                         .append("<th>Start date</th>")
@@ -253,26 +274,30 @@ public class DashboardBean implements Serializable {
                         .append("<td>").append(p.getDate_deb()).append("</td>")
                         .append("<td>").append(p.getDate_fin()).append("</td>");
                 sb.append("</tr>");
-                sb.append("<tr>")
-                        .append("<table>")
+                if(p.getMedList().size() > 0) {
+                    sb.append("<tr>")
+                            .append("<td colspan=\"3\" style=\"padding-left: 100px;\">")
+                            .append("<table class=\"table table-striped table-hover table-condensed\">")
                             .append("<tr>")
-                                    .append("<th>CIP</th>")
-                                    .append("<th>Label</th>")
-                                    .append("<th>DCI label</th>")
-                                    .append("<th>Format</th>")
-                                    .append("<th>Dose</th>")
+                            .append("<th>CIP</th>")
+                            .append("<th>Label</th>")
+                            .append("<th>DCI label</th>")
+                            .append("<th>Format</th>")
+                            .append("<th>Dose</th>")
                             .append("</tr>");
-                        for(Medicament m : p.getMedList()) {
-                            sb.append("<tr>")
-                                    .append("<td>").append(m.getCIP()).append("</td>")
-                                    .append("<td>").append(m.getLibelle()).append("</td>")
-                                    .append("<td>").append(m.getLibelleDCI()).append("</td>")
-                                    .append("<td>").append(m.getFormat()).append("</td>")
-                                    .append("<td>").append(m.getDosage()).append("</td>");
-                            sb.append("</tr>");
-                        }
-                        sb.append("</table>");
-                sb.append("</tr>");
+                    for (Medicament m : p.getMedList()) {
+                        sb.append("<tr>")
+                                .append("<td>").append(m.getCIP()).append("</td>")
+                                .append("<td>").append(m.getLibelle()).append("</td>")
+                                .append("<td>").append(m.getLibelleDCI()).append("</td>")
+                                .append("<td>").append(m.getFormat()).append("</td>")
+                                .append("<td>").append(m.getDosage()).append("</td>");
+                        sb.append("</tr>");
+                    }
+                    sb.append("</table>");
+                    sb.append("</td>");
+                    sb.append("</tr>");
+                }
             }
             sb.append("</table>");
             return sb.toString();
@@ -286,6 +311,9 @@ public class DashboardBean implements Serializable {
 
     public String getDocuments() {
         try {
+            if(!checkSelectedPatient()) {
+                return "";
+            }
             ResultSet rs = DBSessionManager.request().getDocument(SessionManager.getUsername(), this.dmpID);
             StringBuilder sb = new StringBuilder();
             while(rs.next()) {
@@ -303,6 +331,10 @@ public class DashboardBean implements Serializable {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public String logout(ActionEvent event) {
+        return SessionManager.getUser().logout();
     }
 
 }

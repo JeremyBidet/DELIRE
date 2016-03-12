@@ -22,7 +22,7 @@ public class Requests {
 	
 	//affiche les donnees d'un patient
 	public static ResultSet SELECT_PATIENT(Connection conn, int id) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT* FROM Patients WHERE patient_id= (?)");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT * FROM Patients WHERE patient_id= (?)");
 		query.setInt(1,id);
 		ResultSet set = query.executeQuery();
 		return set;
@@ -40,7 +40,7 @@ public class Requests {
 	}
 
 	public static ResultSet SEARCH_PATIENT_ID_AND_DMP_ID_BY_NAME(Connection conn, String patient_name) throws SQLException {
-		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT patient_id,num_dossier FROM Patients WHERE nom + ' ' + prenom LIKE (?)");
+		PreparedStatement query = (PreparedStatement) conn.prepareStatement("SELECT p.patient_id, d.num_dossier FROM Patients p, Dossiers d WHERE concat_ws(' ',p.nom,p.prenom) LIKE (?) AND p.patient_id=d.patient_id");
 		query.setString(1, patient_name);
 		ResultSet rs = query.executeQuery();
 		return rs;

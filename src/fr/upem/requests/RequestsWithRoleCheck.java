@@ -73,7 +73,7 @@ public class RequestsWithRoleCheck {
     }
 
     public ResultSet searchPatientIDAndDmpIDByName(String user, String patient_name) throws NoRightToException, SQLException {
-        testRights(user, "droit_lecture_identite_petient");
+        testRights(user, "droit_lecture_identite_patient");
         if(!unitTest) {
             return Requests.SEARCH_PATIENT_ID_AND_DMP_ID_BY_NAME(connection, patient_name);
         }

@@ -15,10 +15,20 @@ public class SessionManager {
         return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
     }
 
+    public static AuthenticationBean getUser() {
+        HttpSession session = SessionManager.getSession();
+        if (session != null) {
+            return ((AuthenticationBean) session.getAttribute("user"));
+        }
+        else {
+            return null;
+        }
+    }
+
     public static String getUsername() {
         HttpSession session = SessionManager.getSession();
         if (session != null) {
-            return session.getAttribute("username").toString();
+            return ((AuthenticationBean) session.getAttribute("user")).getUsername();
         }
         else {
             return null;
